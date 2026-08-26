@@ -311,7 +311,7 @@ export default function App() {
             </span>
           </div>
           <div className="flex flex-wrap gap-6 text-[10px] uppercase tracking-[0.2em] text-white/40">
-            <div>Built with WebGL & React</div>
+            <div>Built with React & TypeScript</div>
           </div>
         </div>
 

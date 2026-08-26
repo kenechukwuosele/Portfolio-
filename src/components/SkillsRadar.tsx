@@ -31,8 +31,8 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
       desc: "Conflict-free data replication, optimistic UI updates, and sub-10ms binary WebSocket sync."
     },
     {
-      title: "Hardware-Accelerated Optics",
-      desc: "Custom GLSL fragment shaders, fluid dynamics, and 120 FPS WebGL rendering pipelines."
+      title: "FastAPI & Microservices Architecture",
+      desc: "Production ASGI services, Argon2id cryptographic hashing, Redis token blacklisting, and async SQLAlchemy pooling."
     },
     {
       title: "Modular Design Systems",

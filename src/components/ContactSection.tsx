@@ -197,9 +197,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     onChange={(e) => setFormState({ ...formState, roleType: e.target.value })}
                     className="w-full px-3.5 py-2.5 rounded-xl bg-[#12141a] border border-white/10 text-white text-sm focus:outline-none focus:border-sky-400"
                   >
-                    <option value="Senior Frontend Engineering Role">Senior Frontend Engineering Role</option>
-                    <option value="Full-Stack Web Application Project">Full-Stack Web Application Project</option>
-                    <option value="WebGL & Graphics Consulting">WebGL & Graphics Consulting</option>
+                    <option value="Full-Stack Software Engineering Role">Full-Stack Software Engineering Role</option>
+                    <option value="AI & LLM Tooling Project">AI & LLM Tooling Project</option>
+                    <option value="FastAPI & Backend Microservices">FastAPI & Backend Microservices</option>
                     <option value="General Collaboration">General Collaboration</option>
                   </select>
                 </div>

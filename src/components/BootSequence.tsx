@@ -59,9 +59,9 @@ export const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
       log: {
         id: 4,
         time: '0.145s',
-        module: 'webgl.optics',
-        message: 'Compiling GLSL liquid refraction shaders (120 FPS)',
-        status: 'COMPILED',
+        module: 'react.vite',
+        message: 'Mounting React 19, TypeScript & Tailwind CSS interface',
+        status: 'READY',
         statusColor: 'text-purple-400'
       }
     },
@@ -169,7 +169,7 @@ export const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
           <div className="flex items-center justify-between text-[11px] text-white/60">
             <div className="flex items-center gap-1.5">
               <Cpu className="w-3.5 h-3.5 text-sky-400 animate-spin" />
-              <span>Full-Stack Architecture & WebGL Stack</span>
+              <span>Full-Stack Architecture & AI Systems Stack</span>
             </div>
             <span className="font-mono text-sky-300 font-bold">{progress}% Completed</span>
           </div>
