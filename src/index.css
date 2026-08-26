@@ -111,9 +111,16 @@
 .light-theme h1,
 .light-theme h2,
 .light-theme h3,
-.light-theme h4,
-.light-theme .text-white {
+.light-theme h4 {
   color: #0f172a !important;
+}
+
+.light-theme :not(.nav-active-text):not(.badge-inverted):not(pre):not(code).text-white {
+  color: #0f172a;
+}
+
+.light-theme .nav-active-text {
+  color: #ffffff !important;
 }
 
 .light-theme p,

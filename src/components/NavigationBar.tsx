@@ -159,7 +159,16 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
                       transition={{ type: 'spring', stiffness: 450, damping: 35 }}
                     />
                   )}
-                  <span className="relative z-10">{item.label}</span>
+                  <span 
+                    className={`relative z-10 ${
+                      isActive 
+                        ? theme === 'light' ? 'nav-active-text text-white font-semibold' : 'text-black font-semibold' 
+                        : ''
+                    }`}
+                    style={{ color: isActive ? (theme === 'light' ? '#ffffff' : '#000000') : undefined }}
+                  >
+                    {item.label}
+                  </span>
                 </button>
               );
             })}
