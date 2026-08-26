@@ -69,47 +69,29 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearTimeout(timeout);
   }, [displayedText, isDeleting, phraseIndex]);
 
-  // Dynamically highlight "Full-Stack" in a distinct vibrant cyan color while typing
+  // Dynamically make "Full-Stack and AI systems" glow with a vibrant radiant gradient
   const renderTypedTitle = (text: string) => {
-    const target = "Full-Stack";
-    const lowerText = text.toLowerCase();
-    const lowerTarget = target.toLowerCase();
-    
-    const index = lowerText.indexOf(lowerTarget);
-    if (index !== -1) {
-      const before = text.slice(0, index);
-      const highlighted = text.slice(index, index + target.length);
-      const after = text.slice(index + target.length);
-      return (
-        <>
-          <span>{before}</span>
-          <span className="text-cyan-400 font-semibold drop-shadow-[0_0_16px_rgba(34,211,238,0.4)]">
-            {highlighted}
-          </span>
-          <span>{after}</span>
-        </>
-      );
-    }
+    const prefixes = [
+      { prefix: "Building intelligent, ", target: "Full-Stack and AI systems." },
+      { prefix: "Entwicklung intelligenter, ", target: "Full-Stack und KI-Systeme." }
+    ];
 
-    // Handle mid-typing of "Full-Stack"
-    const prefixes = ["building intelligent, ", "entwicklung intelligenter, "];
-    for (const prefix of prefixes) {
-      if (lowerText.startsWith(prefix)) {
-        const typedTargetPart = text.slice(prefix.length);
-        if (typedTargetPart.length <= target.length && target.toLowerCase().startsWith(typedTargetPart.toLowerCase())) {
-          return (
-            <>
-              <span>{text.slice(0, prefix.length)}</span>
-              <span className="text-cyan-400 font-semibold drop-shadow-[0_0_16px_rgba(34,211,238,0.4)]">
-                {typedTargetPart}
-              </span>
-            </>
-          );
-        }
+    for (const item of prefixes) {
+      if (text.toLowerCase().startsWith(item.prefix.toLowerCase())) {
+        const before = text.slice(0, item.prefix.length);
+        const glowingPart = text.slice(item.prefix.length);
+        return (
+          <>
+            <span className="text-white">{before}</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-indigo-400 font-extrabold drop-shadow-[0_0_28px_rgba(56,189,248,0.85)] filter [text-shadow:0_0_24px_rgba(34,211,238,0.7)] inline-block">
+              {glowingPart}
+            </span>
+          </>
+        );
       }
     }
 
-    return <span>{text}</span>;
+    return <span className="text-white">{text}</span>;
   };
 
   const handleCopyEmail = () => {
@@ -272,9 +254,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
 
                 {/* Floating Top-Right Live Status Glass Badge */}
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 border border-white/20 backdrop-blur-xl shadow-lg">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-[10px] font-mono font-medium text-white/90 uppercase tracking-wider">
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 border border-cyan-500/30 backdrop-blur-xl shadow-[0_0_15px_rgba(34,211,238,0.25)]">
+                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
+                  <span className="text-[10px] font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-indigo-400 uppercase tracking-wider drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
                     Full-Stack & AI
                   </span>
                 </div>
