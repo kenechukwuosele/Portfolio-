@@ -120,9 +120,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const PASSCODE_STORAGE_KEY = 'kene_admin_pin';
   const [masterPin, setMasterPin] = useState(() => {
     try {
-      return localStorage.getItem(PASSCODE_STORAGE_KEY) || '2026';
+      const stored = localStorage.getItem(PASSCODE_STORAGE_KEY);
+      return stored && stored !== '2026' ? stored : 'Osele@2005';
     } catch {
-      return '2026';
+      return 'Osele@2005';
     }
   });
   const [isUnlocked, setIsUnlocked] = useState(() => {
@@ -211,7 +212,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                   required
                   value={enteredPin}
                   onChange={(e) => setEnteredPin(e.target.value)}
-                  placeholder="Enter passcode (default: 2026)..."
+                  placeholder="Enter passcode (Osele@2005)..."
                   className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-center text-sm tracking-widest focus:outline-none focus:border-sky-400 transition-colors"
                 />
                 {pinError && (
@@ -1147,7 +1148,7 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                     </h4>
                   </div>
                   <p className="text-[11px] text-white/50">
-                    Only you can access this panel by entering your master passcode. Default: <code className="text-sky-300">2026</code>.
+                    Only you can access this panel by entering your master passcode. Default: <code className="text-sky-300">Osele@2005</code>.
                   </p>
 
                   <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
