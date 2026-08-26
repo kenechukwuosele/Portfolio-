@@ -22,7 +22,8 @@ import {
   FolderGit2,
   Sliders,
   Lock,
-  KeyRound
+  KeyRound,
+  RefreshCw
 } from 'lucide-react';
 import { PortfolioData, Project, Metric } from '../types/portfolio';
 import { soundFx } from '../utils/audio';
@@ -353,6 +354,81 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     p.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()))
   );
 
+  const [isSyncingGitHub, setIsSyncingGitHub] = useState(false);
+  const [syncFeedback, setSyncFeedback] = useState<string | null>(null);
+
+  const handleSyncFromGitHub = async () => {
+    try {
+      setIsSyncingGitHub(true);
+      setSyncFeedback(null);
+      soundFx.playGlassTap(1400, 0.04);
+      
+      const res = await fetch('https://api.github.com/users/kenechukwuosele/repos?sort=updated&per_page=100');
+      if (!res.ok) throw new Error('Failed to fetch from GitHub API');
+      const repos = await res.json();
+      
+      const existingIds = new Set(data.allProjects.map(p => p.id.toLowerCase().replace(/[^a-z0-9]/g, '')));
+      let added = 0;
+
+      for (const repo of repos) {
+        const rawName = repo.name.toLowerCase();
+        if (rawName === 'portfolio-' || rawName === 'kenechukwuosele' || repo.fork) continue;
+        const normalized = rawName.replace(/[^a-z0-9]/g, '');
+        if (!existingIds.has(normalized)) {
+          const primaryLang = (repo.language || 'TypeScript').toLowerCase();
+          const category = primaryLang.includes('python') ? 'Systems & AI' : 'Full-Stack';
+          const tags = [repo.language || 'Full-Stack', ...(repo.topics || [])].filter(Boolean);
+          if (tags.length === 1 && repo.language) tags.push('Open Source');
+          const title = repo.name.split(/[-_]/).filter(Boolean).map((w: string) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+
+          const newProj: Project = {
+            id: repo.name.toLowerCase().replace(/[^a-z0-9-]/g, '-'),
+            title: title,
+            tagline: repo.description ? repo.description.slice(0, 75) : `Modern ${repo.language || 'software'} project.`,
+            category: category,
+            description: repo.description || `Open source ${repo.language || 'software'} project by Osele Kenechukwu Alexander.`,
+            longDescription: `An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture and documentation.`,
+            featured: false,
+            year: repo.created_at ? new Date(repo.created_at).getFullYear().toString() : new Date().getFullYear().toString(),
+            status: repo.archived ? 'Archived' : 'Open Source',
+            metrics: [
+              { label: 'Stars', value: `${repo.stargazers_count}`, detail: 'GitHub Stars' },
+              { label: 'Language', value: repo.language || 'Multi-stack', detail: 'Primary Stack' },
+              { label: 'License', value: 'MIT', detail: 'Open Source' }
+            ],
+            tags: tags.slice(0, 5),
+            technologies: tags.slice(0, 5),
+            githubUrl: repo.html_url,
+            liveUrl: repo.homepage || repo.html_url,
+            demoSnippet: `# Clone and test\ngit clone ${repo.html_url}.git\ncd ${repo.name}\n`,
+            architecture: {
+              layers: [
+                { title: 'Core Source', description: 'Application logic', technologies: [repo.language || 'TypeScript'] },
+                { title: 'Pipelines', description: 'CI/CD & workflows', technologies: ['Git', 'GitHub Actions'] }
+              ],
+              keyDecision: 'Designed with clean modular patterns for high maintainability.',
+              latencyOrPerf: 'Optimized for fast execution and minimal resource consumption.'
+            },
+            glassHue: COLOR_PRESETS[data.allProjects.length % COLOR_PRESETS.length].hue,
+            accentColor: COLOR_PRESETS[data.allProjects.length % COLOR_PRESETS.length].accent
+          };
+          onSaveProject(newProj, true);
+          existingIds.add(normalized);
+          added++;
+        }
+      }
+
+      soundFx.playGlassChime();
+      setSyncFeedback(added > 0 ? `Synced ${added} new repositories from GitHub!` : 'All repositories are up-to-date!');
+      setTimeout(() => setSyncFeedback(null), 3000);
+    } catch (err: any) {
+      setSyncFeedback('GitHub API rate limit or network issue. Try again later.');
+      setTimeout(() => setSyncFeedback(null), 3500);
+    } finally {
+      setIsSyncingGitHub(false);
+    }
+  };
+
   return (
     <AnimatePresence>
       <div 
@@ -449,13 +525,25 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
             </div>
 
             {activeTab === 'projects' && !editingProject && (
-              <button
-                onClick={handleOpenAddProject}
-                className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-500 hover:bg-sky-400 text-black text-xs font-bold transition-all shadow-[0_0_15px_rgba(56,189,248,0.4)] cursor-pointer shrink-0"
-              >
-                <Plus className="w-3.5 h-3.5 stroke-[3]" />
-                <span>Add Project</span>
-              </button>
+              <div className="flex items-center gap-2">
+                <button
+                  onClick={handleSyncFromGitHub}
+                  disabled={isSyncingGitHub}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/15 text-white/80 hover:text-white border border-white/10 text-xs font-semibold transition-all cursor-pointer disabled:opacity-50"
+                  title="Pull latest public repositories from GitHub"
+                >
+                  <RefreshCw className={`w-3.5 h-3.5 text-sky-400 ${isSyncingGitHub ? 'animate-spin' : ''}`} />
+                  <span>{isSyncingGitHub ? 'Syncing...' : 'Sync GitHub'}</span>
+                </button>
+
+                <button
+                  onClick={handleOpenAddProject}
+                  className="flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-500 hover:bg-sky-400 text-black text-xs font-bold transition-all shadow-[0_0_15px_rgba(56,189,248,0.4)] cursor-pointer shrink-0"
+                >
+                  <Plus className="w-3.5 h-3.5 stroke-[3]" />
+                  <span>Add Project</span>
+                </button>
+              </div>
             )}
           </div>
 
@@ -786,6 +874,15 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                 ) : (
                   /* PROJECT LIST VIEW */
                   <div className="space-y-4">
+                    {syncFeedback && (
+                      <div className="p-3 rounded-2xl bg-sky-500/10 border border-sky-500/30 text-sky-300 text-xs font-mono flex items-center justify-between">
+                        <span className="flex items-center gap-2">
+                          <Check className="w-4 h-4 text-emerald-400" />
+                          {syncFeedback}
+                        </span>
+                      </div>
+                    )}
+
                     {/* Search & Stats Bar */}
                     <div className="flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
                       <div className="relative flex-1">

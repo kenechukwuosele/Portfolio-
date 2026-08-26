@@ -24,7 +24,7 @@ export const initialPortfolioData: PortfolioData = {
       "Grounded AI: Grounding LLMs with hybrid retrieval, vector databases, and multi-model verification critic patterns."
     ],
     quickStats: [
-      { label: "Repositories", value: "30+ Repos", detail: "Open Source & Systems" },
+      { label: "Repositories", value: "30+", detail: "Public open-source projects on GitHub" },
       { label: "Core Stack", value: "FastAPI & React", detail: "Python + TS Microservices" },
       { label: "Security & DBs", value: "Postgres & Redis", detail: "Argon2, JWT & Refresh Tokens" },
       { label: "AI & Vector DBs", value: "RAG & LLMs", detail: "ChromaDB, Groq & Gemini" }
