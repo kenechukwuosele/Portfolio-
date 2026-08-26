@@ -61,22 +61,23 @@ const FRAGMENT_SHADER_SOURCE = `
     vec2 uv = (vUv - 0.5) * aspect;
     vec2 mouse = (uMouse - 0.5) * aspect;
     
-    // Slow, serene liquid flow
-    float t = uTime * 0.25;
+    // Dynamic liquid flow rate governed by fluidity / viscosity
+    float fluidSpeed = 0.32 + (1.0 - uViscosity) * 0.18;
+    float t = uTime * fluidSpeed;
     
     // Dynamic distance to pointer
     float distMouse = length(uv - mouse);
-    float mouseInfluence = smoothstep(0.65, 0.0, distMouse);
+    float mouseInfluence = smoothstep(0.75, 0.0, distMouse);
     
-    // Multi-octave organic liquid displacement
-    float n1 = snoise(uv * 1.8 + vec2(t * 0.4, t * 0.3));
-    float n2 = snoise(uv * 3.2 - vec2(t * 0.2, -t * 0.35));
-    float n3 = snoise(uv * 5.0 + vec2(n1, n2) * (1.2 - uViscosity * 0.4));
+    // Multi-octave organic liquid displacement with dynamic fluidity
+    float n1 = snoise(uv * 1.6 + vec2(t * 0.45, t * 0.35));
+    float n2 = snoise(uv * 2.8 - vec2(t * 0.25, -t * 0.4));
+    float n3 = snoise(uv * 4.2 + vec2(n1, n2) * (1.5 - uViscosity * 0.7));
     
-    // Liquid ripple wave from mouse
-    float wave = sin(distMouse * 22.0 - uTime * 4.0) * exp(-distMouse * 3.5) * mouseInfluence;
+    // Fluid ripple wave from pointer
+    float wave = sin(distMouse * 20.0 - uTime * 4.5) * exp(-distMouse * 3.0) * mouseInfluence;
     
-    vec2 distortion = vec2(n1, n2) * 0.12 + vec2(wave) * 0.08;
+    vec2 distortion = vec2(n1, n2) * (0.15 - uViscosity * 0.05) + vec2(wave) * (0.10 - uViscosity * 0.03);
     
     // Base colors matching theme - calibrated for ultra-crisp typography contrast
     vec3 baseColor;

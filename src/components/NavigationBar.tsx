@@ -98,15 +98,25 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
           className={`relative pointer-events-auto max-w-5xl w-full flex items-center justify-between sm:justify-between gap-1 sm:gap-2 p-1 sm:p-2 rounded-full backdrop-blur-2xl border transition-all duration-300 ${
-            isScrolled 
-              ? 'bg-[#090a0f]/92 border-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.15)]' 
-              : 'bg-[#090a0f]/80 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)]'
+            theme === 'light'
+              ? isScrolled
+                ? 'bg-white/95 border-slate-300/90 shadow-[0_16px_40px_rgba(0,0,0,0.08),inset_0_1px_1px_rgba(255,255,255,1)] text-slate-800'
+                : 'bg-white/85 border-slate-200/90 shadow-[0_8px_30px_rgba(0,0,0,0.05)] text-slate-800'
+              : theme === 'obsidian'
+              ? isScrolled
+                ? 'bg-black/95 border-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.15)] text-white'
+                : 'bg-black/85 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] text-white'
+              : isScrolled 
+              ? 'bg-[#090a0f]/92 border-white/15 shadow-[0_16px_40px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.15)] text-white' 
+              : 'bg-[#090a0f]/80 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.4)] text-white'
           }`}
           id="floating-navigation-bar"
         >
           {/* Slim Scroll Progress Indicator */}
           <div 
-            className="absolute bottom-0 inset-x-4 h-[2px] rounded-full overflow-hidden bg-white/[0.06] pointer-events-none"
+            className={`absolute bottom-0 inset-x-4 h-[2px] rounded-full overflow-hidden pointer-events-none ${
+              theme === 'light' ? 'bg-slate-200' : 'bg-white/[0.06]'
+            }`}
             id="scroll-progress-track"
             aria-hidden="true"
           >
@@ -132,14 +142,20 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
                   onClick={() => handleNavClick(item.id)}
                   className={`relative px-2.5 sm:px-3 py-1.5 rounded-full text-xs font-medium tracking-tight whitespace-nowrap transition-all duration-200 cursor-pointer ${
                     isActive
-                      ? 'text-black font-semibold'
+                      ? theme === 'light'
+                        ? 'text-white font-semibold'
+                        : 'text-black font-semibold'
+                      : theme === 'light'
+                      ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
                       : 'text-white/70 hover:text-white hover:bg-white/[0.06]'
                   }`}
                 >
                   {isActive && (
                     <motion.div
                       layoutId="activePillIndicator"
-                      className="absolute inset-0 rounded-full bg-white shadow-sm"
+                      className={`absolute inset-0 rounded-full shadow-sm ${
+                        theme === 'light' ? 'bg-slate-900' : 'bg-white'
+                      }`}
                       transition={{ type: 'spring', stiffness: 450, damping: 35 }}
                     />
                   )}
@@ -157,12 +173,16 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
                 soundFx.playTerminalClick();
                 onOpenCLI();
               }}
-              className="flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className={`flex items-center gap-1.5 px-2.5 py-1.5 rounded-full text-xs transition-colors cursor-pointer ${
+                theme === 'light'
+                  ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
+              }`}
               title="Command Palette (⌘K)"
               id="header-cli-button"
             >
               <Terminal className="w-3.5 h-3.5 text-sky-400" />
-              <span className="text-[11px] font-mono text-white/50">⌘K</span>
+              <span className={`text-[11px] font-mono ${theme === 'light' ? 'text-slate-400' : 'text-white/50'}`}>⌘K</span>
             </button>
 
             {/* Audio Toggle */}
@@ -172,13 +192,17 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
                 soundFx.playGlassTap(1600, 0.05);
               }}
               title={soundEnabled ? 'Sound Enabled' : 'Sound Muted'}
-              className="p-1.5 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className={`p-1.5 rounded-full transition-colors cursor-pointer ${
+                theme === 'light'
+                  ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
+              }`}
               id="header-sound-button"
             >
               {soundEnabled ? (
                 <Volume2 className="w-3.5 h-3.5 text-sky-400" />
               ) : (
-                <VolumeX className="w-3.5 h-3.5 text-white/40" />
+                <VolumeX className={`w-3.5 h-3.5 ${theme === 'light' ? 'text-slate-400' : 'text-white/40'}`} />
               )}
             </button>
 
@@ -186,10 +210,14 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
             <button
               onClick={cycleTheme}
               title={`Theme: ${theme}`}
-              className="p-1.5 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+              className={`p-1.5 rounded-full transition-colors cursor-pointer ${
+                theme === 'light'
+                  ? 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                  : 'text-white/70 hover:text-white hover:bg-white/10'
+              }`}
               id="header-theme-button"
             >
-              <ThemeIcon className="w-3.5 h-3.5 text-white/80" />
+              <ThemeIcon className={`w-3.5 h-3.5 ${theme === 'light' ? 'text-amber-500' : 'text-white/80'}`} />
             </button>
 
             {/* Admin Panel Button */}
@@ -199,7 +227,11 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
                   soundFx.playGlassTap(1600, 0.05);
                   onOpenAdmin();
                 }}
-                className="flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs text-sky-400 hover:text-white bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30 transition-all cursor-pointer font-medium"
+                className={`flex items-center gap-1 px-2.5 py-1.5 rounded-full text-xs transition-all cursor-pointer font-medium ${
+                  theme === 'light'
+                    ? 'text-sky-700 hover:text-sky-900 bg-sky-50 hover:bg-sky-100 border border-sky-300'
+                    : 'text-sky-400 hover:text-white bg-sky-500/10 hover:bg-sky-500/20 border border-sky-500/30'
+                }`}
                 title="Portfolio Admin & Projects Manager (⌘E)"
                 id="header-admin-button"
               >

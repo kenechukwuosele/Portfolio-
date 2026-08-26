@@ -95,6 +95,72 @@ def revoke_access_token(token_jti: str, expires_in: int):
       accentColor: "#06b6d4"
     },
     {
+      id: "catsoopv2",
+      title: "CatsoopV2: Real-Time Assessment Platform & LMS",
+      tagline: "Real-time quiz management system with FaceNet biometrics, RAG hints, and WebSocket engagement.",
+      category: "Systems & AI",
+      description: "Real-time quiz management and automated assessment system built on CATSOOP LMS. Features FastAPI/SQLAlchemy async backend, RAG-based AI hints (ChromaDB + Ollama), FaceNet biometric face verification, WebSocket engagement monitoring, and gamification.",
+      longDescription: "Engineered for my final-year computer engineering capstone, CatsoopV2 transforms online assessments with real-time biometric proctoring, dynamic AI tutoring, and anti-cheating telemetry. Deployed via Nginx with Cloudflare Tunnel.",
+      featured: true,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Biometrics", value: "FaceNet Auth", detail: "Real-Time Face Verification" },
+        { label: "AI Hints", value: "RAG Pipeline", detail: "ChromaDB + Ollama Embeddings" },
+        { label: "Real-Time", value: "WebSockets", detail: "Sub-10ms Stream Sync" }
+      ],
+      tags: ["FastAPI", "Python", "JavaScript", "SQLAlchemy", "ChromaDB", "FaceNet", "WebSockets", "Ollama", "Nginx", "Cloudflare"],
+      technologies: ["FastAPI", "Python", "SQLAlchemy 2.0", "ChromaDB", "FaceNet", "Ollama", "WebSockets", "JavaScript", "Nginx", "Cloudflare"],
+      githubUrl: "https://github.com/kenechukwuosele/catsoopv2",
+      demoSnippet: `# CatsoopV2: FaceNet Biometric Verification & WebSocket Telemetry
+from fastapi import FastAPI, WebSocket, WebSocketDisconnect, Depends
+from app.services.biometrics import verify_facenet_embedding
+from app.services.rag_hints import generate_contextual_hint
+
+app = FastAPI(title="CatsoopV2 Assessment Engine")
+
+@app.websocket("/ws/exam/{session_id}")
+async def exam_engagement_stream(websocket: WebSocket, session_id: str):
+    await websocket.accept()
+    try:
+        while True:
+            frame_data = await websocket.receive_bytes()
+            # 1. Real-time FaceNet verification
+            is_verified, confidence = verify_facenet_embedding(frame_data, session_id)
+            
+            # 2. Telemetry payload broadcast
+            await websocket.send_json({
+                "verified": is_verified,
+                "confidence": round(confidence, 3),
+                "status": "engaged" if is_verified else "warning"
+            })
+    except WebSocketDisconnect:
+        pass`,
+      architecture: {
+        layers: [
+          {
+            title: "Async FastAPI & WebSockets",
+            description: "Full-duplex WebSocket stream handling continuous candidate video frame validation and live quiz state.",
+            technologies: ["FastAPI", "WebSockets", "Uvicorn"]
+          },
+          {
+            title: "Biometric & RAG Pipeline",
+            description: "FaceNet 128D embedding comparisons for identity verification combined with local ChromaDB + Ollama vector search for dynamic hints.",
+            technologies: ["FaceNet", "ChromaDB", "Ollama", "OpenCV"]
+          },
+          {
+            title: "Infrastructure & Edge",
+            description: "Nginx reverse proxy with Cloudflare Tunnel for secure edge termination and low-latency student connections.",
+            technologies: ["Nginx", "Cloudflare Tunnel", "PostgreSQL"]
+          }
+        ],
+        keyDecision: "Used lightweight WebSocket binary streaming and edge FaceNet embeddings to sustain real-time biometric proctoring without server GPU saturation.",
+        latencyOrPerf: "Under 50ms face verification turnaround per frame."
+      },
+      glassHue: "from-violet-500/20 via-purple-500/10 to-indigo-500/20",
+      accentColor: "#8b5cf6"
+    },
+    {
       id: "dbadmin-ai-cli",
       title: "DbAdmin AI: Natural Language Database CLI",
       tagline: "Specialized open-source AI terminal interface for cross-database administration.",
@@ -209,6 +275,71 @@ export async function processVoiceFinanceQuery(audioBlob: Blob): Promise<Finance
       accentColor: "#10b981"
     },
     {
+      id: "siwes-platform",
+      title: "SIWES+: Digital Internship & Industrial Training Platform",
+      tagline: "Centralized platform connecting students, university supervisors, and industry employers.",
+      category: "Full-Stack",
+      description: "Digital platform built to streamline the SIWES industrial training experience by connecting students, supervisors, and organizations in one place with digital logbooks, attendance tracking, and communication.",
+      longDescription: "SIWES+ eliminates paper logbooks and manual sign-offs. Students log daily activities and upload proof of work; academic and industry supervisors review, score, and provide real-time feedback with automated compliance reminders.",
+      featured: true,
+      year: "2026",
+      status: "Production",
+      metrics: [
+        { label: "User Roles", value: "3 Portals", detail: "Students, Supervisors, Orgs" },
+        { label: "Logbooks", value: "Digital Weekly", detail: "Instant Review & Sign-Off" },
+        { label: "Architecture", value: "TypeScript", detail: "React + Node.js Microservices" }
+      ],
+      tags: ["TypeScript", "React", "Node.js", "Express", "Tailwind CSS", "PostgreSQL", "REST APIs"],
+      technologies: ["TypeScript", "React", "Vite", "Node.js", "Express", "PostgreSQL", "Tailwind CSS"],
+      githubUrl: "https://github.com/kenechukwuosele/siwes-",
+      demoSnippet: `// SIWES+ Digital Logbook Submission Controller
+import { Request, Response } from 'express';
+import { db } from '../db/client';
+
+export async function submitWeeklyLogbook(req: Request, res: Response) {
+  const { studentId, weekNumber, entries, attachments } = req.body;
+  
+  const logbook = await db.logbook.create({
+    data: {
+      studentId,
+      weekNumber,
+      entries,
+      attachments,
+      status: 'SUBMITTED',
+      submittedAt: new Date()
+    }
+  });
+
+  // Notify academic and industry supervisors
+  await dispatchNotification({
+    targetRole: 'SUPERVISOR',
+    studentId,
+    event: 'LOGBOOK_SUBMITTED',
+    week: weekNumber
+  });
+
+  return res.status(201).json({ success: true, logbook });
+}`,
+      architecture: {
+        layers: [
+          {
+            title: "Multi-Role Client Portal",
+            description: "Tailored dashboards for students (log submission), academic supervisors (grading), and industry mentors (approvals).",
+            technologies: ["React", "TypeScript", "Tailwind CSS"]
+          },
+          {
+            title: "REST Services & Auth",
+            description: "Role-based access control (RBAC) API with JWT tokens, file upload pipelines, and automated notification webhooks.",
+            technologies: ["Node.js", "Express", "JWT", "Multer"]
+          }
+        ],
+        keyDecision: "Designed tri-party database schemas to ensure seamless permission boundaries between students, universities, and private employers.",
+        latencyOrPerf: "Sub-80ms dashboard query loading."
+      },
+      glassHue: "from-blue-500/20 via-cyan-500/10 to-teal-500/20",
+      accentColor: "#0284c7"
+    },
+    {
       id: "rag-pl",
       title: "RAG-PL: LMS & Research Paper Assistant",
       tagline: "End-to-end Retrieval-Augmented Generation system built from scratch in Python.",
@@ -274,70 +405,6 @@ class HybridRAGRetriever:
       },
       glassHue: "from-purple-500/20 via-indigo-500/10 to-blue-500/20",
       accentColor: "#8b5cf6"
-    },
-    {
-      id: "task-manager-mern",
-      title: "Taskly: MERN Task Orchestration Platform",
-      tagline: "Full-stack productivity and task management platform with persistent MongoDB cloud storage.",
-      category: "Full-Stack",
-      description: "Full-stack task management application built with the MERN stack (React, Node.js, Express, MongoDB) featuring JWT authentication, priority pipelines, and live deployment on Render.",
-      longDescription: "Taskly provides a responsive task orchestration dashboard for busy engineers. It features secure user registration and login, RESTful API endpoints for task CRUD operations, priority filtering (Low, Medium, High), status tracking, and scalable schema modeling with Mongoose.",
-      featured: true,
-      year: "2025",
-      status: "Production",
-      metrics: [
-        { label: "Architecture", value: "MERN Stack", detail: "React + Express + Mongo" },
-        { label: "Deployment", value: "Render Live", detail: "Production Cloud Hosted" },
-        { label: "Auth", value: "JWT + Bcrypt", detail: "Secure Session Tokens" }
-      ],
-      tags: ["React", "Node.js", "Express", "MongoDB", "MERN", "JWT", "Tailwind CSS", "Render"],
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Mongoose", "Tailwind CSS", "Vite", "JWT"],
-      githubUrl: "https://github.com/kenechukwuosele/Task-Manager",
-      liveUrl: "https://task-manager-frontend-1v6f.onrender.com",
-      demoSnippet: `// Taskly Express Controller with JWT & Mongoose
-const Task = require('../models/Task');
-
-exports.createTask = async (req, res) => {
-  try {
-    const { title, description, priority, dueDate } = req.body;
-    const newTask = new Task({
-      user: req.user.id,
-      title,
-      description,
-      priority: priority || 'Medium',
-      dueDate,
-      status: 'Pending'
-    });
-    
-    const savedTask = await newTask.save();
-    res.status(201).json({ success: true, task: savedTask });
-  } catch (error) {
-    res.status(500).json({ success: false, message: error.message });
-  }
-};`,
-      architecture: {
-        layers: [
-          {
-            title: "Frontend Client",
-            description: "Responsive React UI styled with Tailwind CSS, state management, and real-time optimistic task updates.",
-            technologies: ["React", "Vite", "Tailwind CSS", "Axios"]
-          },
-          {
-            title: "Backend API",
-            description: "Express.js RESTful API handling authentication, route middleware, and Mongoose document validation.",
-            technologies: ["Node.js", "Express", "JWT", "Bcrypt"]
-          },
-          {
-            title: "Data Persistence",
-            description: "MongoDB Atlas cluster with indexed task schemas and user relation references.",
-            technologies: ["MongoDB", "Mongoose", "Render Cloud"]
-          }
-        ],
-        keyDecision: "Separated client and server into modular micro-packages to simplify continuous deployment on Render.",
-        latencyOrPerf: "Fast sub-100ms API response times on cloud database queries."
-      },
-      glassHue: "from-amber-500/20 via-orange-500/10 to-rose-500/20",
-      accentColor: "#f59e0b"
     }
   ],
   allProjects: [

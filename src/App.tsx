@@ -37,7 +37,7 @@ export default function App() {
     return initialPortfolioData;
   });
   const [theme, setTheme] = useState<ThemeMode>('dark');
-  const [viscosity, setViscosity] = useState<number>(0.5);
+  const [viscosity, setViscosity] = useState<number>(0.25);
   const [dispersion, setDispersion] = useState<number>(0.035);
   const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [activeSection, setActiveSection] = useState<string>('hero');
