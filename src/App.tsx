@@ -218,7 +218,6 @@ export default function App() {
   };
 
   const scrollToSection = (id: string) => {
-    soundFx.playGlassTap(1300, 0.04);
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -231,12 +230,8 @@ export default function App() {
         ? 'light-theme bg-[#f8fafc] text-slate-900' 
         : theme === 'obsidian' 
         ? 'bg-[#000000] text-neutral-100' 
-        : 'bg-[#060709] text-white'
+        : 'bg-[#050608] text-white'
     }`}>
-      
-      {/* Subtle, non-intrusive Ambient Atmosphere Glows */}
-      <div className="fixed top-[-10%] right-[-10%] w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none -z-10" />
-      <div className="fixed bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none -z-10" />
 
       {/* WebGL Liquid Optical Shader Canvas */}
       <LiquidCanvas 

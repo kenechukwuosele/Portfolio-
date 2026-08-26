@@ -105,7 +105,7 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
           aria-hidden="true"
         >
           <motion.div 
-            className="h-full bg-gradient-to-r from-sky-400 via-cyan-300 to-indigo-400 rounded-full"
+            className="h-full bg-white/40 rounded-full"
             style={{ scaleX, transformOrigin: '0%' }}
             id="scroll-progress-bar"
           />
@@ -171,8 +171,8 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
             title="Command Palette (⌘K)"
             id="header-cli-button"
           >
-            <Terminal className="w-3.5 h-3.5 text-sky-400" />
-            <span className={`text-[10px] font-mono ${theme === 'light' ? 'text-slate-400' : 'text-white/40'}`}>⌘K</span>
+            <Terminal className="w-3.5 h-3.5 text-white/70" />
+            <span className={`text-xs font-mono ${theme === 'light' ? 'text-slate-400' : 'text-white/40'}`}>⌘K</span>
           </button>
 
           {/* Theme Toggle */}

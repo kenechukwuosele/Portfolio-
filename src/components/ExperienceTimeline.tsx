@@ -333,81 +333,77 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
         {experience.map((item) => (
           <div
             key={item.id}
-            className="group rounded-3xl p-[1px] bg-gradient-to-b from-white/15 via-white/5 to-transparent hover:from-white/25 transition-all duration-300 shadow-xl"
+            className="group rounded-3xl border border-white/10 hover:border-white/20 bg-[#0c0e14]/90 p-6 sm:p-8 space-y-6 transition-all duration-300 shadow-xl"
             id={`experience-card-${item.id}`}
           >
-            <div className="bg-[#090b10]/90 rounded-[23px] p-6 sm:p-8 space-y-6 transition-colors duration-300">
-              
-              {/* Header Info */}
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/5">
-                <div className="space-y-1">
-                  <div className="flex flex-wrap items-center gap-2.5">
-                    <h3 className="text-xl font-bold text-white tracking-tight">
-                      {item.role}
-                    </h3>
-                    <span className="text-xs text-sky-400 px-2.5 py-0.5 rounded-full bg-sky-400/10 border border-sky-400/20 font-medium">
-                      {item.type}
-                    </span>
-                  </div>
-                  
-                  <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-white/60">
-                    <span className="font-semibold text-white flex items-center gap-1.5">
-                      <Building2 className="w-3.5 h-3.5 text-sky-400" />
-                      {item.company}
-                    </span>
-                    <span>•</span>
-                    <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-white/40" />
-                      {item.location}
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2 sm:self-center">
-                  {item.highlightMetric && (
-                    <div className="px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs font-mono flex items-center gap-1.5 font-medium">
-                      <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
-                      <span>{item.highlightMetric}</span>
-                    </div>
-                  )}
-                  <div className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs font-mono text-white/60 flex items-center gap-1.5">
-                    <Calendar className="w-3.5 h-3.5 text-sky-400" />
-                    <span>{item.period}</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Description */}
-              <p className="text-sm text-white/70 leading-relaxed font-normal">
-                {item.description}
-              </p>
-
-              {/* Accomplishments */}
-              <div className="space-y-2 pt-1">
-                <span className="text-xs font-mono text-white/40 uppercase tracking-wider">Key Contributions:</span>
-                <ul className="space-y-2">
-                  {item.achievements.map((ach, aIdx) => (
-                    <li key={aIdx} className="flex items-start gap-2 text-xs sm:text-sm text-white/65 font-normal">
-                      <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 shrink-0" />
-                      <span>{ach}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-
-              {/* Stack Chips */}
-              <div className="pt-4 border-t border-white/5 flex flex-wrap items-center gap-1.5">
-                <span className="text-xs text-white/40 mr-1">Technologies:</span>
-                {item.technologies.map((tech) => (
-                  <span 
-                    key={tech}
-                    className="text-[11px] px-2.5 py-0.5 rounded-lg bg-white/5 text-white/70 border border-white/5"
-                  >
-                    {tech}
+            {/* Header Info */}
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/5">
+              <div className="space-y-1">
+                <div className="flex flex-wrap items-center gap-2.5">
+                  <h3 className="text-xl font-bold text-white tracking-tight">
+                    {item.role}
+                  </h3>
+                  <span className="text-xs text-sky-400 px-2.5 py-0.5 rounded-full bg-sky-400/10 border border-sky-400/20 font-medium">
+                    {item.type}
                   </span>
-                ))}
+                </div>
+                
+                <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-white/60">
+                  <span className="font-semibold text-white flex items-center gap-1.5">
+                    <Building2 className="w-3.5 h-3.5 text-sky-400" />
+                    {item.company}
+                  </span>
+                  <span>•</span>
+                  <span className="flex items-center gap-1.5">
+                    <MapPin className="w-3.5 h-3.5 text-white/40" />
+                    {item.location}
+                  </span>
+                </div>
               </div>
 
+              <div className="flex flex-wrap items-center gap-2 sm:self-center">
+                {item.highlightMetric && (
+                  <div className="px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-1.5 font-medium">
+                    <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>{item.highlightMetric}</span>
+                  </div>
+                )}
+                <div className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white/60 flex items-center gap-1.5">
+                  <Calendar className="w-3.5 h-3.5 text-sky-400" />
+                  <span>{item.period}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-sm text-white/70 leading-relaxed font-normal">
+              {item.description}
+            </p>
+
+            {/* Accomplishments */}
+            <div className="space-y-2 pt-1">
+              <span className="text-xs text-white/40 font-medium">Key Contributions:</span>
+              <ul className="space-y-2">
+                {item.achievements.map((ach, aIdx) => (
+                  <li key={aIdx} className="flex items-start gap-2 text-xs sm:text-sm text-white/65 font-normal">
+                    <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 shrink-0" />
+                    <span>{ach}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Stack Chips */}
+            <div className="pt-4 border-t border-white/5 flex flex-wrap items-center gap-1.5">
+              <span className="text-xs text-white/40 mr-1">Technologies:</span>
+              {item.technologies.map((tech) => (
+                <span 
+                  key={tech}
+                  className="text-xs px-2.5 py-1 rounded-lg bg-white/5 text-white/70 border border-white/5"
+                >
+                  {tech}
+                </span>
+              ))}
             </div>
           </div>
         ))}

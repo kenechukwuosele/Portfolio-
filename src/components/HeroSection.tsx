@@ -140,58 +140,55 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           animate="visible"
           className="lg:col-span-5 relative"
         >
-          <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-white/20 via-white/10 to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.6)] backdrop-blur-3xl overflow-hidden">
-            <div className="bg-[#090b10]/90 rounded-[23px] p-5 sm:p-6 space-y-4 border border-white/10">
-              
-              {/* Portrait Container */}
-              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-black/40">
-                <div className="h-64 sm:h-72 w-full overflow-hidden bg-[#07090e] relative">
-                  <img 
-                    src={data.developer.avatarUrl || "/profile.jpg"} 
-                    alt={data.developer.name}
-                    className="w-full h-full object-cover object-[center_18%]"
-                    loading="eager"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-transparent to-black/10 pointer-events-none" />
-                </div>
-
-                {/* Floating Status Badge */}
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 border border-white/15 backdrop-blur-xl">
-                  <span className="w-2 h-2 rounded-full bg-[#4285F4] animate-pulse" />
-                  <span className="text-[10px] font-mono font-bold google-gemini-text uppercase tracking-wider">
-                    Full-Stack & AI
-                  </span>
-                </div>
-
-                {/* Bottom Overlay Name & Title */}
-                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/70 border border-white/10 backdrop-blur-2xl flex items-center justify-between">
-                  <div className="space-y-0.5">
-                    <p className="text-xs font-semibold text-white tracking-wide">
-                      {data.developer.name}
-                    </p>
-                    <p className="text-[11px] text-sky-300 font-medium">
-                      {data.developer.title}
-                    </p>
-                  </div>
-                  <span className="text-[9px] uppercase tracking-widest text-white/40 font-mono">Verified</span>
-                </div>
+          <div className="rounded-3xl border border-white/10 bg-[#0c0e14]/90 p-5 sm:p-6 space-y-4 shadow-xl backdrop-blur-2xl">
+            
+            {/* Portrait Container */}
+            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-black/40">
+              <div className="h-64 sm:h-72 w-full overflow-hidden bg-[#07090e] relative">
+                <img 
+                  src={data.developer.avatarUrl || "/profile.jpg"} 
+                  alt={data.developer.name}
+                  className="w-full h-full object-cover object-[center_18%]"
+                  loading="eager"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0c0e14] via-transparent to-transparent pointer-events-none" />
               </div>
 
-              {/* Clean Stats Row */}
-              <div className="grid grid-cols-2 gap-2.5">
-                {data.developer.quickStats.slice(0, 2).map((stat, idx) => (
-                  <div 
-                    key={idx} 
-                    className="p-3 rounded-xl bg-white/[0.03] border border-white/10 space-y-0.5"
-                  >
-                    <span className="text-[10px] text-white/50">{stat.label}</span>
-                    <p className="text-sm font-bold text-white tracking-tight">{stat.value}</p>
-                    <p className="text-[10px] text-white/60 truncate">{stat.detail}</p>
-                  </div>
-                ))}
+              {/* Floating Status Badge */}
+              <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 border border-white/10 backdrop-blur-xl">
+                <span className="w-2 h-2 rounded-full bg-[#4285F4] animate-pulse" />
+                <span className="text-xs font-semibold google-gemini-text">
+                  Full-Stack & AI
+                </span>
               </div>
 
+              {/* Bottom Overlay Name & Title */}
+              <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/70 border border-white/10 backdrop-blur-2xl flex items-center justify-between">
+                <div className="space-y-0.5">
+                  <p className="text-sm font-semibold text-white tracking-wide">
+                    {data.developer.name}
+                  </p>
+                  <p className="text-xs text-sky-300 font-medium">
+                    {data.developer.title}
+                  </p>
+                </div>
+              </div>
             </div>
+
+            {/* Clean Stats Row */}
+            <div className="grid grid-cols-2 gap-3">
+              {data.developer.quickStats.slice(0, 2).map((stat, idx) => (
+                <div 
+                  key={idx} 
+                  className="p-3.5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-1"
+                >
+                  <span className="text-xs text-white/50">{stat.label}</span>
+                  <p className="text-base font-bold text-white tracking-tight">{stat.value}</p>
+                  <p className="text-xs text-white/60 truncate">{stat.detail}</p>
+                </div>
+              ))}
+            </div>
+
           </div>
         </motion.div>
 

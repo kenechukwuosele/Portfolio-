@@ -72,9 +72,9 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
         {/* Left Column: Direct Email & Social Profiles */}
         <div className="lg:col-span-5 space-y-4">
-          <div className="rounded-3xl border border-white/10 bg-[#090b10]/90 p-6 sm:p-7 space-y-5 shadow-xl backdrop-blur-2xl">
+          <div className="rounded-3xl border border-white/10 bg-[#0c0e14]/90 p-6 sm:p-7 space-y-5 shadow-xl backdrop-blur-2xl">
             <div className="flex items-center justify-between">
-              <span className="text-xs text-sky-400 font-medium">Direct Reachout</span>
+              <span className="text-xs text-sky-400 font-medium">Direct Contact</span>
               <span className="text-xs px-2.5 py-0.5 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20 flex items-center gap-1.5 font-medium">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
                 Available for Hire
@@ -106,7 +106,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
             </button>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-[#090b10]/90 p-6 space-y-3 shadow-xl backdrop-blur-2xl">
+          <div className="rounded-3xl border border-white/10 bg-[#0c0e14]/90 p-6 space-y-3 shadow-xl backdrop-blur-2xl">
             <p className="text-xs text-white/40">Verified Profiles</p>
             <div className="grid grid-cols-2 gap-3">
               <a
@@ -133,7 +133,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
         {/* Right Column: Contact Message Form */}
         <div className="lg:col-span-7">
-          <div className="rounded-3xl border border-white/10 bg-[#090b10]/90 p-6 sm:p-8 shadow-xl backdrop-blur-2xl">
+          <div className="rounded-3xl border border-white/10 bg-[#0c0e14]/90 p-6 sm:p-8 shadow-xl backdrop-blur-2xl">
             {isSubmitted ? (
               <div className="py-12 text-center space-y-4">
                 <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto">

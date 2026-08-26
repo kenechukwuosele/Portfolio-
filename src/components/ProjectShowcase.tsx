@@ -118,95 +118,91 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
               initial="hidden"
               animate="visible"
               exit={{ opacity: 0, scale: 0.96 }}
-              className="group relative rounded-3xl p-[1px] bg-gradient-to-b from-white/15 via-white/5 to-transparent hover:from-white/30 transition-all duration-300 shadow-xl"
+              className="group border border-white/10 hover:border-white/20 bg-[#0c0e14]/90 rounded-3xl p-6 sm:p-7 flex flex-col justify-between space-y-6 transition-all duration-300 shadow-xl"
               id={`project-card-${project.id}`}
             >
-              <div className="h-full w-full bg-[#090b10]/90 rounded-[23px] p-6 sm:p-7 flex flex-col justify-between space-y-6 transition-colors duration-300">
-                
-                {/* Top Info */}
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="text-xs font-medium text-sky-400">
-                      {project.category}
-                    </span>
-                    <span className="text-[11px] font-mono text-white/40 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">
-                      {project.year || '2026'}
-                    </span>
-                  </div>
-
-                  <div className="space-y-2">
-                    <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-sky-300 transition-colors">
-                      {project.title}
-                    </h3>
-                    <p className="text-sm text-white/65 leading-relaxed font-normal">
-                      {project.description}
-                    </p>
-                  </div>
-
-                  {/* Clean Performance / Architecture Metrics */}
-                  <div className="grid grid-cols-3 gap-2 pt-2">
-                    {project.metrics.slice(0, 3).map((m, mIdx) => (
-                      <div 
-                        key={mIdx}
-                        className="p-2.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-0.5"
-                      >
-                        <span className="text-[10px] text-white/40 block truncate">{m.label}</span>
-                        <span className="text-xs font-semibold text-white block truncate">{m.value}</span>
-                        <span className="text-[10px] text-white/50 block truncate">{m.detail}</span>
-                      </div>
-                    ))}
-                  </div>
+              {/* Top Info */}
+              <div className="space-y-4">
+                <div className="flex items-center justify-between gap-3">
+                  <span className="text-xs font-medium text-sky-400">
+                    {project.category}
+                  </span>
+                  <span className="text-xs text-white/40 px-2.5 py-0.5 rounded-full bg-white/5 border border-white/10">
+                    {project.year || '2026'}
+                  </span>
                 </div>
 
-                {/* Bottom Actions & Tech Tags */}
-                <div className="space-y-4 pt-4 border-t border-white/5">
-                  <div className="flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 5).map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-[11px] px-2 py-0.5 rounded-md bg-white/5 text-white/70 border border-white/5"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                <div className="space-y-2">
+                  <h3 className="text-xl font-bold text-white tracking-tight group-hover:text-sky-300 transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-white/70 leading-relaxed font-normal">
+                    {project.description}
+                  </p>
+                </div>
 
-                  <div className="flex items-center justify-between gap-2 pt-1">
-                    <button
-                      onClick={() => onSelectProject(project)}
-                      className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors cursor-pointer"
+                {/* Clean Performance / Architecture Metrics */}
+                <div className="grid grid-cols-3 gap-2 pt-2">
+                  {project.metrics.slice(0, 3).map((m, mIdx) => (
+                    <div 
+                      key={mIdx}
+                      className="p-3 rounded-2xl bg-white/[0.03] border border-white/10 space-y-1"
                     >
-                      <span>Architecture Case Study</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
-                    </button>
-
-                    <div className="flex items-center gap-2">
-                      {project.githubUrl && (
-                        <a
-                          href={project.githubUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors"
-                          title="View Source Code"
-                        >
-                          <Github className="w-4 h-4" />
-                        </a>
-                      )}
-                      {project.liveUrl && (
-                        <a
-                          href={project.liveUrl}
-                          target="_blank"
-                          rel="noreferrer"
-                          className="p-2 rounded-xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors"
-                          title="Live Application"
-                        >
-                          <ExternalLink className="w-4 h-4" />
-                        </a>
-                      )}
+                      <span className="text-xs text-white/40 block truncate">{m.label}</span>
+                      <span className="text-sm font-semibold text-white block truncate">{m.value}</span>
+                      <span className="text-xs text-white/50 block truncate">{m.detail}</span>
                     </div>
-                  </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Bottom Actions & Tech Tags */}
+              <div className="space-y-4 pt-4 border-t border-white/5">
+                <div className="flex flex-wrap gap-1.5">
+                  {project.technologies.slice(0, 5).map((tech) => (
+                    <span
+                      key={tech}
+                      className="text-xs px-2.5 py-1 rounded-lg bg-white/5 text-white/70 border border-white/5"
+                    >
+                      {tech}
+                    </span>
+                  ))}
                 </div>
 
+                <div className="flex items-center justify-between gap-2 pt-1">
+                  <button
+                    onClick={() => onSelectProject(project)}
+                    className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-white/10 hover:bg-white/20 text-white text-xs font-semibold transition-colors cursor-pointer"
+                  >
+                    <span>Case Study</span>
+                    <ArrowRight className="w-3.5 h-3.5" />
+                  </button>
+
+                  <div className="flex items-center gap-2">
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2.5 rounded-xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors"
+                        title="View Source Code"
+                      >
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                    {project.liveUrl && (
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="p-2.5 rounded-xl bg-white/5 hover:bg-white/15 text-white/60 hover:text-white transition-colors"
+                        title="Live Application"
+                      >
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
+                  </div>
+                </div>
               </div>
             </motion.div>
           ))}

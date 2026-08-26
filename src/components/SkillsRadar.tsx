@@ -77,10 +77,9 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
           <motion.div
             key={idx}
             variants={cardVariant}
-            className="p-6 rounded-3xl bg-[#090b10]/90 border border-white/10 hover:border-white/20 transition-all space-y-2.5 backdrop-blur-xl"
+            className="p-6 rounded-3xl bg-[#0c0e14]/90 border border-white/10 hover:border-white/20 transition-all space-y-2 backdrop-blur-xl shadow-lg"
           >
-            <div className="flex items-center gap-2 text-sky-400">
-              <span className="text-xs font-mono font-bold text-sky-400/60">0{idx + 1}.</span>
+            <div className="flex items-center gap-2">
               <h3 className="font-semibold text-sm text-white">
                 {pillar.title}
               </h3>
@@ -142,13 +141,13 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
               {skillCategories[selectedCategory]?.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2.5"
+                  className="p-5 rounded-2xl bg-[#0c0e14]/90 border border-white/10 space-y-2.5 shadow-md"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-semibold text-white text-sm">
                       {skill.name}
                     </span>
-                    <span className="text-[11px] font-mono px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 font-medium">
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 font-medium">
                       {skill.level}
                     </span>
                   </div>
