@@ -233,9 +233,9 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen relative font-sans transition-colors duration-700 ${
+    <div className={`min-h-screen relative font-sans transition-colors duration-500 ${
       theme === 'light' 
-        ? 'bg-[#f8fafc] text-neutral-900' 
+        ? 'light-theme bg-[#f8fafc] text-slate-900' 
         : theme === 'obsidian' 
         ? 'bg-[#000000] text-neutral-100' 
         : 'bg-[#070709] text-white'

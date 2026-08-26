@@ -289,7 +289,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
           {/* Modal Footer */}
           <div className="p-4 sm:p-6 border-t border-white/10 bg-black/40 flex items-center justify-between">
             <span className="text-xs font-mono text-white/40 hidden sm:inline">
-              Esc to close • Sleek liquid glass view
+              Press Esc or click backdrop to close
             </span>
             <div className="flex items-center gap-3 w-full sm:w-auto justify-end">
               <button

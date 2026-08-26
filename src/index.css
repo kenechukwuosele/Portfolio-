@@ -89,3 +89,126 @@
 .font-mono {
   font-family: var(--font-mono);
 }
+
+/* =========================================================
+   HIGH-CONTRAST LIGHT THEME SYSTEM
+   Ensures 100% readability across all typography and cards
+   ========================================================= */
+.light-theme {
+  background-color: #f8fafc !important;
+  color: #0f172a !important;
+}
+
+.light-theme h1,
+.light-theme h2,
+.light-theme h3,
+.light-theme h4,
+.light-theme .text-white {
+  color: #0f172a !important;
+}
+
+.light-theme p,
+.light-theme .text-white\/90,
+.light-theme .text-white\/80,
+.light-theme .text-white\/70 {
+  color: #334155 !important;
+}
+
+.light-theme .text-white\/60,
+.light-theme .text-white\/50,
+.light-theme .text-white\/40,
+.light-theme .text-white\/30 {
+  color: #64748b !important;
+}
+
+.light-theme .bg-\[\#040507\],
+.light-theme .bg-\[\#050608\],
+.light-theme .bg-\[\#070709\],
+.light-theme .bg-\[\#090b10\],
+.light-theme .bg-\[\#090b10\]\/80,
+.light-theme .bg-\[\#090b10\]\/90,
+.light-theme .bg-\[\#090b10\]\/92,
+.light-theme .bg-\[\#090b10\]\/95,
+.light-theme .bg-\[\#0a0c10\]\/95,
+.light-theme .bg-\[\#0d0f17\],
+.light-theme .bg-\[\#12141a\] {
+  background-color: rgba(255, 255, 255, 0.92) !important;
+  border-color: rgba(203, 213, 225, 0.9) !important;
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.05) !important;
+}
+
+.light-theme .bg-white\/\[0\.02\],
+.light-theme .bg-white\/\[0\.03\],
+.light-theme .bg-white\/\[0\.04\],
+.light-theme .bg-white\/5 {
+  background-color: rgba(241, 245, 249, 0.85) !important;
+  border-color: rgba(226, 232, 240, 0.95) !important;
+}
+
+.light-theme .border-white\/5,
+.light-theme .border-white\/10,
+.light-theme .border-white\/15,
+.light-theme .border-white\/20,
+.light-theme .border-white\/30 {
+  border-color: rgba(203, 213, 225, 0.85) !important;
+}
+
+.light-theme .bg-black\/30,
+.light-theme .bg-black\/40,
+.light-theme .bg-black\/50,
+.light-theme .bg-black\/60 {
+  background-color: rgba(241, 245, 249, 0.92) !important;
+  color: #0f172a !important;
+}
+
+.light-theme .text-sky-300,
+.light-theme .text-sky-400 {
+  color: #0284c7 !important;
+}
+
+.light-theme .text-cyan-300,
+.light-theme .text-cyan-400 {
+  color: #0891b2 !important;
+}
+
+.light-theme .text-emerald-300,
+.light-theme .text-emerald-400 {
+  color: #059669 !important;
+}
+
+.light-theme .bg-sky-500\/10 {
+  background-color: rgba(2, 132, 199, 0.12) !important;
+  border-color: rgba(2, 132, 199, 0.25) !important;
+}
+
+.light-theme .bg-white\/10 {
+  background-color: rgba(226, 232, 240, 0.9) !important;
+}
+
+.light-theme input,
+.light-theme textarea,
+.light-theme select {
+  background-color: #ffffff !important;
+  color: #0f172a !important;
+  border-color: #cbd5e1 !important;
+}
+
+.light-theme input::placeholder,
+.light-theme textarea::placeholder {
+  color: #94a3b8 !important;
+}
+
+.light-theme .bg-white.text-black {
+  background-color: #0f172a !important;
+  color: #ffffff !important;
+}
+
+.light-theme .bg-white.text-black:hover {
+  background-color: #1e293b !important;
+}
+
+.light-theme pre {
+  background-color: #0f172a !important;
+  color: #38bdf8 !important;
+}
+

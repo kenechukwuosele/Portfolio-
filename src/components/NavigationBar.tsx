@@ -207,19 +207,6 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
                 <span className="text-[11px] font-mono font-semibold">Admin</span>
               </button>
             )}
-
-            {/* Settings Customizer Drawer */}
-            <button
-              onClick={() => {
-                soundFx.playGlassTap(1500, 0.05);
-                onOpenDevDrawer();
-              }}
-              className="p-1.5 rounded-full text-white/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
-              title="Visual Preferences"
-              id="header-drawer-button"
-            >
-              <Sliders className="w-3.5 h-3.5 text-sky-400" />
-            </button>
           </div>
         </motion.div>
       </header>
