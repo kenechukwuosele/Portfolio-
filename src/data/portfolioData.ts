@@ -12,7 +12,7 @@ export const initialPortfolioData: PortfolioData = {
     timezone: "WAT (UTC+1)",
     bio: "Software Engineer crafting AI-powered terminal tools, secure authentication microservices, full-stack web apps, RAG research assistants, and voice-driven copilots.",
     subBio: "Specializing in FastAPI, Python, TypeScript, React, Node.js, MERN stack, PostgreSQL, Redis, Argon2, and modern AI/LLM integrations.",
-    avatarUrl: "https://avatars.githubusercontent.com/u/226654465?v=4",
+    avatarUrl: "/profile.jpg",
     email: "oseleken9@gmail.com",
     github: "https://github.com/kenechukwuosele",
     twitter: "https://github.com/kenechukwuosele",

@@ -245,48 +245,88 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           </motion.div>
         </motion.div>
 
-        {/* Right Column: High-Impact Glass Capability Bento */}
+        {/* Right Column: Liquid Glass Portrait & Engineering Bento */}
         <motion.div 
           variants={scaleIn}
           initial="hidden"
           animate="visible"
           className="lg:col-span-5 relative"
         >
-          <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-white/20 via-white/10 to-white/5 shadow-2xl backdrop-blur-2xl">
-            <div className="bg-[#090b10]/90 rounded-[23px] p-6 sm:p-7 space-y-5 border border-white/10">
+          {/* Liquid Ambient Glow behind portrait */}
+          <div className="absolute -inset-2 bg-gradient-to-tr from-sky-500/20 via-cyan-500/10 to-indigo-500/20 rounded-[32px] blur-2xl -z-10 opacity-70 pointer-events-none" />
+
+          <div className="relative rounded-3xl p-[1px] bg-gradient-to-b from-white/25 via-white/10 to-white/5 shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-3xl overflow-hidden group">
+            
+            {/* Top Liquid Glass Specular Highlight Bar */}
+            <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-400/60 to-transparent" />
+
+            <div className="bg-[#090b10]/92 rounded-[23px] p-5 sm:p-6 space-y-4 border border-white/10">
               
-              {/* Header inside Card without logo */}
-              <div className="flex items-center justify-between pb-4 border-b border-white/10">
-                <div className="flex items-center gap-2">
-                  <span className="text-sm font-semibold text-white">Engineering Overview</span>
+              {/* Liquid Glass Portrait Container */}
+              <div className="relative rounded-2xl overflow-hidden border border-white/15 bg-gradient-to-b from-white/10 via-black/40 to-black/80 shadow-inner group/photo">
+                
+                {/* Photo with subtle zoom on hover */}
+                <div className="h-64 sm:h-72 w-full overflow-hidden bg-[#07090e] relative">
+                  <img 
+                    src={data.developer.avatarUrl || "/profile.jpg"} 
+                    alt={data.developer.name}
+                    className="w-full h-full object-cover object-[center_18%] transition-transform duration-700 ease-out group-hover/photo:scale-105"
+                    loading="eager"
+                  />
+
+                  {/* Liquid Glass Vignette & Depth Gradient */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#090b10] via-transparent to-black/20 pointer-events-none" />
+                  
+                  {/* Subtle Top-Left Specular Sheen */}
+                  <div className="absolute top-0 left-0 right-0 h-16 bg-gradient-to-b from-white/10 to-transparent pointer-events-none" />
                 </div>
-                <span className="text-xs font-mono text-sky-400 bg-sky-500/10 px-2.5 py-1 rounded-full border border-sky-500/20">
-                  Active
-                </span>
+
+                {/* Floating Top-Right Live Status Glass Badge */}
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 border border-white/20 backdrop-blur-xl shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                  <span className="text-[10px] font-mono font-medium text-white/90 uppercase tracking-wider">
+                    Full-Stack & AI
+                  </span>
+                </div>
+
+                {/* Floating Bottom Name & Title Overlay */}
+                <div className="absolute bottom-3 left-3 right-3 p-3 rounded-xl bg-black/60 border border-white/15 backdrop-blur-2xl shadow-xl flex items-center justify-between">
+                  <div className="space-y-0.5">
+                    <p className="text-xs font-bold text-white tracking-wide">
+                      {data.developer.name}
+                    </p>
+                    <p className="text-[10px] font-mono text-sky-300">
+                      {data.developer.title}
+                    </p>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-[9px] font-mono uppercase tracking-widest text-white/40">Verified</span>
+                  </div>
+                </div>
               </div>
 
               {/* Clean Quick Stats Grid */}
-              <div className="grid grid-cols-2 gap-3">
+              <div className="grid grid-cols-2 gap-2.5">
                 {data.developer.quickStats.map((stat, idx) => (
                   <div 
                     key={idx} 
-                    className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10 space-y-1 hover:border-white/20 transition-colors"
+                    className="p-3 rounded-xl bg-white/[0.03] border border-white/10 space-y-0.5 hover:border-white/20 transition-colors"
                   >
-                    <span className="text-xs text-white/50">{stat.label}</span>
-                    <p className="text-xl font-bold text-white tracking-tight">{stat.value}</p>
-                    <p className="text-[11px] text-white/60">{stat.detail}</p>
+                    <span className="text-[10px] font-mono text-white/50">{stat.label}</span>
+                    <p className="text-base font-bold text-white tracking-tight">{stat.value}</p>
+                    <p className="text-[10px] text-white/60 truncate">{stat.detail}</p>
                   </div>
                 ))}
               </div>
 
               {/* Core Specialization Pills */}
-              <div className="pt-2 space-y-2">
-                <span className="text-xs font-mono text-white/50">Core Focus:</span>
-                <div className="flex flex-wrap gap-1.5">
-                  {["FastAPI & Python", "PostgreSQL & Redis", "Argon2 & JWT", "TypeScript & React", "Node.js & MERN", "RAG & ChromaDB", "Scikit-Learn"].map((tech) => (
+              <div className="space-y-1.5 pt-1">
+                <span className="text-[11px] font-mono text-white/50">Core Stack:</span>
+                <div className="flex flex-wrap gap-1">
+                  {["FastAPI", "Python", "PostgreSQL", "Redis", "TypeScript", "React", "RAG / LLMs"].map((tech) => (
                     <span 
                       key={tech} 
-                      className="px-2.5 py-1 rounded-lg bg-white/5 border border-white/10 text-xs font-medium text-white/80"
+                      className="px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-[11px] font-mono text-white/80"
                     >
                       {tech}
                     </span>
@@ -295,7 +335,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </div>
 
               {/* Working Languages */}
-              <div className="pt-3 border-t border-white/10 flex items-center justify-between text-xs font-mono">
+              <div className="pt-2.5 border-t border-white/10 flex items-center justify-between text-xs font-mono">
                 <span className="text-white/50">Languages:</span>
                 <span className="text-sky-300 font-medium">German (Proficient) · English (Fluent)</span>
               </div>
