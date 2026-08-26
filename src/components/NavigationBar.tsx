@@ -81,35 +81,13 @@ export const NavigationBar: React.FC<NavigationBarProps> = ({
         initial={{ opacity: 0, y: -16 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-        className={`relative pointer-events-auto max-w-4xl w-full flex items-center justify-between gap-2 p-1.5 rounded-full backdrop-blur-2xl border transition-all duration-300 ${
+        className={`relative pointer-events-auto max-w-3xl w-full flex items-center justify-between gap-2 p-1.5 rounded-full backdrop-blur-2xl border transition-all duration-300 ${
           theme === 'light'
-            ? isScrolled
-              ? 'bg-white/90 border-slate-300/80 shadow-[0_12px_32px_rgba(0,0,0,0.06),inset_0_1px_1px_rgba(255,255,255,1)] text-slate-800'
-              : 'bg-white/80 border-slate-200/80 shadow-[0_4px_20px_rgba(0,0,0,0.03)] text-slate-800'
-            : theme === 'obsidian'
-            ? isScrolled
-              ? 'bg-black/90 border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.1)] text-white'
-              : 'bg-black/80 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.7)] text-white'
-            : isScrolled 
-            ? 'bg-[#090a0f]/90 border-white/10 shadow-[0_16px_40px_rgba(0,0,0,0.6),inset_0_1px_1px_rgba(255,255,255,0.1)] text-white' 
-            : 'bg-[#090a0f]/75 border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.35)] text-white'
+            ? 'bg-white/80 border-black/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.04)] text-slate-800'
+            : 'bg-black/75 border-white/[0.08] shadow-[0_12px_40px_rgba(0,0,0,0.8)] text-white'
         }`}
         id="floating-navigation-bar"
       >
-        {/* Subtle Scroll Progress Indicator */}
-        <div 
-          className={`absolute bottom-0 inset-x-4 h-[2px] rounded-full overflow-hidden pointer-events-none ${
-            theme === 'light' ? 'bg-slate-100' : 'bg-white/[0.04]'
-          }`}
-          id="scroll-progress-track"
-          aria-hidden="true"
-        >
-          <motion.div 
-            className="h-full bg-white/40 rounded-full"
-            style={{ scaleX, transformOrigin: '0%' }}
-            id="scroll-progress-bar"
-          />
-        </div>
 
         {/* Navigation Tabs */}
         <nav 

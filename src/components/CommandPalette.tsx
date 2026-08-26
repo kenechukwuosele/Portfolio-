@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Terminal, X, ArrowRight, CornerDownLeft, Sparkles, Check } from 'lucide-react';
+import { Terminal, X, CornerDownLeft, Sparkles } from 'lucide-react';
 import { PortfolioData, ThemeMode } from '../types/portfolio';
-import { soundFx } from '../utils/audio';
 import confetti from 'canvas-confetti';
 
 interface CommandPaletteProps {
@@ -35,8 +34,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   const [history, setHistory] = useState<CommandLog[]>([
     {
       id: 'init-1',
-      command: 'sys.boot --liquid-optics',
-      output: 'Liquid Terminal v2.6.0 ready. Type "help" to list interactive developer commands.',
+      command: 'sys.ready',
+      output: 'Spotlight Command v2.6.0 ready. Type "help" for developer commands.',
       type: 'system'
     }
   ]);
@@ -58,7 +57,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
         e.preventDefault();
-        soundFx.playTerminalClick();
         if (isOpen) onClose();
       }
       if (e.key === 'Escape' && isOpen) {
@@ -74,7 +72,6 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     const cmd = input.trim();
     if (!cmd) return;
 
-    soundFx.playTerminalClick();
     const cmdLower = cmd.toLowerCase();
     let responseOutput: React.ReactNode = null;
     let resType: 'info' | 'success' | 'error' | 'system' = 'info';
@@ -82,17 +79,17 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
     if (cmdLower === 'help') {
       responseOutput = (
         <div className="space-y-1 text-xs">
-          <p className="text-cyan-400 font-semibold">Available Developer Commands:</p>
+          <p className="text-sky-400 font-semibold">Available Developer Commands:</p>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 mt-1 font-mono text-neutral-300">
-            <div><span className="text-cyan-300">about</span> - Developer summary</div>
-            <div><span className="text-cyan-300">projects</span> - List all work</div>
-            <div><span className="text-cyan-300">skills</span> - Stack & capabilities</div>
-            <div><span className="text-cyan-300">exp</span> - Career history</div>
-            <div><span className="text-cyan-300">admin</span> - Open Project Admin Panel</div>
-            <div><span className="text-cyan-300">theme [mode]</span> - dark/light/obsidian</div>
-            <div><span className="text-cyan-300">sudo hire</span> - Direct recruiter VIP</div>
-            <div><span className="text-cyan-300">contact</span> - Email & socials</div>
-            <div><span className="text-cyan-300">clear</span> - Clear terminal buffer</div>
+            <div><span className="text-sky-300">about</span> - Developer summary</div>
+            <div><span className="text-sky-300">projects</span> - List all work</div>
+            <div><span className="text-sky-300">skills</span> - Stack & capabilities</div>
+            <div><span className="text-sky-300">exp</span> - Career history</div>
+            <div><span className="text-sky-300">admin</span> - Project Admin Panel</div>
+            <div><span className="text-sky-300">theme [mode]</span> - dark/light</div>
+            <div><span className="text-sky-300">sudo hire</span> - Direct recruiter VIP</div>
+            <div><span className="text-sky-300">contact</span> - Email & socials</div>
+            <div><span className="text-sky-300">clear</span> - Clear buffer</div>
           </div>
         </div>
       );
@@ -105,29 +102,28 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
         <div className="space-y-1.5 text-xs text-neutral-300">
           <p className="text-white font-bold">{data.developer.name} — {data.developer.title}</p>
           <p className="text-neutral-400">{data.developer.bio}</p>
-          <p className="text-cyan-400 font-mono">Status: {data.developer.statusBadge}</p>
+          <p className="text-sky-400 font-mono">Status: {data.developer.statusBadge}</p>
         </div>
       );
     } else if (cmdLower.startsWith('projects') || cmdLower === 'ls') {
       responseOutput = (
         <div className="space-y-2 text-xs">
-          <p className="text-cyan-400 font-semibold">Projects in repository:</p>
+          <p className="text-sky-400 font-semibold">Projects in repository:</p>
           <div className="space-y-1.5 font-mono">
             {data.allProjects.map((p) => (
               <div 
                 key={p.id}
                 onClick={() => {
-                  soundFx.playGlassChime();
                   onSelectProject(p.id);
                   onClose();
                 }}
-                className="flex items-center justify-between p-1.5 rounded bg-white/5 hover:bg-cyan-500/20 cursor-pointer text-neutral-200 transition-colors"
+                className="flex items-center justify-between p-1.5 rounded-xl bg-white/5 hover:bg-white/10 cursor-pointer text-neutral-200 transition-colors"
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-cyan-300 font-bold">{p.title}</span>
-                  <span className="text-[10px] text-neutral-400">[{p.category}]</span>
+                  <span className="text-sky-300 font-bold">{p.title}</span>
+                  <span className="text-xs text-neutral-400">[{p.category}]</span>
                 </div>
-                <span className="text-xs text-cyan-400 underline">open →</span>
+                <span className="text-xs text-sky-400 underline">open →</span>
               </div>
             ))}
           </div>
@@ -138,69 +134,77 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
       responseOutput = (
         <div className="space-y-2 text-xs">
           {data.skillCategories.map((cat, idx) => (
-            <div key={idx}>
-              <p className="text-purple-300 font-semibold">{cat.title}:</p>
-              <p className="text-neutral-400 font-mono text-[11px]">
-                {cat.skills.map(s => `${s.name} (${s.level})`).join(' • ')}
-              </p>
+            <div key={idx} className="space-y-1">
+              <span className="text-sky-300 font-semibold">{cat.title}:</span>
+              <p className="text-neutral-300 pl-2">{cat.skills.map(s => s.name).join(', ')}</p>
+            </div>
+          ))}
+        </div>
+      );
+    } else if (cmdLower === 'exp' || cmdLower === 'experience') {
+      responseOutput = (
+        <div className="space-y-2 text-xs">
+          {data.experience.map((exp) => (
+            <div key={exp.id} className="p-2 rounded bg-white/5 space-y-1">
+              <div className="flex items-center justify-between text-neutral-200">
+                <span className="font-bold text-sky-300">{exp.role}</span>
+                <span className="text-neutral-400">{exp.period}</span>
+              </div>
+              <p className="text-neutral-300">{exp.company} • {exp.location}</p>
             </div>
           ))}
         </div>
       );
     } else if (cmdLower.startsWith('theme')) {
       const parts = cmdLower.split(' ');
-      if (parts[1] === 'light' || parts[1] === 'dark' || parts[1] === 'obsidian') {
-        onThemeChange(parts[1] as ThemeMode);
-        soundFx.playWhoosh();
-        responseOutput = `Theme changed to: ${parts[1]}`;
+      if (parts[1] === 'light') {
+        onThemeChange('light');
+        responseOutput = 'Theme switched to Light mode.';
+        resType = 'success';
+      } else if (parts[1] === 'dark') {
+        onThemeChange('dark');
+        responseOutput = 'Theme switched to Dark mode.';
         resType = 'success';
       } else {
-        responseOutput = 'Usage: theme [dark | light | obsidian]';
-        resType = 'error';
+        responseOutput = `Current theme: ${theme}. Usage: theme dark | theme light`;
       }
     } else if (cmdLower === 'sudo hire' || cmdLower === 'hire') {
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 }
-      });
-      soundFx.playGlassChime();
+      confetti({ particleCount: 100, spread: 70, origin: { y: 0.6 } });
       responseOutput = (
-        <div className="p-2 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 space-y-1 text-xs">
+        <div className="p-3 rounded-2xl bg-emerald-500/10 border border-emerald-500/30 text-xs space-y-1 text-emerald-300">
           <p className="font-bold flex items-center gap-1.5">
-            <Sparkles className="w-4 h-4 text-emerald-300" />
-            Recruiter VIP Trigger Activated!
+            <Sparkles className="w-4 h-4 text-emerald-400" />
+            Recruiter VIP Access Granted
           </p>
-          <p>Email: <a href={`mailto:${data.developer.email}?subject=Senior%20Engineering%20Role%20Inquiry`} className="underline font-bold text-white">{data.developer.email}</a></p>
-          <p className="text-[11px] text-emerald-200">Opening your default mail client with high-priority dispatch.</p>
+          <p className="text-neutral-300">
+            Reach out directly: <a href={`mailto:${data.developer.email}`} className="text-sky-400 underline">{data.developer.email}</a>
+          </p>
         </div>
       );
       resType = 'success';
-      window.location.href = `mailto:${data.developer.email}?subject=Senior%20Engineering%20Role%20Inquiry`;
-    } else if (cmdLower === 'contact' || cmdLower.startsWith('ping')) {
-      responseOutput = (
-        <div className="space-y-1 text-xs font-mono text-neutral-300">
-          <p>Email: <a href={`mailto:${data.developer.email}`} className="text-cyan-300 underline">{data.developer.email}</a></p>
-          <p>GitHub: <a href={data.developer.github} target="_blank" rel="noreferrer" className="text-cyan-300 underline">{data.developer.github}</a></p>
-          <p>LinkedIn: <a href={data.developer.linkedin} target="_blank" rel="noreferrer" className="text-cyan-300 underline">{data.developer.linkedin}</a></p>
-        </div>
-      );
-    } else if (cmdLower === 'admin' || cmdLower === 'manage' || cmdLower === 'new project' || cmdLower === 'add project') {
-      soundFx.playGlassChime();
+    } else if (cmdLower === 'admin') {
       if (onOpenAdmin) {
         onOpenAdmin();
         onClose();
         return;
       } else {
-        responseOutput = 'Admin Panel ready.';
-        resType = 'success';
+        responseOutput = 'Admin panel not available in current mode.';
+        resType = 'error';
       }
+    } else if (cmdLower === 'contact' || cmdLower === 'email') {
+      responseOutput = (
+        <div className="space-y-1 text-xs text-neutral-300">
+          <p>Email: <a href={`mailto:${data.developer.email}`} className="text-sky-400 underline">{data.developer.email}</a></p>
+          <p>GitHub: <a href={data.developer.github} target="_blank" rel="noreferrer" className="text-sky-400 underline">{data.developer.github}</a></p>
+          <p>LinkedIn: <a href={data.developer.linkedin} target="_blank" rel="noreferrer" className="text-sky-400 underline">{data.developer.linkedin}</a></p>
+        </div>
+      );
     } else {
-      responseOutput = `Command not recognized: "${cmd}". Type "help" for a list of valid commands.`;
+      responseOutput = `command not found: "${cmd}". Type "help" for a list of valid commands.`;
       resType = 'error';
     }
 
-    setHistory(prev => [
+    setHistory((prev) => [
       ...prev,
       {
         id: `cmd-${Date.now()}`,
@@ -217,43 +221,38 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
   return (
     <AnimatePresence>
       <div 
-        className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-neutral-950/75 backdrop-blur-xl"
+        className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 bg-black/80 backdrop-blur-2xl"
         onClick={onClose}
         id="command-palette-backdrop"
       >
         <motion.div
-          initial={{ scale: 0.95, opacity: 0, y: 10 }}
-          animate={{ scale: 1, opacity: 1, y: 0 }}
-          exit={{ scale: 0.95, opacity: 0, y: 10 }}
-          transition={{ type: 'spring', damping: 25, stiffness: 300 }}
+          initial={{ opacity: 0, scale: 0.95, y: -16 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          exit={{ opacity: 0, scale: 0.95, y: -16 }}
+          transition={{ type: 'spring', damping: 30, stiffness: 350 }}
           onClick={(e) => e.stopPropagation()}
-          className="w-full max-w-2xl max-h-[80vh] flex flex-col rounded-3xl bg-[#09090b]/95 border border-white/20 shadow-[0_25px_60px_rgba(0,0,0,0.8)] backdrop-blur-2xl overflow-hidden"
+          className="w-full max-w-2xl rounded-[28px] bg-[#161617] border border-white/[0.1] shadow-2xl overflow-hidden flex flex-col max-h-[80vh]"
           id="command-palette-modal"
         >
-          {/* Header Bar */}
-          <div className="flex items-center justify-between px-5 py-3.5 border-b border-white/10 bg-black/40">
+          {/* Spotlight Header Bar */}
+          <div className="px-6 py-4 border-b border-white/[0.08] bg-black/30 flex items-center justify-between">
             <div className="flex items-center gap-2">
-              <div className="flex gap-1.5">
-                <div className="w-2.5 h-2.5 rounded-full bg-red-500/80 cursor-pointer" onClick={onClose} />
-                <div className="w-2.5 h-2.5 rounded-full bg-amber-500/80" />
-                <div className="w-2.5 h-2.5 rounded-full bg-emerald-500/80" />
-              </div>
-              <span className="text-xs font-mono text-white/50 ml-2 flex items-center gap-1.5">
-                <Terminal className="w-3.5 h-3.5 text-sky-400" />
-                kenechukwu@dev: ~/portfolio
+              <span className="text-xs text-[#86868b] flex items-center gap-2 font-medium">
+                <Terminal className="w-4 h-4 text-sky-400" />
+                Spotlight Developer Console
               </span>
             </div>
             <button 
               onClick={onClose}
-              className="p-1 rounded-md text-white/40 hover:text-white hover:bg-white/10 transition-colors"
+              className="p-1.5 rounded-full text-[#86868b] hover:text-white hover:bg-white/[0.08] transition-colors cursor-pointer"
               aria-label="Close terminal"
             >
               <X className="w-4 h-4" />
             </button>
           </div>
 
-          {/* Terminal History Output */}
-          <div className="flex-1 overflow-y-auto p-5 space-y-3 font-mono text-xs max-h-[380px]">
+          {/* History Output */}
+          <div className="flex-1 overflow-y-auto p-6 space-y-3 font-mono text-xs max-h-[380px]">
             {history.map((item) => (
               <div key={item.id} className="space-y-1">
                 <div className="flex items-center gap-2 text-white/40">
@@ -272,8 +271,8 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             <div ref={bottomRef} />
           </div>
 
-          {/* Terminal Input Bar */}
-          <form onSubmit={handleCommandSubmit} className="p-3.5 border-t border-white/10 bg-black/60 flex items-center gap-2">
+          {/* Input Bar */}
+          <form onSubmit={handleCommandSubmit} className="p-4 border-t border-white/[0.08] bg-black/40 flex items-center gap-2.5">
             <span className="text-sky-400 font-mono text-sm font-bold pl-1">➜</span>
             <input
               ref={inputRef}
@@ -286,7 +285,7 @@ export const CommandPalette: React.FC<CommandPaletteProps> = ({
             />
             <button
               type="submit"
-              className="px-3 py-1.5 rounded-full bg-white text-black font-semibold hover:bg-white/90 transition-colors text-xs font-mono flex items-center gap-1 shadow-md"
+              className="px-4 py-1.5 rounded-full bg-white text-black font-semibold hover:bg-[#e8e8ed] transition-colors text-xs font-mono flex items-center gap-1 shadow-md cursor-pointer"
             >
               <span>Run</span>
               <CornerDownLeft className="w-3 h-3" />

@@ -26,25 +26,27 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
 }) => {
   return (
     <section id="experience" className="py-24 px-6 sm:px-12 max-w-6xl mx-auto space-y-10">
-      {/* Clean Section Header */}
+      {/* Apple Section Header */}
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={defaultViewport}
         variants={staggerContainer}
-        className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-4 border-t border-white/5 pt-12"
+        className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 pb-2 border-t border-white/[0.08] pt-12"
       >
-        <div className="space-y-2">
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono">
-            <Briefcase className="w-3.5 h-3.5 text-sky-400" />
-            <span>Career & Education</span>
-          </motion.div>
+        <div className="space-y-3">
+          <motion.p 
+            variants={fadeInUp} 
+            className="text-xs font-semibold text-[#86868b] tracking-wider uppercase"
+          >
+            Experience
+          </motion.p>
           
-          <motion.h2 variants={headingReveal} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-            Experience & <span className="google-gemini-text font-bold">Background</span>
+          <motion.h2 variants={headingReveal} className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+            Career & <span className="google-gemini-text font-bold">Background</span>
           </motion.h2>
           
-          <motion.p variants={fadeInUp} className="text-white/60 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
+          <motion.p variants={fadeInUp} className="text-[#86868b] text-base sm:text-lg max-w-xl font-normal leading-relaxed">
             Full-stack engineering, AI developer tooling, open-source systems, and computer engineering coursework.
           </motion.p>
         </div>
@@ -138,66 +140,88 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                       .section-title {
                         font-size: 10.5pt;
                         font-weight: 800;
-                        text-transform: uppercase;
-                        letter-spacing: 0.5px;
                         color: #0f172a;
+                        text-transform: uppercase;
+                        letter-spacing: 0.8px;
                         border-bottom: 1.5px solid #0f172a;
-                        padding-bottom: 2px;
+                        padding-bottom: 3px;
                         margin-top: 14px;
                         margin-bottom: 8px;
                       }
-                      .item-header {
+                      .entry {
+                        margin-bottom: 11px;
+                      }
+                      .entry-header {
                         display: flex;
                         justify-content: space-between;
                         align-items: baseline;
                         margin-bottom: 2px;
                       }
-                      .item-title {
+                      .entry-title {
                         font-weight: 700;
-                        font-size: 10pt;
+                        font-size: 10.5pt;
                         color: #0f172a;
                       }
-                      .item-date {
-                        font-size: 9pt;
-                        color: #475569;
+                      .entry-company {
                         font-weight: 600;
+                        color: #1e293b;
                       }
-                      .item-subtitle {
+                      .entry-date {
+                        font-size: 9pt;
+                        color: #64748b;
+                        font-weight: 500;
+                      }
+                      .entry-location {
+                        font-size: 8.5pt;
+                        color: #64748b;
+                      }
+                      .entry-desc {
                         font-size: 9.5pt;
                         color: #334155;
                         margin-bottom: 4px;
                       }
-                      ul {
-                        list-style-type: disc;
-                        padding-left: 18px;
-                        margin-bottom: 8px;
+                      ul.achievements {
+                        list-style-type: none;
+                        padding-left: 0;
                       }
-                      li {
+                      ul.achievements li {
+                        position: relative;
+                        padding-left: 14px;
                         font-size: 9pt;
                         color: #334155;
                         margin-bottom: 3px;
-                        line-height: 1.35;
-                      }
-                      .skills-line {
-                        font-size: 9pt;
-                        color: #334155;
-                        margin-bottom: 4px;
                         line-height: 1.4;
                       }
-                      .skills-line strong {
+                      ul.achievements li::before {
+                        content: "•";
+                        position: absolute;
+                        left: 2px;
+                        color: #0284c7;
+                        font-weight: bold;
+                      }
+                      .skills-grid {
+                        display: grid;
+                        grid-template-columns: 140px 1fr;
+                        row-gap: 5px;
+                        font-size: 9pt;
+                        margin-top: 4px;
+                      }
+                      .skill-category {
+                        font-weight: 700;
                         color: #0f172a;
+                      }
+                      .skill-list {
+                        color: #334155;
                       }
                       @media print {
                         .no-print-bar {
                           display: none !important;
                         }
                         .container {
-                          padding: 0;
-                          max-width: 100%;
+                          padding: 0 !important;
                         }
                         body {
-                          background: #ffffff;
-                          color: #000000;
+                          font-size: 10pt;
                         }
                       }
                     </style>
@@ -205,22 +229,14 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                   <body>
                     <div class="container">
                       <div class="no-print-bar">
-                        <div>
-                          <strong style="font-size: 14px;">Official Resume</strong>
-                          <span style="font-size: 12px; color: #94a3b8; margin-left: 8px;">Print or Save as PDF</span>
-                        </div>
-                        <button class="btn-print" onclick="window.print()">🖨️ Print / Save PDF</button>
+                        <span>Print Preview: ${developerName} Resume</span>
+                        <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
                       </div>
 
                       <div class="header">
-                        <div class="name">OSELE KENECHUKWU ALEXANDER</div>
-                        <div class="contact-info">Lagos, Nigeria &nbsp;•&nbsp; +234 816 028 4721</div>
+                        <div class="name">${developerName}</div>
+                        <div class="contact-info">Lagos, Nigeria • ${developerEmail}</div>
                         <div class="contact-links">
-                          <a href="mailto:kenechukwu.osele@outlook.com">kenechukwu.osele@outlook.com</a> &nbsp;|&nbsp;
-                          <a href="https://linkedin.com/in/kenechukwuosele" target="_blank">linkedin.com/in/kenechukwuosele</a> &nbsp;|&nbsp;
-                          <a href="https://github.com/kenechukwuosele" target="_blank">github.com/kenechukwuosele</a>
-                        </div>
-                      </div>
 
                       <div class="section-title">Education</div>
                       <div>
@@ -333,29 +349,29 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
         {experience.map((item) => (
           <div
             key={item.id}
-            className="group rounded-3xl border border-white/10 hover:border-white/20 bg-[#0c0e14]/90 p-6 sm:p-8 space-y-6 transition-all duration-300 shadow-xl"
+            className="group rounded-[28px] border border-white/[0.08] bg-[#161617] p-7 sm:p-8 space-y-6 shadow-2xl transition-all duration-300"
             id={`experience-card-${item.id}`}
           >
             {/* Header Info */}
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-5 border-b border-white/[0.06]">
               <div className="space-y-1">
                 <div className="flex flex-wrap items-center gap-2.5">
-                  <h3 className="text-xl font-bold text-white tracking-tight">
+                  <h3 className="text-2xl font-bold text-white tracking-tight">
                     {item.role}
                   </h3>
-                  <span className="text-xs text-sky-400 px-2.5 py-0.5 rounded-full bg-sky-400/10 border border-sky-400/20 font-medium">
+                  <span className="text-xs text-sky-400 px-3 py-0.5 rounded-full bg-sky-400/10 border border-sky-400/20 font-medium">
                     {item.type}
                   </span>
                 </div>
                 
-                <div className="flex flex-wrap items-center gap-3 text-xs sm:text-sm text-white/60">
+                <div className="flex flex-wrap items-center gap-3 text-sm text-[#86868b]">
                   <span className="font-semibold text-white flex items-center gap-1.5">
                     <Building2 className="w-3.5 h-3.5 text-sky-400" />
                     {item.company}
                   </span>
                   <span>•</span>
                   <span className="flex items-center gap-1.5">
-                    <MapPin className="w-3.5 h-3.5 text-white/40" />
+                    <MapPin className="w-3.5 h-3.5 text-[#86868b]" />
                     {item.location}
                   </span>
                 </div>
@@ -363,12 +379,12 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
 
               <div className="flex flex-wrap items-center gap-2 sm:self-center">
                 {item.highlightMetric && (
-                  <div className="px-3 py-1.5 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-1.5 font-medium">
+                  <div className="px-3 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-300 text-xs flex items-center gap-1.5 font-medium">
                     <TrendingUp className="w-3.5 h-3.5 text-emerald-400" />
                     <span>{item.highlightMetric}</span>
                   </div>
                 )}
-                <div className="px-3 py-1.5 rounded-xl bg-white/5 border border-white/10 text-xs text-white/60 flex items-center gap-1.5">
+                <div className="px-3 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.06] text-xs text-[#86868b] flex items-center gap-1.5">
                   <Calendar className="w-3.5 h-3.5 text-sky-400" />
                   <span>{item.period}</span>
                 </div>
@@ -376,16 +392,16 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
             </div>
 
             {/* Description */}
-            <p className="text-sm text-white/70 leading-relaxed font-normal">
+            <p className="text-base text-[#86868b] leading-relaxed font-normal">
               {item.description}
             </p>
 
             {/* Accomplishments */}
-            <div className="space-y-2 pt-1">
-              <span className="text-xs text-white/40 font-medium">Key Contributions:</span>
+            <div className="space-y-2.5 pt-1">
+              <span className="text-xs text-[#86868b] font-semibold uppercase tracking-wider">Key Contributions</span>
               <ul className="space-y-2">
                 {item.achievements.map((ach, aIdx) => (
-                  <li key={aIdx} className="flex items-start gap-2 text-xs sm:text-sm text-white/65 font-normal">
+                  <li key={aIdx} className="flex items-start gap-2.5 text-sm text-white/80 font-normal leading-relaxed">
                     <span className="w-1.5 h-1.5 rounded-full bg-sky-400 mt-2 shrink-0" />
                     <span>{ach}</span>
                   </li>
@@ -394,12 +410,12 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
             </div>
 
             {/* Stack Chips */}
-            <div className="pt-4 border-t border-white/5 flex flex-wrap items-center gap-1.5">
-              <span className="text-xs text-white/40 mr-1">Technologies:</span>
+            <div className="pt-4 border-t border-white/[0.06] flex flex-wrap items-center gap-1.5">
+              <span className="text-xs text-[#86868b] mr-1">Technologies:</span>
               {item.technologies.map((tech) => (
                 <span 
                   key={tech}
-                  className="text-xs px-2.5 py-1 rounded-lg bg-white/5 text-white/70 border border-white/5"
+                  className="text-xs px-2.5 py-1 rounded-lg bg-white/[0.04] text-white/70 border border-white/[0.06]"
                 >
                   {tech}
                 </span>

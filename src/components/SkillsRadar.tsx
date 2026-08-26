@@ -42,49 +42,49 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
   ];
 
   return (
-    <section id="skills" className="py-24 px-6 sm:px-12 max-w-6xl mx-auto space-y-12">
-      {/* Clean Section Header */}
+    <section id="skills" className="py-24 sm:py-32 px-6 sm:px-12 max-w-6xl mx-auto space-y-12">
+      {/* Apple Section Header */}
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={defaultViewport}
         variants={staggerContainer}
-        className="space-y-2 border-t border-white/5 pt-12"
+        className="space-y-3 border-t border-white/[0.08] pt-12"
       >
-        <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono">
-          <Network className="w-3.5 h-3.5 text-sky-400" />
-          <span>Core Competencies</span>
-        </motion.div>
+        <motion.p 
+          variants={fadeInUp} 
+          className="text-xs font-semibold text-[#86868b] tracking-wider uppercase"
+        >
+          Architecture
+        </motion.p>
         
-        <motion.h2 variants={headingReveal} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
-          Protocols, Concurrency & <span className="google-gemini-text font-bold">Architecture</span>
+        <motion.h2 variants={headingReveal} className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+          Engineering from <span className="google-gemini-text font-bold">first principles.</span>
         </motion.h2>
         
-        <motion.p variants={fadeInUp} className="text-white/60 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
-          Deep first-principles knowledge of internet transport, asynchronous event loops, applied algorithms, and cryptographic system defense.
+        <motion.p variants={fadeInUp} className="text-[#86868b] text-base sm:text-lg max-w-xl font-normal leading-relaxed">
+          Deep fundamental understanding of network transport, async concurrency, cryptographic security, and applied AI systems.
         </motion.p>
       </motion.div>
 
-      {/* 4 Deep Architectural Pillars */}
+      {/* 4 Apple Feature Cards */}
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={defaultViewport}
         variants={staggerContainer}
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4"
+        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5"
       >
         {architecturalPillars.map((pillar, idx) => (
           <motion.div
             key={idx}
             variants={cardVariant}
-            className="p-6 rounded-3xl bg-[#0c0e14]/90 border border-white/10 hover:border-white/20 transition-all space-y-2 backdrop-blur-xl shadow-lg"
+            className="p-6 rounded-[24px] bg-[#161617] border border-white/[0.08] hover:border-white/[0.15] transition-all space-y-2.5 shadow-xl"
           >
-            <div className="flex items-center gap-2">
-              <h3 className="font-semibold text-sm text-white">
-                {pillar.title}
-              </h3>
-            </div>
-            <p className="text-xs text-white/60 leading-relaxed font-normal">
+            <h3 className="font-semibold text-base text-white tracking-tight">
+              {pillar.title}
+            </h3>
+            <p className="text-xs text-[#86868b] leading-relaxed font-normal">
               {pillar.desc}
             </p>
           </motion.div>
@@ -111,15 +111,15 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
                 onClick={() => setSelectedCategory(idx)}
                 className={`w-full text-left p-4 rounded-2xl border transition-all space-y-1 cursor-pointer ${
                   isSelected
-                    ? 'bg-white/10 border-white/20 text-white shadow-sm'
-                    : 'bg-white/[0.02] border-white/5 text-white/60 hover:text-white hover:bg-white/[0.04]'
+                    ? 'bg-white text-black font-semibold shadow-md border-transparent'
+                    : 'bg-[#161617] border-white/[0.06] text-[#86868b] hover:text-white hover:border-white/[0.12]'
                 }`}
               >
                 <div className="flex items-center gap-2">
-                  <Icon className={`w-4 h-4 ${isSelected ? 'text-sky-400' : 'text-white/40'}`} />
-                  <span className="font-medium text-sm text-white">{cat.title}</span>
+                  <Icon className={`w-4 h-4 ${isSelected ? 'text-black' : 'text-sky-400'}`} />
+                  <span className={`font-semibold text-sm ${isSelected ? 'text-black' : 'text-white'}`}>{cat.title}</span>
                 </div>
-                <p className="text-xs text-white/50 leading-relaxed font-normal pl-6">
+                <p className={`text-xs leading-relaxed font-normal pl-6 ${isSelected ? 'text-neutral-700' : 'text-[#86868b]'}`}>
                   {cat.description}
                 </p>
               </button>
@@ -141,19 +141,19 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
               {skillCategories[selectedCategory]?.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="p-5 rounded-2xl bg-[#0c0e14]/90 border border-white/10 space-y-2.5 shadow-md"
+                  className="p-5 rounded-[22px] bg-[#161617] border border-white/[0.08] space-y-2 shadow-lg"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-semibold text-white text-sm">
                       {skill.name}
                     </span>
-                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-sky-500/10 text-sky-300 border border-sky-500/20 font-medium">
+                    <span className="text-xs px-2.5 py-0.5 rounded-full bg-white/[0.06] text-[#86868b] border border-white/[0.08] font-medium">
                       {skill.level}
                     </span>
                   </div>
 
                   {skill.highlight && (
-                    <p className="text-xs text-white/65 font-normal leading-relaxed">
+                    <p className="text-xs text-[#86868b] font-normal leading-relaxed">
                       {skill.highlight}
                     </p>
                   )}

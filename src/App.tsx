@@ -227,10 +227,8 @@ export default function App() {
   return (
     <div className={`min-h-screen relative font-sans transition-colors duration-500 selection:bg-sky-500/20 selection:text-sky-300 ${
       theme === 'light' 
-        ? 'light-theme bg-[#f8fafc] text-slate-900' 
-        : theme === 'obsidian' 
-        ? 'bg-[#000000] text-neutral-100' 
-        : 'bg-[#050608] text-white'
+        ? 'light-theme bg-white text-[#1d1d1f]' 
+        : 'bg-[#000000] text-[#f5f5f7]'
     }`}>
 
       {/* WebGL Liquid Optical Shader Canvas */}
@@ -279,18 +277,18 @@ export default function App() {
         />
       </main>
 
-      {/* Minimalist Apple-Grade Footer */}
-      <footer className="relative z-10 px-6 sm:px-12 py-12 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 max-w-6xl mx-auto">
+      {/* Minimalist Apple HIG Footer */}
+      <footer className="relative z-10 px-6 sm:px-12 py-16 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/[0.08] max-w-6xl mx-auto">
         <div className="space-y-1 text-center md:text-left">
-          <p className="text-sm font-semibold tracking-tight text-white/90">
+          <p className="text-sm font-semibold text-white">
             {data.developer.name}
           </p>
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-[#86868b]">
             {data.developer.title} · Designed with first principles
           </p>
         </div>
 
-        <div className="flex items-center gap-6 text-xs text-white/50">
+        <div className="flex items-center gap-6 text-xs text-[#86868b]">
           <a 
             href={data.developer.github} 
             target="_blank" 
@@ -313,7 +311,7 @@ export default function App() {
             title="Scroll to top"
           >
             <span>Top</span>
-            <ArrowUp className="w-3 h-3" />
+            <ArrowUp className="w-3.5 h-3.5" />
           </button>
         </div>
       </footer>
