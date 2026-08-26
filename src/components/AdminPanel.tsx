@@ -112,6 +112,10 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const [importError, setImportError] = useState<string | null>(null);
   const [importSuccess, setImportSuccess] = useState(false);
 
+  // GitHub Sync state
+  const [isSyncingGitHub, setIsSyncingGitHub] = useState(false);
+  const [syncFeedback, setSyncFeedback] = useState<string | null>(null);
+
   // Passcode Security state
   const PASSCODE_STORAGE_KEY = 'kene_admin_pin';
   const [masterPin, setMasterPin] = useState(() => {
@@ -353,9 +357,6 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
     p.category.toLowerCase().includes(searchQuery.toLowerCase()) ||
     p.tags.some(t => t.toLowerCase().includes(searchQuery.toLowerCase()))
   );
-
-  const [isSyncingGitHub, setIsSyncingGitHub] = useState(false);
-  const [syncFeedback, setSyncFeedback] = useState<string | null>(null);
 
   const handleSyncFromGitHub = async () => {
     try {

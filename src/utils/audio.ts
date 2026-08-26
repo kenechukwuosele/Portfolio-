@@ -1,20 +1,39 @@
 class SoundController {
   private ctx: AudioContext | null = null;
   private enabled: boolean = true;
+  private userInteracted: boolean = false;
 
   constructor() {
-    // Lazy initialize on first interaction to respect browser autoplay policies
+    if (typeof window !== 'undefined') {
+      const handleFirstInteraction = () => {
+        this.userInteracted = true;
+        if (this.ctx && this.ctx.state === 'suspended') {
+          this.ctx.resume().catch(() => {});
+        }
+        window.removeEventListener('pointerdown', handleFirstInteraction);
+        window.removeEventListener('keydown', handleFirstInteraction);
+        window.removeEventListener('touchstart', handleFirstInteraction);
+      };
+      window.addEventListener('pointerdown', handleFirstInteraction, { passive: true });
+      window.addEventListener('keydown', handleFirstInteraction, { passive: true });
+      window.addEventListener('touchstart', handleFirstInteraction, { passive: true });
+    }
   }
 
   private initCtx() {
+    if (!this.userInteracted) return;
     if (!this.ctx && typeof window !== 'undefined') {
-      const AudioCtxClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
-      if (AudioCtxClass) {
-        this.ctx = new AudioCtxClass();
+      try {
+        const AudioCtxClass = window.AudioContext || (window as unknown as { webkitAudioContext: typeof AudioContext }).webkitAudioContext;
+        if (AudioCtxClass) {
+          this.ctx = new AudioCtxClass();
+        }
+      } catch {
+        return;
       }
     }
     if (this.ctx && this.ctx.state === 'suspended') {
-      this.ctx.resume();
+      this.ctx.resume().catch(() => {});
     }
   }
 
@@ -24,7 +43,7 @@ class SoundController {
 
   public setEnabled(val: boolean) {
     this.enabled = val;
-    if (val) {
+    if (val && this.userInteracted) {
       this.playGlassTap(880, 0.05);
     }
   }
