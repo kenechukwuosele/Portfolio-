@@ -58,16 +58,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       >
         <motion.p 
           variants={fadeInUp} 
-          className="text-xs font-semibold text-[#86868b] tracking-wider uppercase"
+          className="apple-eyebrow"
         >
           Contact
         </motion.p>
         
-        <motion.h2 variants={headingReveal} className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-          Get in <span className="google-gemini-text font-bold">Touch</span>
+        <motion.h2 variants={headingReveal} className="apple-headline text-4xl sm:text-5xl font-bold text-white">
+          Get in <span className="apple-intelligence-gradient font-bold">Touch</span>
         </motion.h2>
         
-        <motion.p variants={fadeInUp} className="text-[#86868b] text-base sm:text-lg font-normal leading-relaxed">
+        <motion.p variants={fadeInUp} className="apple-body text-base sm:text-lg max-w-xl mx-auto">
           Open to full-stack engineering roles, applied AI systems, and technical collaborations.
         </motion.p>
       </motion.div>

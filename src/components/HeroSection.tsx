@@ -48,21 +48,21 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           {/* Apple Eyebrow Badge */}
           <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/[0.08]">
             <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="text-xs text-white/80 font-medium tracking-wide">
+            <span className="apple-eyebrow !text-white/80">
               {data.developer.statusBadge}
             </span>
           </motion.div>
 
           {/* Hero Headline */}
           <motion.div variants={fadeInUp} className="space-y-4">
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold tracking-tight text-white leading-[1.04]">
+            <h1 className="apple-headline text-5xl sm:text-7xl lg:text-8xl font-bold text-white">
               Intelligent systems.{' '}
-              <span className="google-gemini-text font-bold block sm:inline">
-                Full-Stack and AI.
+              <span className="apple-intelligence-gradient font-bold block sm:inline">
+                Full-Stack & AI.
               </span>
             </h1>
             
-            <p className="text-lg sm:text-xl text-[#86868b] max-w-xl font-normal leading-relaxed">
+            <p className="apple-body text-lg sm:text-xl max-w-xl">
               Hi, I'm <span className="text-white font-medium">{data.developer.name}</span> — a Software Engineer crafting scalable FastAPI microservices, modern TypeScript applications, and applied AI systems.
             </p>
           </motion.div>

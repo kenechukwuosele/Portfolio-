@@ -47,21 +47,21 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
         <div className="space-y-3">
           <motion.p 
             variants={fadeInUp} 
-            className="text-xs font-semibold text-[#86868b] tracking-wider uppercase"
+            className="apple-eyebrow"
           >
             Projects
           </motion.p>
           
           <motion.h2 
             variants={headingReveal} 
-            className="text-4xl sm:text-5xl font-bold tracking-tight text-white"
+            className="apple-headline text-4xl sm:text-5xl font-bold text-white"
           >
-            Crafted for scale and <span className="google-gemini-text font-bold">intelligence.</span>
+            Crafted for scale and <span className="apple-intelligence-gradient font-bold">intelligence.</span>
           </motion.h2>
           
           <motion.p 
             variants={fadeInUp} 
-            className="text-[#86868b] text-base sm:text-lg max-w-xl font-normal leading-relaxed"
+            className="apple-body text-base sm:text-lg max-w-xl"
           >
             Production microservices, developer tooling, and applied AI systems built from first principles.
           </motion.p>

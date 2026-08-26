@@ -53,16 +53,16 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
       >
         <motion.p 
           variants={fadeInUp} 
-          className="text-xs font-semibold text-[#86868b] tracking-wider uppercase"
+          className="apple-eyebrow"
         >
           Architecture
         </motion.p>
         
-        <motion.h2 variants={headingReveal} className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-          Engineering from <span className="google-gemini-text font-bold">first principles.</span>
+        <motion.h2 variants={headingReveal} className="apple-headline text-4xl sm:text-5xl font-bold text-white">
+          Engineering from <span className="apple-intelligence-gradient font-bold">first principles.</span>
         </motion.h2>
         
-        <motion.p variants={fadeInUp} className="text-[#86868b] text-base sm:text-lg max-w-xl font-normal leading-relaxed">
+        <motion.p variants={fadeInUp} className="apple-body text-base sm:text-lg max-w-xl">
           Deep fundamental understanding of network transport, async concurrency, cryptographic security, and applied AI systems.
         </motion.p>
       </motion.div>

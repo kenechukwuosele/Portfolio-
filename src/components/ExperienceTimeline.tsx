@@ -37,16 +37,16 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
         <div className="space-y-3">
           <motion.p 
             variants={fadeInUp} 
-            className="text-xs font-semibold text-[#86868b] tracking-wider uppercase"
+            className="apple-eyebrow"
           >
             Experience
           </motion.p>
           
-          <motion.h2 variants={headingReveal} className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
-            Career & <span className="google-gemini-text font-bold">Background</span>
+          <motion.h2 variants={headingReveal} className="apple-headline text-4xl sm:text-5xl font-bold text-white">
+            Career & <span className="apple-intelligence-gradient font-bold">Background</span>
           </motion.h2>
           
-          <motion.p variants={fadeInUp} className="text-[#86868b] text-base sm:text-lg max-w-xl font-normal leading-relaxed">
+          <motion.p variants={fadeInUp} className="apple-body text-base sm:text-lg max-w-xl">
             Full-stack engineering, AI developer tooling, open-source systems, and computer engineering coursework.
           </motion.p>
         </div>
