@@ -27,10 +27,10 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   // Typewriter effect state
-  // English: "Engineering high-concurrency Backend systems, protocols and security."
-  // German: "Entwicklung hochkonkurrenter Backend-Systeme, Protokolle und Sicherheit."
-  const englishPhrase = "Engineering high-concurrency Backend systems, protocols and security.";
-  const germanPhrase = "Entwicklung hochkonkurrenter Backend-Systeme, Protokolle und Sicherheit.";
+  // English: "Building intelligent, Full-Stack and AI systems."
+  // German: "Entwicklung intelligenter, Full-Stack und KI-Systeme."
+  const englishPhrase = "Building intelligent, Full-Stack and AI systems.";
+  const germanPhrase = "Entwicklung intelligenter, Full-Stack und KI-Systeme.";
 
   const [displayedText, setDisplayedText] = useState("");
   const [isDeleting, setIsDeleting] = useState(false);
@@ -46,7 +46,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       if (displayedText.length < currentTarget.length) {
         timeout = setTimeout(() => {
           setDisplayedText(currentTarget.slice(0, displayedText.length + 1));
-        }, 50);
+        }, 55);
       } else {
         // Finished typing current phrase, pause before deleting
         timeout = setTimeout(() => {
@@ -58,7 +58,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       if (displayedText.length > 0) {
         timeout = setTimeout(() => {
           setDisplayedText(currentTarget.slice(0, displayedText.length - 1));
-        }, 25);
+        }, 28);
       } else {
         // Finished deleting, switch to next phrase
         setIsDeleting(false);
@@ -69,9 +69,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearTimeout(timeout);
   }, [displayedText, isDeleting, phraseIndex]);
 
-  // Dynamically highlight "Backend" in a distinct vibrant cyan color while typing
+  // Dynamically highlight "Full-Stack" in a distinct vibrant cyan color while typing
   const renderTypedTitle = (text: string) => {
-    const target = "Backend";
+    const target = "Full-Stack";
     const lowerText = text.toLowerCase();
     const lowerTarget = target.toLowerCase();
     
@@ -91,8 +91,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       );
     }
 
-    // Handle mid-typing of "Backend"
-    const prefixes = ["engineering high-concurrency ", "entwicklung hochkonkurrenter "];
+    // Handle mid-typing of "Full-Stack"
+    const prefixes = ["building intelligent, ", "entwicklung intelligenter, "];
     for (const prefix of prefixes) {
       if (lowerText.startsWith(prefix)) {
         const typedTargetPart = text.slice(prefix.length);
@@ -161,7 +161,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <span className="inline-block w-1.5 h-8 sm:h-12 lg:h-14 ml-1 bg-sky-400 align-middle animate-pulse" />
             </h1>
             <p className="text-base sm:text-lg text-white/70 max-w-xl font-normal leading-relaxed">
-              Backend & Systems Engineer driven by first-principles understanding of internet protocols, asynchronous event loops, applied algorithms, and memory-hard cryptographic security.
+              Software Engineer crafting AI-powered developer tools, voice copilots, MERN applications, and machine learning pipelines.
             </p>
           </motion.div>
 
@@ -275,7 +275,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/60 border border-white/20 backdrop-blur-xl shadow-lg">
                   <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                   <span className="text-[10px] font-mono font-medium text-white/90 uppercase tracking-wider">
-                    Backend & Systems
+                    Full-Stack & AI
                   </span>
                 </div>
 
