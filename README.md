@@ -1,7 +1,7 @@
 <div align="center">
 
 # Osele Kenechukwu Alexander
-### Full-Stack Engineer & AI Systems Developer
+### Backend & Systems Engineer
 
 [![Website](https://img.shields.io/badge/Live_Portfolio-kenechukwuosele.me-00f0ff?style=for-the-badge&logo=vercel&logoColor=white)](https://kenechukwuosele.me/)
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kenechukwuosele/)
@@ -9,7 +9,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-emerald?style=for-the-badge)](LICENSE)
 
 <p align="center">
-  <em>An ultra-modern, high-performance developer portfolio featuring liquid-glass optics, Unix terminal CLI, interactive case studies, and a passcode-protected content admin panel.</em>
+  <em>High-performance systems showcase driven by first-principles understanding of internet protocols, asynchronous concurrency, applied algorithms, and memory-hard cryptographic security.</em>
 </p>
 
 </div>
@@ -18,36 +18,30 @@
 
 ## 🌟 Overview
 
-This repository houses the personal portfolio and systems showcase of **Osele Kenechukwu Alexander**, a Full-Stack Engineer and AI Systems Developer specializing in **FastAPI**, **Python**, **TypeScript**, **React**, **PostgreSQL**, **Redis**, **Argon2id**, and **RAG/LLM integrations**.
+This repository houses the personal portfolio and systems showcase of **Osele Kenechukwu Alexander**, a Backend & Systems Engineer focused on **Internet Protocols (TCP/IP, HTTP/2, WebSockets)**, **Asynchronous Concurrency (Python asyncio, Non-Blocking I/O)**, **Applied Algorithms & Data Structures**, and **Cryptographic Security (Argon2id, Stateful Redis Revocation)**.
 
-Designed with an Apple-inspired dark liquid-glass aesthetic, tactile micro-interactions, and high-contrast typography, the portfolio provides recruiters and engineering leaders with an interactive deep dive into architectural outcomes, code snippets, and live deployments.
-
----
-
-## 🚀 Key Highlights & Features
-
-- **Liquid Glass Portrait Display**: Frosted glass depth optics, dynamic ambient glow, and verified engineer overlays.
-- **Interactive Developer Terminal (`⌘K`)**: Functional developer CLI console supporting commands like `help`, `about`, `projects`, `skills`, `sudo hire`, and `contact`.
-- **Passcode-Protected Admin Panel (`⌘E`)**: Complete visual CRUD dashboard to add, edit, feature, and manage projects without hardcoding. Includes live `localStorage` persistence and 1-click TypeScript/JSON code export.
-- **Architecture Case Studies**: Detailed modals breaking down multi-tier system designs, cryptographic security choices, and real-time code kernels.
-- **Multilingual Support**: Highlights English (Fluent) and German (Proficient) capabilities with animated typewriter headlines.
-- **Optimized for Vercel**: Zero-config Single Page App routing via [`vercel.json`](./vercel.json) with custom domain support.
+Rather than relying on framework-counting, this portfolio highlights fundamental system design, packet transport semantics, event-loop execution, zero-trust perimeter defense, and verified engineering case studies.
 
 ---
 
-## 🛠️ Tech Stack & Architecture
+## 🚀 Key Architectural Pillars
 
-### Frontend & UI Layer
-- **Framework**: [React 19](https://react.dev/) + [TypeScript](https://www.typescriptlang.org/)
-- **Build Tool**: [Vite 6](https://vitejs.dev/)
-- **Styling**: [Tailwind CSS v4](https://tailwindcss.com/)
-- **Animations**: [Motion](https://motion.dev/) (Framer Motion)
-- **Icons**: [Lucide React](https://lucide.dev/)
-- **Audio & FX**: Synthesized Web Audio API soundscapes & Canvas Confetti
+- **Internet Protocols & Socket Transport**: TCP connection handshakes, windowing, HTTP/1.1 vs HTTP/2 multiplexing, WebSocket full-duplex streams, and network telemetry.
+- **Asynchronous Concurrency & I/O**: Python asyncio event loops, non-blocking I/O multiplexing, async connection pooling, and distributed Redis mutexes.
+- **Cryptographic Security & Identity**: Memory-hard password hashing (Argon2id), dual-token cryptographic rotation, constant-time verification, and zero-trust API boundaries.
+- **Algorithmic Rigor & Applied AI**: Time-space complexity optimization, vector embeddings & HNSW indexing (ChromaDB), and two-model critic query verification (90% inference cost savings).
+- **Passcode-Protected Content Manager (`⌘E`)**: In-browser CRUD administration with instant `localStorage` persistence and automatic weekly GitHub sync.
 
-### Core Engineering Focus
-- **Backend & APIs**: FastAPI, Python 3.13+, SQLAlchemy 2.0, Alembic, Node.js, Express
-- **Databases & Caching**: PostgreSQL, Redis (Token Blacklisting & Caching), MongoDB, MySQL
+---
+
+## 🛠️ Core Engineering Focus
+
+### Systems, Protocols & Security
+- **Protocols & Transport**: TCP/IP socket programming, HTTP/1.1 & HTTP/2 framing, WebSockets, ASGI/WSGI network models, TLS handshake verification
+- **Concurrency & Asynchrony**: Python `asyncio`, coroutines, event-loop scheduling, connection pool leases, non-blocking socket I/O
+- **Security & Cryptography**: Argon2id memory-hard hashing, dual-token JWT rotation, Redis blacklist caching, rate limiting, constant-time validation
+- **Persistence & Caching**: PostgreSQL (SQLAlchemy 2.0 async + Alembic), Redis in-memory key-value store, MongoDB, MySQL
+- **Algorithms & AI**: Vector similarity search (ChromaDB), hybrid dense/sparse retrieval (RAG), hierarchical critic verification trees
 - **Security & Auth**: Argon2id password hashing, Dual JWT (Access + Refresh Rotation), OAuth2
 - **AI & Machine Learning**: Retrieval-Augmented Generation (RAG), ChromaDB, Groq API, OpenRouter, Scikit-Learn
 

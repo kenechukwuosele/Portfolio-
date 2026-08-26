@@ -4,30 +4,31 @@ export const initialPortfolioData: PortfolioData = {
   developer: {
     name: "Osele Kenechukwu Alexander",
     preferredName: "kenechukwuosele",
-    title: "Full-Stack Engineer & AI Systems Developer",
-    roleFocus: "Building AI-powered developer tools, auth & backend services, full-stack web applications, voice copilots, and machine learning pipelines.",
-    statusBadge: "Open to Full-Stack & AI Roles",
+    title: "Backend & Systems Engineer",
+    roleFocus: "Designing high-concurrency backend services, asynchronous networking architectures, cryptographic security layers, and applied algorithmic systems.",
+    statusBadge: "Open to Backend & Systems Roles",
     isAvailableForHire: true,
     location: "Nigeria",
     timezone: "WAT (UTC+1)",
-    bio: "Software Engineer crafting AI-powered terminal tools, secure authentication microservices, full-stack web apps, RAG research assistants, and voice-driven copilots.",
-    subBio: "Specializing in FastAPI, Python, TypeScript, React, Node.js, MERN stack, PostgreSQL, Redis, Argon2, and modern AI/LLM integrations.",
+    bio: "Backend & Systems Engineer driven by first-principles understanding of internet protocols, asynchronous concurrency, applied algorithms, and memory-hard security architectures.",
+    subBio: "Specializing in TCP/IP & HTTP transport models, asyncio event-loop concurrency, Argon2id & cryptographic auth, query execution planning, and distributed Redis caches.",
     avatarUrl: "/profile.jpg",
-    email: "oseleken9@gmail.com",
+    email: "kenechukwu.osele@outlook.com",
     github: "https://github.com/kenechukwuosele",
     twitter: "https://github.com/kenechukwuosele",
     linkedin: "https://www.linkedin.com/in/kenechukwuosele/",
     resumeUrl: "#resume",
     philosophy: [
-      "Intelligent Tooling: Reducing developer and user friction through conversational AI, smart task routing, and intuitive interfaces.",
-      "Resilient Security & Architecture: Building production microservices with strict Argon2id hashing, stateful Redis revocation, and type-safe schemas.",
-      "Grounded AI: Grounding LLMs with hybrid retrieval, vector databases, and multi-model verification critic patterns."
+      "Protocol-First Engineering: Grounding systems in the mechanics of TCP/IP, HTTP/2 framing, WebSocket full-duplex streams, and network telemetry.",
+      "Asynchronous Concurrency: Exploiting non-blocking I/O, coroutines, and connection pooling to sustain high-throughput workloads with sub-millisecond scheduling overhead.",
+      "Defense-in-Depth Security: Implementing memory-hard password hashing (Argon2id), dual-token cryptographic lifecycles, timing-safe evaluation, and distributed revocation.",
+      "Algorithmic Rigor: Optimizing time-space complexity, vector indexing, cache eviction semantics, and multi-model critic verification over framework dogma."
     ],
     quickStats: [
-      { label: "Repositories", value: "30+", detail: "Public open-source projects on GitHub" },
-      { label: "Core Stack", value: "FastAPI & React", detail: "Python + TS Microservices" },
-      { label: "Security & DBs", value: "Postgres & Redis", detail: "Argon2, JWT & Refresh Tokens" },
-      { label: "AI & Vector DBs", value: "RAG & LLMs", detail: "ChromaDB, Groq & Gemini" }
+      { label: "Concurrency & I/O", value: "Async Event Loops", detail: "Non-blocking ASGI & Socket Models" },
+      { label: "Cryptographic Security", value: "Argon2id & JWT", detail: "Stateful Redis Revocation & Auth" },
+      { label: "Protocols & Transport", value: "TCP/IP & WebSockets", detail: "Network Telemetry & Stream Sync" },
+      { label: "Algorithms & AI", value: "Applied Complexity", detail: "Vector Indexing, RAG & Critic Trees" }
     ]
   },
   featuredProjects: [
@@ -604,43 +605,51 @@ exports.createTask = async (req, res) => {
   ],
   skillCategories: [
     {
-      title: "Backend Services & Security",
-      description: "FastAPI microservices, authentication architectures, relational databases, and caching.",
+      title: "Internet Protocols & Network Architecture",
+      description: "Transport semantics, socket programming, HTTP/2 multiplexing, WebSocket streams, and telemetry.",
       skills: [
-        { name: "FastAPI & Python 3", level: "Expert", years: 4, highlight: "Async Endpoints, Pydantic, OAuth2 & Microservices" },
-        { name: "PostgreSQL & SQLAlchemy", level: "Expert", years: 4, highlight: "SQLAlchemy 2.0 ORM, Migrations (Alembic) & Indexing" },
-        { name: "Redis & Session Blacklisting", level: "Advanced", years: 3, highlight: "Token Revocation, Key-Value Caching & Pub/Sub" },
-        { name: "Argon2 & JWT Security", level: "Expert", years: 3, highlight: "Cryptographic Password Hashing & Token Rotation" },
-        { name: "Docker & Containerization", level: "Advanced", years: 3, highlight: "Multi-stage Dockerfiles & Docker Compose" }
+        { name: "TCP/IP & Socket Programming", level: "Expert", years: 4, highlight: "Connection Handshakes, TCP Windowing, Socket Semantics & Telemetry" },
+        { name: "HTTP/1.1, HTTP/2 & WebSockets", level: "Expert", years: 4, highlight: "Stream Framing, Full-Duplex Channels & Connection Keep-Alive" },
+        { name: "DNS, TLS/SSL & Network Isolation", level: "Advanced", years: 3, highlight: "Handshake Negotiation, Certificate Verification & Subnet Isolation" },
+        { name: "ASGI & WSGI Network Models", level: "Expert", years: 4, highlight: "Asynchronous Gateway Lifecycles, Middleware & Reverse Proxying" }
       ]
     },
     {
-      title: "Full-Stack Web & Frontend",
-      description: "Component architecture, responsive user interfaces, and full-stack MERN engineering.",
+      title: "Concurrency & Asynchronous Systems",
+      description: "Non-blocking I/O multiplexing, Python asyncio, event-loop scheduling, and connection pooling.",
       skills: [
-        { name: "React & Next.js", level: "Expert", years: 4, highlight: "Component Architecture, Hooks & Vite Tooling" },
-        { name: "TypeScript & JavaScript (ES6+)", level: "Expert", years: 5, highlight: "Strict Typing, Async Programming & Modular Code" },
-        { name: "Node.js & Express", level: "Expert", years: 4, highlight: "REST APIs, Middleware Pipelines & JWT Authentication" },
-        { name: "Tailwind CSS", level: "Expert", years: 4, highlight: "Responsive Layouts, Glass UI & Design Systems" },
-        { name: "MongoDB & Mongoose", level: "Advanced", years: 3, highlight: "Document Modeling, Indexing & Aggregations" }
+        { name: "Python asyncio & Event Loops", level: "Expert", years: 4, highlight: "Coroutines, Non-Blocking Sockets, Tasks & Sub-Millisecond Scheduling" },
+        { name: "Database Connection Pooling", level: "Expert", years: 4, highlight: "Async SQLAlchemy, Connection Starvation Mitigation & Transaction Isolation" },
+        { name: "Distributed Redis Caching & Locking", level: "Expert", years: 3, highlight: "Atomic Primitives, Distributed Locks, Token Revocation & Pub/Sub" },
+        { name: "Thread Pools & Worker Processes", level: "Advanced", years: 3, highlight: "Offloading CPU-Bound Routines & Multiprocess Worker Clusters" }
       ]
     },
     {
-      title: "AI, RAG & Machine Learning",
-      description: "Retrieval-Augmented Generation, CLI tools, database administration, and ML pipelines.",
+      title: "Cryptographic Security & System Hardening",
+      description: "Memory-hard password hashing, token lifecycle revocation, timing defenses, and zero-trust APIs.",
       skills: [
-        { name: "RAG & ChromaDB", level: "Advanced", years: 2, highlight: "Hybrid Retrieval, Embeddings & Cross-Encoder Reranking" },
-        { name: "Groq & OpenAI / OpenRouter APIs", level: "Advanced", years: 2, highlight: "Task Routing, Function Calling & Critic Verification" },
-        { name: "Scikit-Learn, Pandas & NumPy", level: "Advanced", years: 3, highlight: "ColumnTransformers, Feature Engineering & Regression" },
-        { name: "Linux & Bash Scripting", level: "Advanced", years: 4, highlight: "Shell Automation, Environment Setup & Server Ops" }
+        { name: "Argon2id Memory-Hard Hashing", level: "Expert", years: 3, highlight: "GPU/ASIC Resistance, Tuned Time/Memory Parameters & Salt Entropy" },
+        { name: "Dual-Token Cryptographic Auth", level: "Expert", years: 4, highlight: "Short-Lived Access JWTs, Refresh Token Rotation & Redis Blacklisting" },
+        { name: "Defensive API Hardening", level: "Expert", years: 4, highlight: "Constant-Time Comparisons, Rate Limiting, Input Sanitization & CORS" },
+        { name: "Linux Systems & Container Isolation", level: "Advanced", years: 4, highlight: "Docker Multi-Stage Builds, Shell Scripting & Server Hardening" }
       ]
     },
     {
-      title: "Languages & Communication",
+      title: "Algorithms, Data Structures & Applied AI",
+      description: "Time-space complexity optimization, vector indexing, cache eviction, and dual-model critic routing.",
+      skills: [
+        { name: "Algorithmic Complexity & Structures", level: "Expert", years: 4, highlight: "Hash Maps, Graphs, Trees, Heaps & Amortized Bound Guarantees" },
+        { name: "Vector Indexing & Retrieval (RAG)", level: "Advanced", years: 2, highlight: "ChromaDB, Approximate Nearest Neighbors & Dense Embeddings" },
+        { name: "Two-Model Critic Verification", level: "Expert", years: 2, highlight: "Hierarchical Task Routing, Query Validation Trees & 90% Cost Reduction" },
+        { name: "Cache Invalidation & Eviction (LRU)", level: "Advanced", years: 3, highlight: "Cache Hit Maximization, TTL Lifecycle & Memory Bounds" }
+      ]
+    },
+    {
+      title: "Languages & Systems Communication",
       description: "Multilingual technical communication and international engineering collaboration.",
       skills: [
-        { name: "German (Deutsch)", level: "Proficient", years: 3, highlight: "Conversational & Technical Working Proficiency (Fließend)" },
-        { name: "English", level: "Expert", years: 10, highlight: "Native & Professional Technical Communication" }
+        { name: "German (Deutsch)", level: "Intermediate", years: 3, highlight: "Technical & Conversational Working Proficiency" },
+        { name: "English", level: "Expert", years: 10, highlight: "Fluent Professional Technical & Architectural Communication" }
       ]
     }
   ],
