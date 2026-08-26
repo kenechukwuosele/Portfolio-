@@ -133,36 +133,26 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           animate="visible"
           className="lg:col-span-7 space-y-6"
         >
-          {/* Developer Photo & Badges */}
-          <motion.div variants={fadeInUp} className="flex items-center gap-4">
-            <div className="relative group shrink-0">
-              <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl overflow-hidden p-[2px] bg-gradient-to-tr from-sky-400 via-cyan-300 to-indigo-500 shadow-[0_0_30px_rgba(56,189,248,0.3)] transition-transform duration-300 group-hover:scale-105">
-                <img 
-                  src={data.developer.avatarUrl || "https://avatars.githubusercontent.com/u/226654465?v=4"} 
-                  alt={data.developer.name}
-                  className="w-full h-full object-cover rounded-[14px] bg-[#0d0f17]"
-                  loading="eager"
-                />
-              </div>
-            </div>
+          {/* Availability & Language Proficiency Badges */}
+          <div className="flex flex-wrap items-center gap-2.5">
+            <motion.div 
+              variants={fadeInUp}
+              className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl"
+            >
+              <span className="text-xs text-white/80 font-mono">
+                {data.developer.statusBadge}
+              </span>
+            </motion.div>
 
-            <div className="space-y-1.5">
-              <div className="flex flex-wrap items-center gap-2">
-                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-xl">
-                  <span className="text-xs text-white/80 font-mono">
-                    {data.developer.statusBadge}
-                  </span>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 backdrop-blur-xl">
-                  <span className="text-xs text-sky-300 font-mono font-medium">
-                    German Proficient (Deutsch) · English
-                  </span>
-                </div>
-              </div>
-              <p className="text-xs font-mono text-white/40 pl-1">{data.developer.name}</p>
-            </div>
-          </motion.div>
+            <motion.div 
+              variants={fadeInUp}
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full bg-sky-500/10 border border-sky-500/20 backdrop-blur-xl"
+            >
+              <span className="text-xs text-sky-300 font-mono font-medium">
+                German Proficient (Deutsch) · English
+              </span>
+            </motion.div>
+          </div>
 
           {/* Clean Hero Title with Typewriter & Subtitle */}
           <motion.div variants={fadeInUp} className="space-y-3">

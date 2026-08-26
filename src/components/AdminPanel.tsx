@@ -20,7 +20,9 @@ import {
   FileJson,
   User,
   FolderGit2,
-  Sliders
+  Sliders,
+  Lock,
+  KeyRound
 } from 'lucide-react';
 import { PortfolioData, Project, Metric } from '../types/portfolio';
 import { soundFx } from '../utils/audio';
@@ -109,7 +111,133 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
   const [importError, setImportError] = useState<string | null>(null);
   const [importSuccess, setImportSuccess] = useState(false);
 
+  // Passcode Security state
+  const PASSCODE_STORAGE_KEY = 'kene_admin_pin';
+  const [masterPin, setMasterPin] = useState(() => {
+    try {
+      return localStorage.getItem(PASSCODE_STORAGE_KEY) || '2026';
+    } catch {
+      return '2026';
+    }
+  });
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    try {
+      return sessionStorage.getItem('admin_session_unlocked') === 'true';
+    } catch {
+      return false;
+    }
+  });
+  const [enteredPin, setEnteredPin] = useState('');
+  const [pinError, setPinError] = useState(false);
+  const [newPinInput, setNewPinInput] = useState('');
+  const [pinUpdatedFeedback, setPinUpdatedFeedback] = useState(false);
+
+  const handleUnlock = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (enteredPin.trim() === masterPin.trim()) {
+      soundFx.playGlassChime();
+      try {
+        sessionStorage.setItem('admin_session_unlocked', 'true');
+      } catch {}
+      setIsUnlocked(true);
+      setPinError(false);
+      setEnteredPin('');
+    } else {
+      soundFx.playGlassTap(800, 0.08);
+      setPinError(true);
+      setTimeout(() => setPinError(false), 2500);
+    }
+  };
+
+  const handleChangePin = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (newPinInput.trim().length >= 4) {
+      try {
+        localStorage.setItem(PASSCODE_STORAGE_KEY, newPinInput.trim());
+      } catch {}
+      setMasterPin(newPinInput.trim());
+      setPinUpdatedFeedback(true);
+      soundFx.playGlassChime();
+      setTimeout(() => {
+        setPinUpdatedFeedback(false);
+        setNewPinInput('');
+      }, 2500);
+    }
+  };
+
   if (!isOpen) return null;
+
+  if (!isUnlocked) {
+    return (
+      <AnimatePresence>
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/85 backdrop-blur-2xl"
+          onClick={onClose}
+          id="admin-auth-backdrop"
+        >
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95, y: 15 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.95, y: 15 }}
+            onClick={(e) => e.stopPropagation()}
+            className={`w-full max-w-md p-6 sm:p-8 rounded-3xl bg-[#090b10]/95 border shadow-2xl backdrop-blur-3xl space-y-6 text-center transition-all ${
+              pinError ? 'border-rose-500/50' : 'border-white/20 shadow-[0_30px_90px_rgba(0,0,0,0.9)]'
+            }`}
+          >
+            <div className="w-14 h-14 mx-auto rounded-2xl bg-sky-500/10 border border-sky-500/20 flex items-center justify-center text-sky-400 shadow-[0_0_30px_rgba(56,189,248,0.2)]">
+              <Lock className="w-6 h-6" />
+            </div>
+
+            <div className="space-y-1.5">
+              <h3 className="text-lg font-bold text-white tracking-tight">Admin Authentication</h3>
+              <p className="text-xs text-white/50 font-mono">
+                Only authorized administrator (Kenechukwu) can access project management and profile controls.
+              </p>
+            </div>
+
+            <form onSubmit={handleUnlock} className="space-y-4">
+              <div className="space-y-1.5 text-left">
+                <label className="text-[11px] font-mono uppercase tracking-wider text-white/60">
+                  Master Passcode / PIN
+                </label>
+                <input
+                  type="password"
+                  autoFocus
+                  required
+                  value={enteredPin}
+                  onChange={(e) => setEnteredPin(e.target.value)}
+                  placeholder="Enter passcode (default: 2026)..."
+                  className="w-full px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-center text-sm tracking-widest focus:outline-none focus:border-sky-400 transition-colors"
+                />
+                {pinError && (
+                  <p className="text-xs text-rose-400 font-mono text-center pt-1">
+                    Incorrect passcode. Please try again.
+                  </p>
+                )}
+              </div>
+
+              <div className="flex items-center gap-3 pt-2">
+                <button
+                  type="button"
+                  onClick={onClose}
+                  className="flex-1 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 text-white/70 text-xs font-semibold transition-colors cursor-pointer"
+                >
+                  Cancel (Esc)
+                </button>
+                <button
+                  type="submit"
+                  className="flex-1 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-black text-xs font-bold transition-all shadow-[0_0_20px_rgba(56,189,248,0.4)] cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <KeyRound className="w-3.5 h-3.5" />
+                  <span>Unlock Admin</span>
+                </button>
+              </div>
+            </form>
+          </motion.div>
+        </div>
+      </AnimatePresence>
+    );
+  }
 
   const handleOpenAddProject = () => {
     soundFx.playGlassTap(1400, 0.04);
@@ -909,6 +1037,47 @@ export const AdminPanel: React.FC<AdminPanelProps> = ({
                       onChange={(e) => setProfileForm({ ...profileForm, subBio: e.target.value })}
                       className="w-full px-3 py-2 rounded-xl bg-white/5 border border-white/10 text-white text-xs focus:outline-none focus:border-sky-400 resize-none"
                     />
+                  </div>
+                </div>
+
+                {/* Master Security PIN settings */}
+                <div className="p-5 rounded-2xl bg-white/[0.02] border border-white/10 space-y-3">
+                  <div className="flex items-center gap-2 text-sky-400">
+                    <Lock className="w-4 h-4" />
+                    <h4 className="text-xs font-mono uppercase tracking-wider font-semibold">
+                      Master Passcode & Security Lock
+                    </h4>
+                  </div>
+                  <p className="text-[11px] text-white/50">
+                    Only you can access this panel by entering your master passcode. Default: <code className="text-sky-300">2026</code>.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-1">
+                    <input
+                      type="password"
+                      value={newPinInput}
+                      onChange={(e) => setNewPinInput(e.target.value)}
+                      placeholder="Enter new 4+ digit passcode..."
+                      className="px-3.5 py-2 rounded-xl bg-white/5 border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-sky-400 flex-1"
+                    />
+                    <button
+                      type="button"
+                      onClick={handleChangePin}
+                      disabled={newPinInput.trim().length < 4}
+                      className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 disabled:opacity-40 text-white text-xs font-semibold transition-colors cursor-pointer shrink-0 flex items-center justify-center gap-1.5"
+                    >
+                      {pinUpdatedFeedback ? (
+                        <>
+                          <Check className="w-3.5 h-3.5 text-emerald-400" />
+                          <span className="text-emerald-300">Passcode Updated!</span>
+                        </>
+                      ) : (
+                        <>
+                          <KeyRound className="w-3.5 h-3.5 text-sky-400" />
+                          <span>Update Passcode</span>
+                        </>
+                      )}
+                    </button>
                   </div>
                 </div>
 
