@@ -116,10 +116,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               {renderTypedTitle(displayedText)}
               <span className="inline-block w-1 h-7 sm:h-11 lg:h-14 ml-1.5 bg-sky-400 align-middle animate-pulse" />
             </h1>
-            
-            <p className="apple-body text-lg sm:text-xl max-w-xl">
-              Hi, I'm <span className="text-white font-medium">{data.developer.name}</span> — a Software Engineer crafting scalable FastAPI microservices, modern TypeScript applications, and applied AI systems.
-            </p>
           </motion.div>
 
           {/* Primary Action Buttons (Apple Rounded-Full Pills) */}
