@@ -4,7 +4,6 @@
  */
 
 import React, { useState, useEffect } from 'react';
-import { AnimatePresence, motion } from 'motion/react';
 import { initialPortfolioData } from './data/portfolioData';
 import { PortfolioData, Project, ThemeMode } from './types/portfolio';
 import { LiquidCanvas } from './components/LiquidCanvas';
@@ -16,11 +15,8 @@ import { SkillsRadar } from './components/SkillsRadar';
 import { ExperienceTimeline } from './components/ExperienceTimeline';
 import { ContactSection } from './components/ContactSection';
 import { CommandPalette } from './components/CommandPalette';
-import { DeveloperDrawer } from './components/DeveloperDrawer';
 import { AdminPanel } from './components/AdminPanel';
-import { BootSequence } from './components/BootSequence';
-import { soundFx } from './utils/audio';
-import { Github, Linkedin, Mail, Heart, Sparkles, Terminal, FolderPlus } from 'lucide-react';
+import { Github, Linkedin, Mail, ArrowUp } from 'lucide-react';
 
 const STORAGE_KEY = 'kene_portfolio_data';
 
@@ -39,13 +35,10 @@ export default function App() {
   const [theme, setTheme] = useState<ThemeMode>('dark');
   const [viscosity, setViscosity] = useState<number>(0.25);
   const [dispersion, setDispersion] = useState<number>(0.035);
-  const [soundEnabled, setSoundEnabled] = useState<boolean>(true);
   const [activeSection, setActiveSection] = useState<string>('hero');
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [cliOpen, setCliOpen] = useState<boolean>(false);
-  const [devDrawerOpen, setDevDrawerOpen] = useState<boolean>(false);
   const [adminOpen, setAdminOpen] = useState<boolean>(false);
-  const [isBooting, setIsBooting] = useState<boolean>(true);
 
   // Sync portfolio data to localStorage
   useEffect(() => {
@@ -233,24 +226,17 @@ export default function App() {
   };
 
   return (
-    <div className={`min-h-screen relative font-sans transition-colors duration-500 ${
+    <div className={`min-h-screen relative font-sans transition-colors duration-500 selection:bg-sky-500/20 selection:text-sky-300 ${
       theme === 'light' 
         ? 'light-theme bg-[#f8fafc] text-slate-900' 
         : theme === 'obsidian' 
         ? 'bg-[#000000] text-neutral-100' 
-        : 'bg-[#070709] text-white'
+        : 'bg-[#060709] text-white'
     }`}>
       
       {/* Subtle, non-intrusive Ambient Atmosphere Glows */}
       <div className="fixed top-[-10%] right-[-10%] w-[500px] h-[500px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none -z-10" />
       <div className="fixed bottom-[-10%] left-[-5%] w-[400px] h-[400px] bg-indigo-600/5 rounded-full blur-[120px] pointer-events-none -z-10" />
-
-      {/* Bootloader Sequence */}
-      <AnimatePresence>
-        {isBooting && (
-          <BootSequence onComplete={() => setIsBooting(false)} />
-        )}
-      </AnimatePresence>
 
       {/* WebGL Liquid Optical Shader Canvas */}
       <LiquidCanvas 
@@ -265,10 +251,6 @@ export default function App() {
         theme={theme}
         onThemeChange={setTheme}
         onOpenCLI={() => setCliOpen(true)}
-        onOpenDevDrawer={() => setDevDrawerOpen(true)}
-        onOpenAdmin={() => setAdminOpen(true)}
-        soundEnabled={soundEnabled}
-        onToggleSound={handleToggleSound}
         developerName={data.developer.name}
       />
 
@@ -302,45 +284,23 @@ export default function App() {
         />
       </main>
 
-      {/* Sleek Interface Footer */}
-      <footer className="relative z-10 px-6 sm:px-12 py-10 flex flex-col md:flex-row justify-between items-center md:items-end gap-6 border-t border-white/5 max-w-7xl mx-auto">
-        <div className="space-y-2 text-center md:text-left">
-          <div className="flex items-center gap-3">
-            <span className="text-xs font-semibold tracking-widest uppercase text-white/90">
-              {data.developer.name}
-            </span>
-          </div>
-          <div className="flex flex-wrap gap-6 text-[10px] uppercase tracking-[0.2em] text-white/40">
-            <div>Built with React & TypeScript</div>
-          </div>
+      {/* Minimalist Apple-Grade Footer */}
+      <footer className="relative z-10 px-6 sm:px-12 py-12 flex flex-col md:flex-row justify-between items-center gap-6 border-t border-white/5 max-w-6xl mx-auto">
+        <div className="space-y-1 text-center md:text-left">
+          <p className="text-sm font-semibold tracking-tight text-white/90">
+            {data.developer.name}
+          </p>
+          <p className="text-xs text-white/40">
+            {data.developer.title} · Designed with first principles
+          </p>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 sm:gap-6">
-          <button
-            onClick={() => {
-              soundFx.playGlassTap(1600, 0.05);
-              setAdminOpen(true);
-            }}
-            className="text-xs font-mono text-sky-400 hover:text-sky-300 transition-colors flex items-center gap-1.5 cursor-pointer"
-          >
-            <FolderPlus className="w-3.5 h-3.5" />
-            <span>Admin</span>
-          </button>
-          <button
-            onClick={() => {
-              soundFx.playTerminalClick();
-              setCliOpen(true);
-            }}
-            className="text-xs font-mono text-white/40 hover:text-sky-400 transition-colors flex items-center gap-1.5 cursor-pointer"
-          >
-            <Terminal className="w-3.5 h-3.5" />
-            <span>Terminal (⌘K)</span>
-          </button>
+        <div className="flex items-center gap-6 text-xs text-white/50">
           <a 
             href={data.developer.github} 
             target="_blank" 
             rel="noreferrer" 
-            className="text-xs font-mono text-white/40 hover:text-white transition-colors"
+            className="hover:text-white transition-colors"
           >
             GitHub
           </a>
@@ -348,21 +308,18 @@ export default function App() {
             href={data.developer.linkedin} 
             target="_blank" 
             rel="noreferrer" 
-            className="text-xs font-mono text-white/40 hover:text-white transition-colors"
+            className="hover:text-white transition-colors"
           >
             LinkedIn
           </a>
-          <div className="hidden sm:block w-px h-6 bg-white/10 mx-1" />
-          <div className="hidden sm:block text-right">
-            <p className="text-[9px] uppercase tracking-widest text-white/30 mb-1">Scroll to top</p>
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="w-20 h-[2px] bg-white/10 overflow-hidden rounded-full block group cursor-pointer"
-              title="Scroll to top"
-            >
-              <div className="w-1/3 h-full bg-white group-hover:w-full transition-all duration-300" />
-            </button>
-          </div>
+          <button
+            onClick={() => scrollToSection('hero')}
+            className="hover:text-white transition-colors flex items-center gap-1 cursor-pointer"
+            title="Scroll to top"
+          >
+            <span>Top</span>
+            <ArrowUp className="w-3 h-3" />
+          </button>
         </div>
       </footer>
 
@@ -381,21 +338,6 @@ export default function App() {
         onThemeChange={setTheme}
         onSelectProject={handleSelectProjectId}
         onOpenAdmin={() => setAdminOpen(true)}
-      />
-
-      {/* Developer Customizer Drawer */}
-      <DeveloperDrawer 
-        isOpen={devDrawerOpen}
-        onClose={() => setDevDrawerOpen(false)}
-        data={data}
-        onUpdateDeveloperName={handleUpdateDeveloperName}
-        onOpenAdmin={() => setAdminOpen(true)}
-        theme={theme}
-        onThemeChange={setTheme}
-        viscosity={viscosity}
-        onViscosityChange={setViscosity}
-        dispersion={dispersion}
-        onDispersionChange={setDispersion}
       />
 
       {/* Portfolio Content & Project Admin Panel */}

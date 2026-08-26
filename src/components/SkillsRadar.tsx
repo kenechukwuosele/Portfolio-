@@ -2,20 +2,13 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { 
   Cpu, 
-  Layers, 
-  Server, 
   Sparkles, 
-  Zap, 
-  CheckCircle2, 
   Code2, 
   Languages,
   Network,
-  ShieldCheck,
-  Lock,
-  Database
+  ShieldCheck
 } from 'lucide-react';
 import { SkillCategory } from '../types/portfolio';
-import { soundFx } from '../utils/audio';
 import { staggerContainer, headingReveal, fadeInUp, cardVariant, defaultViewport } from '../utils/animations';
 
 interface SkillsRadarProps {
@@ -49,25 +42,25 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
   ];
 
   return (
-    <section id="skills" className="py-20 px-6 sm:px-12 max-w-7xl mx-auto space-y-12">
+    <section id="skills" className="py-24 px-6 sm:px-12 max-w-6xl mx-auto space-y-12">
       {/* Clean Section Header */}
       <motion.div 
         initial="hidden"
         whileInView="visible"
         viewport={defaultViewport}
         variants={staggerContainer}
-        className="space-y-2 border-t border-white/10 pt-10"
+        className="space-y-2 border-t border-white/5 pt-12"
       >
         <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-white/70 text-xs font-mono">
           <Network className="w-3.5 h-3.5 text-sky-400" />
-          <span>Core Engineering Competence</span>
+          <span>Core Competencies</span>
         </motion.div>
         
-        <motion.h2 variants={headingReveal} className="text-3xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
-          Protocols, Concurrency & <span className="text-sky-400 font-semibold">Security Architecture</span>
+        <motion.h2 variants={headingReveal} className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+          Protocols, Concurrency & <span className="google-gemini-text font-bold">Architecture</span>
         </motion.h2>
         
-        <motion.p variants={fadeInUp} className="text-white/70 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
+        <motion.p variants={fadeInUp} className="text-white/60 text-sm sm:text-base max-w-xl font-normal leading-relaxed">
           Deep first-principles knowledge of internet transport, asynchronous event loops, applied algorithms, and cryptographic system defense.
         </motion.p>
       </motion.div>
@@ -84,11 +77,11 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
           <motion.div
             key={idx}
             variants={cardVariant}
-            className="p-5 rounded-2xl bg-[#090b10]/80 border border-white/10 hover:border-sky-400/40 transition-all space-y-2 group backdrop-blur-xl"
+            className="p-6 rounded-3xl bg-[#090b10]/90 border border-white/10 hover:border-white/20 transition-all space-y-2.5 backdrop-blur-xl"
           >
             <div className="flex items-center gap-2 text-sky-400">
               <span className="text-xs font-mono font-bold text-sky-400/60">0{idx + 1}.</span>
-              <h3 className="font-bold text-sm text-white group-hover:text-sky-300 transition-colors">
+              <h3 className="font-semibold text-sm text-white">
                 {pillar.title}
               </h3>
             </div>
@@ -105,7 +98,7 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
         whileInView="visible"
         viewport={defaultViewport}
         variants={staggerContainer}
-        className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start"
+        className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start pt-4"
       >
         {/* Category Navigation Tabs */}
         <motion.div variants={fadeInUp} className="lg:col-span-4 space-y-2">
@@ -116,21 +109,16 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
             return (
               <button
                 key={idx}
-                onClick={() => {
-                  soundFx.playGlassTap(1400, 0.03);
-                  setSelectedCategory(idx);
-                }}
+                onClick={() => setSelectedCategory(idx)}
                 className={`w-full text-left p-4 rounded-2xl border transition-all space-y-1 cursor-pointer ${
                   isSelected
-                    ? 'bg-white/10 border-white/30 text-white shadow-lg'
-                    : 'bg-white/[0.02] border-white/10 text-white/60 hover:text-white hover:bg-white/[0.05]'
+                    ? 'bg-white/10 border-white/20 text-white shadow-sm'
+                    : 'bg-white/[0.02] border-white/5 text-white/60 hover:text-white hover:bg-white/[0.04]'
                 }`}
               >
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-2">
-                    <Icon className={`w-4 h-4 ${isSelected ? 'text-sky-400' : 'text-white/40'}`} />
-                    <span className="font-semibold text-sm text-white">{cat.title}</span>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <Icon className={`w-4 h-4 ${isSelected ? 'text-sky-400' : 'text-white/40'}`} />
+                  <span className="font-medium text-sm text-white">{cat.title}</span>
                 </div>
                 <p className="text-xs text-white/50 leading-relaxed font-normal pl-6">
                   {cat.description}
@@ -145,16 +133,16 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
           <AnimatePresence mode="wait">
             <motion.div
               key={selectedCategory}
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -10 }}
-              transition={{ duration: 0.25 }}
+              exit={{ opacity: 0, y: -8 }}
+              transition={{ duration: 0.2 }}
               className="grid grid-cols-1 sm:grid-cols-2 gap-4"
             >
-              {skillCategories[selectedCategory]?.skills.map((skill, sIdx) => (
+              {skillCategories[selectedCategory]?.skills.map((skill) => (
                 <div
                   key={skill.name}
-                  className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 hover:border-white/20 transition-all space-y-3"
+                  className="p-5 rounded-2xl bg-white/[0.03] border border-white/10 space-y-2.5"
                 >
                   <div className="flex items-center justify-between gap-2">
                     <span className="font-semibold text-white text-sm">
@@ -166,15 +154,10 @@ export const SkillsRadar: React.FC<SkillsRadarProps> = ({
                   </div>
 
                   {skill.highlight && (
-                    <p className="text-xs text-white/70 font-normal leading-relaxed">
+                    <p className="text-xs text-white/65 font-normal leading-relaxed">
                       {skill.highlight}
                     </p>
                   )}
-
-                  <div className="flex items-center gap-1.5 text-[11px] text-emerald-400 font-mono">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    <span>First-Principles Verified</span>
-                  </div>
                 </div>
               ))}
             </motion.div>
