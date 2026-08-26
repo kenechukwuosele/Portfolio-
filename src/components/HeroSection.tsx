@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { 
   Github, 
   Linkedin, 
   Copy, 
   Check, 
-  ArrowRight,
   ChevronRight
 } from 'lucide-react';
 import { PortfolioData } from '../types/portfolio';
@@ -24,6 +23,72 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   onContactClick
 }) => {
   const [copiedEmail, setCopiedEmail] = useState(false);
+
+  // Typewriter effect alternating English and German
+  const englishPhrase = "Building intelligent, Full-Stack and AI systems.";
+  const germanPhrase = "Entwicklung intelligenter, Full-Stack und KI-Systeme.";
+  const phrases = [englishPhrase, germanPhrase];
+
+  const [displayedText, setDisplayedText] = useState("");
+  const [isDeleting, setIsDeleting] = useState(false);
+  const [phraseIndex, setPhraseIndex] = useState(0);
+
+  useEffect(() => {
+    const currentTarget = phrases[phraseIndex];
+    let timeout: NodeJS.Timeout;
+
+    if (!isDeleting) {
+      // Typing forward
+      if (displayedText.length < currentTarget.length) {
+        timeout = setTimeout(() => {
+          setDisplayedText(currentTarget.slice(0, displayedText.length + 1));
+        }, 50);
+      } else {
+        // Pause at completion before deleting
+        timeout = setTimeout(() => {
+          setIsDeleting(true);
+        }, 2200);
+      }
+    } else {
+      // Deleting backwards
+      if (displayedText.length > 0) {
+        timeout = setTimeout(() => {
+          setDisplayedText(currentTarget.slice(0, displayedText.length - 1));
+        }, 25);
+      } else {
+        // Switch to next language
+        setIsDeleting(false);
+        setPhraseIndex((prev) => (prev + 1) % phrases.length);
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [displayedText, isDeleting, phraseIndex]);
+
+  // Render text with Apple Intelligence gradient on "Full-Stack and AI systems" / "Full-Stack und KI-Systeme"
+  const renderTypedTitle = (text: string) => {
+    const prefixes = [
+      { prefix: "Building intelligent, ", target: "Full-Stack and AI systems." },
+      { prefix: "Entwicklung intelligenter, ", target: "Full-Stack und KI-Systeme." }
+    ];
+
+    for (const item of prefixes) {
+      if (text.toLowerCase().startsWith(item.prefix.toLowerCase())) {
+        const before = text.slice(0, item.prefix.length);
+        const glowingPart = text.slice(item.prefix.length);
+        return (
+          <>
+            <span className="text-white">{before}</span>
+            <span className="apple-intelligence-gradient font-bold inline-block">
+              {glowingPart}
+            </span>
+          </>
+        );
+      }
+    }
+
+    return <span className="text-white">{text}</span>;
+  };
 
   const handleCopyEmail = () => {
     navigator.clipboard.writeText(data.developer.email);
@@ -45,13 +110,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           animate="visible"
           className="lg:col-span-7 space-y-7"
         >
-          {/* Hero Headline */}
+          {/* Hero Headline with English & German Typewriter */}
           <motion.div variants={fadeInUp} className="space-y-4">
-            <h1 className="apple-headline text-5xl sm:text-7xl lg:text-8xl font-bold text-white">
-              Intelligent systems.{' '}
-              <span className="apple-intelligence-gradient font-bold block sm:inline">
-                Full-Stack & AI.
-              </span>
+            <h1 className="apple-headline text-4xl sm:text-6xl lg:text-7xl font-bold text-white min-h-[2.4em] sm:min-h-[2.2em]">
+              {renderTypedTitle(displayedText)}
+              <span className="inline-block w-1 h-7 sm:h-11 lg:h-14 ml-1.5 bg-sky-400 align-middle animate-pulse" />
             </h1>
             
             <p className="apple-body text-lg sm:text-xl max-w-xl">
