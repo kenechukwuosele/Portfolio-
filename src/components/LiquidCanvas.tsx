@@ -18,7 +18,12 @@ const VERTEX_SHADER_SOURCE = `
 `;
 
 const FRAGMENT_SHADER_SOURCE = `
+  #ifdef GL_FRAGMENT_PRECISION_HIGH
   precision highp float;
+  #else
+  precision mediump float;
+  #endif
+
   varying vec2 vUv;
   uniform vec2 uResolution;
   uniform vec2 uMouse;
@@ -141,44 +146,59 @@ export const LiquidCanvas: React.FC<LiquidCanvasProps> = ({
     const canvas = canvasRef.current;
     if (!canvas) return;
 
-    const gl = canvas.getContext('webgl', {
-      alpha: false,
-      depth: false,
-      antialias: false,
-      powerPreference: 'high-performance'
-    });
+    let gl: WebGLRenderingContext | null = null;
+    try {
+      gl = (canvas.getContext('webgl', {
+        alpha: false,
+        depth: false,
+        antialias: false,
+        powerPreference: 'default'
+      }) || canvas.getContext('experimental-webgl')) as WebGLRenderingContext | null;
+    } catch {
+      gl = null;
+    }
 
     if (!gl) {
-      console.warn('WebGL not supported, falling back gracefully.');
+      if (canvas) canvas.style.display = 'none';
       return;
     }
 
-    // Compile Shaders
+    // Compile Shaders safely
     const createShader = (type: number, src: string) => {
-      const shader = gl.createShader(type);
-      if (!shader) return null;
-      gl.shaderSource(shader, src);
-      gl.compileShader(shader);
-      if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-        console.error(gl.getShaderInfoLog(shader));
-        gl.deleteShader(shader);
+      if (!gl) return null;
+      try {
+        const shader = gl.createShader(type);
+        if (!shader) return null;
+        gl.shaderSource(shader, src);
+        gl.compileShader(shader);
+        if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+          gl.deleteShader(shader);
+          return null;
+        }
+        return shader;
+      } catch {
         return null;
       }
-      return shader;
     };
 
     const vertShader = createShader(gl.VERTEX_SHADER, VERTEX_SHADER_SOURCE);
     const fragShader = createShader(gl.FRAGMENT_SHADER, FRAGMENT_SHADER_SOURCE);
-    if (!vertShader || !fragShader) return;
+    if (!vertShader || !fragShader) {
+      if (canvas) canvas.style.display = 'none';
+      return;
+    }
 
     const program = gl.createProgram();
-    if (!program) return;
+    if (!program) {
+      if (canvas) canvas.style.display = 'none';
+      return;
+    }
     gl.attachShader(program, vertShader);
     gl.attachShader(program, fragShader);
     gl.linkProgram(program);
 
     if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-      console.error(gl.getProgramInfoLog(program));
+      if (canvas) canvas.style.display = 'none';
       return;
     }
 

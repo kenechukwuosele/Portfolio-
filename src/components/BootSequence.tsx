@@ -79,8 +79,6 @@ export const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
   ];
 
   useEffect(() => {
-    soundFx.playTerminalClick();
-
     let step = 0;
     const interval = setInterval(() => {
       if (step < bootStages.length) {
@@ -94,19 +92,29 @@ export const BootSequence: React.FC<BootSequenceProps> = ({ onComplete }) => {
         setTimeout(() => {
           soundFx.playGlassChime();
           onComplete();
-        }, 350);
+        }, 200);
       }
-    }, 200);
+    }, 160);
 
-    return () => clearInterval(interval);
+    // Mobile fallback: auto-complete after 1.8s guaranteed
+    const fallbackTimeout = setTimeout(() => {
+      clearInterval(interval);
+      onComplete();
+    }, 1800);
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(fallbackTimeout);
+    };
   }, [onComplete]);
 
   return (
     <motion.div
       initial={{ opacity: 1 }}
-      exit={{ opacity: 0, scale: 1.02, filter: 'blur(10px)' }}
-      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050608] text-white font-mono select-none"
+      exit={{ opacity: 0, scale: 1.01 }}
+      transition={{ duration: 0.35, ease: 'easeOut' }}
+      onClick={onComplete}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#050608] text-white font-mono select-none cursor-pointer"
       id="boot-sequence-overlay"
     >
       {/* Background Ambient Cyber Glow */}
