@@ -6,7 +6,7 @@ export const initialPortfolioData: PortfolioData = {
     preferredName: "kenechukwuosele",
     title: "Full-Stack Engineer & AI Systems Developer",
     roleFocus: "Building AI-powered developer tools, auth & backend services, full-stack web applications, voice copilots, and machine learning pipelines.",
-    statusBadge: "Open to Full-Stack & AI Roles",
+    statusBadge: "Available for Hire",
     isAvailableForHire: true,
     location: "Nigeria",
     timezone: "WAT (UTC+1)",

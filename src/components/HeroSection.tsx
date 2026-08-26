@@ -45,14 +45,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           animate="visible"
           className="lg:col-span-7 space-y-7"
         >
-          {/* Apple Eyebrow Badge */}
-          <motion.div variants={fadeInUp} className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/[0.06] border border-white/[0.08]">
-            <span className="w-2 h-2 rounded-full bg-emerald-400" />
-            <span className="apple-eyebrow !text-white/80">
-              {data.developer.statusBadge}
-            </span>
-          </motion.div>
-
           {/* Hero Headline */}
           <motion.div variants={fadeInUp} className="space-y-4">
             <h1 className="apple-headline text-5xl sm:text-7xl lg:text-8xl font-bold text-white">
@@ -130,7 +122,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               </a>
             </div>
             <span className="hidden sm:inline text-white/20">·</span>
-            <span>German (Intermediate) · English (Fluent)</span>
+            <span>Deutsch (A2/B1) · English (Fluent)</span>
           </motion.div>
         </motion.div>
 
@@ -143,7 +135,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           <div className="rounded-[28px] border border-white/[0.08] bg-[#161617] p-6 space-y-4 shadow-2xl">
             
-            {/* Portrait Container */}
+            {/* Portrait Container without floating badge */}
             <div className="relative rounded-2xl overflow-hidden bg-black">
               <div className="h-64 sm:h-72 w-full overflow-hidden relative">
                 <img 
@@ -152,14 +144,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   className="w-full h-full object-cover object-[center_18%]"
                   loading="eager"
                 />
-              </div>
-
-              {/* Floating Status Badge */}
-              <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/80 border border-white/[0.1] backdrop-blur-md">
-                <span className="w-2 h-2 rounded-full bg-[#4285F4]" />
-                <span className="text-xs font-semibold google-gemini-text">
-                  Full-Stack & AI
-                </span>
               </div>
 
               {/* Bottom Overlay Name & Title */}
@@ -187,6 +171,15 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                   <p className="text-xs text-[#86868b] truncate">{stat.detail}</p>
                 </div>
               ))}
+            </div>
+
+            {/* Working Languages */}
+            <div className="pt-2 border-t border-white/[0.08] flex items-center justify-between text-xs">
+              <span className="text-[#86868b]">Languages</span>
+              <span className="text-white font-medium flex items-center gap-1.5">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                Deutsch (A2/B1) · English (Fluent)
+              </span>
             </div>
 
           </div>
