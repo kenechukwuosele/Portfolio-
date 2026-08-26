@@ -69,7 +69,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearTimeout(timeout);
   }, [displayedText, isDeleting, phraseIndex]);
 
-  // Dynamically make "Full-Stack and AI systems" glow with a vibrant radiant gradient
+  // Dynamically make "Full-Stack and AI systems" embody the Google Gemini gradient & glow
   const renderTypedTitle = (text: string) => {
     const prefixes = [
       { prefix: "Building intelligent, ", target: "Full-Stack and AI systems." },
@@ -83,7 +83,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         return (
           <>
             <span className="text-white">{before}</span>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-indigo-400 font-extrabold drop-shadow-[0_0_28px_rgba(56,189,248,0.85)] filter [text-shadow:0_0_24px_rgba(34,211,238,0.7)] inline-block">
+            <span className="google-gemini-text font-bold inline-block">
               {glowingPart}
             </span>
           </>
@@ -254,9 +254,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 </div>
 
                 {/* Floating Top-Right Live Status Glass Badge */}
-                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/70 border border-cyan-500/30 backdrop-blur-xl shadow-[0_0_15px_rgba(34,211,238,0.25)]">
-                  <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
-                  <span className="text-[10px] font-mono font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-300 via-sky-400 to-indigo-400 uppercase tracking-wider drop-shadow-[0_0_10px_rgba(34,211,238,0.6)]">
+                <div className="absolute top-3 right-3 flex items-center gap-1.5 px-3 py-1 rounded-full bg-black/65 border border-white/15 backdrop-blur-xl shadow-lg">
+                  <span className="w-2 h-2 rounded-full bg-[#4285F4] animate-pulse shadow-[0_0_8px_rgba(66,133,244,0.7)]" />
+                  <span className="text-[10px] font-mono font-bold google-gemini-text uppercase tracking-wider">
                     Full-Stack & AI
                   </span>
                 </div>

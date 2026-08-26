@@ -68,6 +68,37 @@
     inset 0 1px 2px 0 rgba(255, 255, 255, 0.9);
 }
 
+/* Google Gemini / DeepMind Ethereal Gradient & Ambient Optical Glow */
+@keyframes gemini-gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.google-gemini-text {
+  background: linear-gradient(110deg, #4285F4 0%, #9B72CB 32%, #D96570 65%, #38BDF8 100%);
+  background-size: 260% 260%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gemini-gradient-shift 7s ease infinite;
+  filter: drop-shadow(0 2px 14px rgba(66, 133, 244, 0.32)) drop-shadow(0 0 24px rgba(155, 114, 203, 0.22));
+}
+
+.light-theme .google-gemini-text {
+  background: linear-gradient(110deg, #1a73e8 0%, #8430ce 32%, #d93025 65%, #0284c7 100%);
+  background-size: 260% 260%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gemini-gradient-shift 7s ease infinite;
+  filter: drop-shadow(0 2px 10px rgba(26, 115, 232, 0.2));
+}
+
 .glass-pill {
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(20px) saturate(160%);
