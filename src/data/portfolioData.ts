@@ -646,53 +646,51 @@ exports.createTask = async (req, res) => {
   ],
   experience: [
     {
-      id: "exp-1",
-      company: "Independent AI & Software Engineering",
-      role: "Full-Stack & Backend Systems Developer",
-      period: "2024 - Present",
+      id: "exp-fcmb",
+      company: "First City Monument Bank (FCMB), Lagos",
+      role: "Networking Intern",
+      period: "Mar 2025 – Nov 2025",
+      location: "Lagos, Nigeria",
+      type: "Internship",
+      description: "Resolved multi-branch network downtime incidents and led nationwide telemetry reporting across 200+ banking sites.",
+      achievements: [
+        "Escalated network faults to ISPs and resolved downtime incidents across multiple branches, cutting average resolution time by 4hrs/day.",
+        "Led report generation spanning all branch networks across Nigeria as head networking intern, consolidating telemetry from over 200 sites into unified monitoring summaries."
+      ],
+      technologies: ["Computer Networks", "Network Telemetry", "Incident Resolution", "ISP Escalation", "Monitoring Summaries"],
+      highlightMetric: "-4 hrs downtime/day"
+    },
+    {
+      id: "exp-univasa",
+      company: "UNIVASA eSIM Technologies, Lagos",
+      role: "Software and Documentation Intern",
+      period: "Mar 2025 – Sep 2025",
+      location: "Lagos, Nigeria",
+      type: "Internship",
+      description: "Authored developer API documentation and shipped Python data-cleaning automation scripts.",
+      achievements: [
+        "Authored complete REST API documentation for UNIVASA eSIM covering endpoint references, authentication flows, error codes, and integration examples, cutting third-party developer onboarding time.",
+        "Shipped a Python data-cleaning and reporting automation script for a small business client, removing roughly four hours of manual reporting work per weekly cycle."
+      ],
+      technologies: ["Python", "REST APIs", "API Documentation", "Data Automation", "Developer Onboarding"],
+      highlightMetric: "4 hrs/wk saved via Python script"
+    },
+    {
+      id: "exp-opensource-ai",
+      company: "Open-Source & AI Systems Engineering",
+      role: "Full-Stack & Systems Developer",
+      period: "2024 – Present",
       location: "Nigeria / Remote",
-      type: "Founding",
-      description: "Building production open-source developer tooling, secure backend microservices, and conversational AI agents.",
+      type: "Open Source",
+      description: "Engineering production-grade authentication microservices, AI terminal copilots, and educational platforms.",
       achievements: [
-        "Engineered AuthService, an asynchronous authentication microservice using FastAPI, PostgreSQL, Redis token revocation, and Argon2id hashing.",
-        "Created DbAdmin AI, an open-source terminal interface connecting natural language to 4 database engines with 90% cost savings.",
-        "Engineered FinVocalist AI, a voice-first finance copilot with real-time speech processing and budget analytics.",
-        "Built RAG-PL, an end-to-end literature research assistant with hybrid dense + BM25 retrieval and ChromaDB persistence."
+        "Engineered AuthService: an asynchronous FastAPI microservice with Argon2id cryptographic hashing and Redis token revocation.",
+        "Created DbAdmin AI: natural language database CLI across 4 engines (PostgreSQL, MySQL, MongoDB, Redis) with dual-model critic routing.",
+        "Developed AI-augmented student assessment platform featuring browser-side face verification, engagement monitoring, and RAG hints.",
+        "Built Digital SIWES+ platform with Python, FastAPI, React, and Node.js to digitize university placement workflows."
       ],
-      technologies: ["Python", "FastAPI", "PostgreSQL", "Redis", "Argon2", "TypeScript", "React", "ChromaDB"],
+      technologies: ["FastAPI", "Python", "TypeScript", "React", "PostgreSQL", "Redis", "Argon2", "ChromaDB"],
       highlightMetric: "30+ public repositories"
-    },
-    {
-      id: "exp-2",
-      company: "Full-Stack Web Development",
-      role: "Software Engineer",
-      period: "2022 - 2024",
-      location: "Nigeria",
-      type: "Full-time",
-      description: "Architected modern web applications, RESTful APIs, and database models across diverse client domains.",
-      achievements: [
-        "Engineered Taskly (MERN stack task manager) with secure JWT authentication and live deployment on Render.",
-        "Developed SubscriptionTracker API with Express routing, automated renewal logic, and Mongoose schemas.",
-        "Built responsive web applications including MovieApp and Amazon Books with optimized client-side filtering."
-      ],
-      technologies: ["React", "Node.js", "Express", "MongoDB", "Tailwind CSS", "REST APIs"],
-      highlightMetric: "Full MERN lifecycle"
-    },
-    {
-      id: "exp-3",
-      company: "Machine Learning & Academic Research",
-      role: "ML & Systems Researcher",
-      period: "2021 - 2023",
-      location: "Nigeria",
-      type: "Contract",
-      description: "Researched applied machine learning solutions in healthcare and predictive analytics.",
-      achievements: [
-        "Developed CardioGuard AI diagnostic models for cardiovascular health analysis.",
-        "Implemented end-to-end vehicle price prediction pipeline across 8,100+ vehicle records using Scikit-Learn ColumnTransformers.",
-        "Built CatSOOP v2 auto-grading engine for coursework delivery as a capstone project."
-      ],
-      technologies: ["Python", "Scikit-Learn", "Pandas", "NumPy", "Jupyter", "Flask"],
-      highlightMetric: "8,100+ dataset ML pipelines"
     }
   ],
   labExperiments: [
