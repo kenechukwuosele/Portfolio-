@@ -25,8 +25,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   // Typewriter effect alternating English and German
-  const englishPhrase = "Software Engineer Turning Complex Problems into Intelligent Software Solutions with AI";
-  const germanPhrase = "Softwareentwickler, der komplexe Probleme mithilfe von KI in intelligente Softwarelösungen umwandelt";
+  const englishPhrase = "I build intelligent software systems";
+  const germanPhrase = "Ich baue intelligente Softwaresysteme";
   const phrases = [englishPhrase, germanPhrase];
 
   const [displayedText, setDisplayedText] = useState("");
@@ -42,19 +42,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       if (displayedText.length < currentTarget.length) {
         timeout = setTimeout(() => {
           setDisplayedText(currentTarget.slice(0, displayedText.length + 1));
-        }, 45);
+        }, 50);
       } else {
         // Pause at completion before deleting
         timeout = setTimeout(() => {
           setIsDeleting(true);
-        }, 2400);
+        }, 2200);
       }
     } else {
       // Deleting backwards
       if (displayedText.length > 0) {
         timeout = setTimeout(() => {
           setDisplayedText(currentTarget.slice(0, displayedText.length - 1));
-        }, 20);
+        }, 25);
       } else {
         // Switch to next language
         setIsDeleting(false);
@@ -65,11 +65,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearTimeout(timeout);
   }, [displayedText, isDeleting, phraseIndex]);
 
-  // Render text with Apple Intelligence gradient on the climax
+  // Render text with Apple Intelligence gradient on "intelligent software systems" / "intelligente Softwaresysteme"
   const renderTypedTitle = (text: string) => {
     const prefixes = [
-      { prefix: "Software Engineer Turning Complex Problems into ", target: "Intelligent Software Solutions with AI" },
-      { prefix: "Softwareentwickler, der komplexe Probleme mithilfe von KI in ", target: "intelligente Softwarelösungen umwandelt" }
+      { prefix: "I build ", target: "intelligent software systems" },
+      { prefix: "Ich baue ", target: "intelligente Softwaresysteme" }
     ];
 
     for (const item of prefixes) {
@@ -112,9 +112,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {/* Hero Headline with English & German Typewriter */}
           <motion.div variants={fadeInUp} className="space-y-4">
-            <h1 className="apple-headline text-3xl sm:text-5xl lg:text-6xl font-bold text-white min-h-[3.2em] sm:min-h-[2.8em] lg:min-h-[2.5em] leading-[1.08]">
+            <h1 className="apple-headline text-4xl sm:text-6xl lg:text-7xl font-bold text-white min-h-[2.4em] sm:min-h-[2.2em] leading-[1.08]">
               {renderTypedTitle(displayedText)}
-              <span className="inline-block w-1 h-6 sm:h-9 lg:h-12 ml-1.5 bg-sky-400 align-middle animate-pulse" />
+              <span className="inline-block w-1 h-7 sm:h-11 lg:h-14 ml-1.5 bg-sky-400 align-middle animate-pulse" />
             </h1>
           </motion.div>
 
