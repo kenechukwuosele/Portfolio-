@@ -64,8 +64,8 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                     <title>Osele Kenechukwu Alexander - Resume</title>
                     <style>
                       @page {
-                        size: A4;
-                        margin: 18mm 16mm 18mm 16mm;
+                        size: letter;
+                        margin: 0.55in 0.65in 0.55in 0.65in;
                       }
                       * {
                         box-sizing: border-box;
@@ -73,145 +73,96 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         padding: 0;
                       }
                       body {
-                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-                        color: #1a1a1a;
+                        font-family: "Times New Roman", Times, "Nimbus Roman No9 L", serif;
+                        color: #000000;
                         background: #ffffff;
-                        line-height: 1.45;
-                        font-size: 10.5pt;
+                        line-height: 1.24;
+                        font-size: 10pt;
+                        -webkit-print-color-adjust: exact;
+                        print-color-adjust: exact;
                       }
                       .container {
-                        max-width: 820px;
+                        max-width: 800px;
                         margin: 0 auto;
-                        padding: 24px 30px;
+                        padding: 24px 28px;
                       }
                       .no-print-bar {
-                        background: #0f172a;
+                        background: #161617;
                         color: #ffffff;
-                        padding: 12px 20px;
+                        padding: 10px 18px;
                         display: flex;
                         align-items: center;
                         justify-content: space-between;
                         border-radius: 8px;
                         margin-bottom: 24px;
+                        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+                        font-size: 13px;
                         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
                       }
                       .btn-print {
-                        background: #38bdf8;
-                        color: #0f172a;
+                        background: #0071e3;
+                        color: #ffffff;
                         border: none;
-                        padding: 8px 18px;
-                        font-weight: 700;
-                        font-size: 13px;
+                        padding: 7px 18px;
+                        font-weight: 600;
+                        font-size: 12px;
                         border-radius: 6px;
                         cursor: pointer;
-                        transition: background 0.2s;
+                        transition: background 0.15s;
                       }
                       .btn-print:hover {
-                        background: #7dd3fc;
+                        background: #0077ed;
                       }
                       .header {
                         text-align: center;
-                        margin-bottom: 14px;
+                        margin-bottom: 10px;
                       }
-                      .name {
-                        font-size: 18pt;
-                        font-weight: 800;
-                        letter-spacing: 0.5px;
-                        color: #0f172a;
+                      .header-name {
+                        font-size: 14pt;
+                        font-weight: bold;
                         text-transform: uppercase;
-                        margin-bottom: 3px;
+                        letter-spacing: 0.5px;
+                        margin-bottom: 2px;
                       }
-                      .contact-info {
-                        font-size: 9pt;
-                        color: #334155;
-                        margin-bottom: 4px;
+                      .header-info {
+                        font-size: 10pt;
+                        line-height: 1.3;
                       }
-                      .contact-links {
-                        font-size: 9pt;
-                        color: #2563eb;
+                      .header-links {
+                        font-size: 10pt;
+                        margin-top: 1px;
                       }
-                      .contact-links a {
-                        color: #0284c7;
-                        text-decoration: none;
-                      }
-                      .contact-links a:hover {
+                      .header-links a {
+                        color: #0000ee;
                         text-decoration: underline;
                       }
                       .section-title {
                         font-size: 10.5pt;
-                        font-weight: 800;
-                        color: #0f172a;
+                        font-weight: bold;
                         text-transform: uppercase;
-                        letter-spacing: 0.8px;
-                        border-bottom: 1.5px solid #0f172a;
-                        padding-bottom: 3px;
-                        margin-top: 14px;
-                        margin-bottom: 8px;
+                        margin-top: 9px;
+                        margin-bottom: 2px;
                       }
-                      .entry {
-                        margin-bottom: 11px;
-                      }
-                      .entry-header {
+                      .item-row {
                         display: flex;
                         justify-content: space-between;
                         align-items: baseline;
-                        margin-bottom: 2px;
+                        font-size: 10pt;
                       }
-                      .entry-title {
-                        font-weight: 700;
-                        font-size: 10.5pt;
-                        color: #0f172a;
-                      }
-                      .entry-company {
-                        font-weight: 600;
-                        color: #1e293b;
-                      }
-                      .entry-date {
-                        font-size: 9pt;
-                        color: #64748b;
-                        font-weight: 500;
-                      }
-                      .entry-location {
-                        font-size: 8.5pt;
-                        color: #64748b;
-                      }
-                      .entry-desc {
-                        font-size: 9.5pt;
-                        color: #334155;
-                        margin-bottom: 4px;
-                      }
-                      ul.achievements {
-                        list-style-type: none;
-                        padding-left: 0;
-                      }
-                      ul.achievements li {
-                        position: relative;
-                        padding-left: 14px;
-                        font-size: 9pt;
-                        color: #334155;
-                        margin-bottom: 3px;
-                        line-height: 1.4;
-                      }
-                      ul.achievements li::before {
-                        content: "•";
-                        position: absolute;
-                        left: 2px;
-                        color: #0284c7;
+                      .bold {
                         font-weight: bold;
                       }
-                      .skills-grid {
-                        display: grid;
-                        grid-template-columns: 140px 1fr;
-                        row-gap: 5px;
-                        font-size: 9pt;
-                        margin-top: 4px;
+                      .bullet-item {
+                        margin-left: 20px;
+                        text-indent: -13px;
+                        line-height: 1.23;
+                        font-size: 10pt;
+                        margin-bottom: 1px;
                       }
-                      .skill-category {
-                        font-weight: 700;
-                        color: #0f172a;
-                      }
-                      .skill-list {
-                        color: #334155;
+                      .skill-line {
+                        font-size: 10pt;
+                        line-height: 1.24;
+                        margin-bottom: 2px;
                       }
                       @media print {
                         .no-print-bar {
@@ -219,6 +170,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         }
                         .container {
                           padding: 0 !important;
+                          max-width: 100% !important;
                         }
                         body {
                           font-size: 10pt;
@@ -229,106 +181,67 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                   <body>
                     <div class="container">
                       <div class="no-print-bar">
-                        <span>Print Preview: ${developerName} Resume</span>
+                        <span>Print Preview: Osele Kenechukwu Alexander Resume</span>
                         <button class="btn-print" onclick="window.print()">Print / Save PDF</button>
                       </div>
 
                       <div class="header">
-                        <div class="name">${developerName}</div>
-                        <div class="contact-info">Lagos, Nigeria • ${developerEmail}</div>
-                        <div class="contact-links">
-
-                      <div class="section-title">Education</div>
-                      <div>
-                        <div class="item-header">
-                          <span class="item-title">Covenant University, Ota, Nigeria</span>
-                          <span class="item-date">August 2026</span>
+                        <div class="header-name">OSELE KENECHUKWU ALEXANDER</div>
+                        <div class="header-info">Lagos, Nigeria</div>
+                        <div class="header-info">+234 816 028 4721</div>
+                        <div class="header-links">
+                          <a href="mailto:kenechukwu.osele@outlook.com">kenechukwu.osele@outlook.com</a> | <a href="https://linkedin.com/in/kenechukwuosele" target="_blank">linkedin.com/in/kenechukwuosele</a> | <a href="https://github.com/kenechukwuosele" target="_blank">github.com/kenechukwuosele</a>
                         </div>
-                        <div class="item-subtitle">B.Eng. Computer Engineering (4.16/5.00, Second Class Upper)</div>
-                        <ul>
-                          <li><strong>Focus areas:</strong> machine learning, applied LLMs, computer networks, and software systems</li>
-                          <li><strong>Relevant coursework:</strong> Algorithms and Data structures, Computer networks, Database systems, Probability and Statistics, Natural Language Processing and Computer Vision</li>
-                        </ul>
                       </div>
 
-                      <div class="section-title">Work Experience</div>
-                      
-                      <div style="margin-bottom: 6px;">
-                        <div class="item-header">
-                          <span class="item-title">Networking Intern - First City Monument Bank (FCMB), Lagos</span>
-                          <span class="item-date">Mar 2025 – Nov 2025</span>
-                        </div>
-                        <ul>
-                          <li>Escalated network faults to ISPs and resolved downtime incidents across multiple branches, cutting average resolution time by 4hrs/day</li>
-                          <li>Led report generation spanning all branch networks across Nigeria as head networking intern, consolidating telemetry from over 200 sites into unified monitoring summaries.</li>
-                        </ul>
-                      </div>
+                      <div class="section-title">EDUCATION</div>
+                      <div class="bold">Covenant University, Ota, Nigeria</div>
+                      <div>B.Eng. Computer Engineering (4.16/5.00, Second Class Upper) | August 2026</div>
+                      <div class="bullet-item">– Focus areas: machine learning, applied LLMs, computer networks, and software systems</div>
+                      <div class="bullet-item">– Relevant coursework: Algorithms and Data structures, Computer networks, Database systems, Probability and Statistics, Natural Language Processing and Computer Vision</div>
 
-                      <div style="margin-bottom: 6px;">
-                        <div class="item-header">
-                          <span class="item-title">Software and Documentation Intern - UNIVASA eSIM Technologies, Lagos</span>
-                          <span class="item-date">Mar 2025 – Sep 2025</span>
-                        </div>
-                        <ul>
-                          <li>Authored complete REST API documentation for UNIVASA eSIM covering endpoint references, authentication flows, error codes, and integration examples, cutting third-party developer onboarding time</li>
-                          <li>Shipped a Python data-cleaning and reporting automation script for a small business client, removing roughly four hours of manual reporting work per weekly cycle</li>
-                        </ul>
+                      <div class="section-title">WORK EXPERIENCE</div>
+                      <div class="item-row">
+                        <span class="bold">Networking Intern - First City Monument Bank (FCMB), Lagos</span>
+                        <span>Mar 2025 – Nov 2025</span>
                       </div>
+                      <div class="bullet-item">– Escalated network faults to ISPs and resolved downtime incidents across multiple branches, cutting average resolution time by 4hrs/day</div>
+                      <div class="bullet-item">– Led report generation spanning all branch networks across Nigeria as head networking intern, consolidating telemetry from over 200 sites into unified monitoring summaries.</div>
 
-                      <div class="section-title">Projects</div>
+                      <div class="item-row" style="margin-top: 4px;">
+                        <span class="bold">Software and Documentation Intern - UNIVASA eSIM Technologies, Lagos</span>
+                        <span>Mar 2025 – Sep 2025</span>
+                      </div>
+                      <div class="bullet-item">– Authored complete REST API documentation for UNIVASA eSIM covering endpoint references, authentication flows, error codes, and integration examples, cutting third-party developer onboarding time</div>
+                      <div class="bullet-item">– Shipped a Python data-cleaning and reporting automation script for a small business client, removing roughly four hours of manual reporting work per weekly cycle</div>
 
-                      <div style="margin-bottom: 6px;">
-                        <div class="item-title">Real-Time Student Assessment Platform using Artificial intelligence</div>
-                        <ul>
-                          <li>Open-source AI-augmented LMS that adds browser-side face verification, real-time engagement monitoring, and a RAG-based hint pipeline to a production learning environment.</li>
-                          <li>Implemented real-time engagement monitoring with gamification mechanics to sustain student attention during sessions, layered on top of the browser-side face verification and RAG-based hint pipeline</li>
-                        </ul>
-                      </div>
+                      <div class="section-title">PROJECTS</div>
+                      <div class="bold">Real-Time Student Assessment Platform using Artificial intelligence</div>
+                      <div class="bullet-item">– Open-source AI-augmented LMS that adds browser-side face verification, real-time engagement monitoring, and a RAG-based hint pipeline to a production learning environment.</div>
+                      <div class="bullet-item">– Implemented real-time engagement monitoring with gamification mechanics to sustain student attention during sessions, layered on top of the browser-side face verification and RAG-based hint pipeline</div>
 
-                      <div style="margin-bottom: 6px;">
-                        <div class="item-title">AI-Powered Command-Line Interface for Autonomous Database Administration</div>
-                        <ul>
-                          <li>Open-source AI-powered CLI that translates plain English into optimized SQL and NoSQL queries across four database engines, removing the need for manual query writing</li>
-                          <li>Lowered per-query inference cost by approximately 90% through a task-routing system that sends simple requests to lightweight models and reserves capable LLMs for complex ones, with a two-model critic pattern that reviews queries before they hit the database.</li>
-                        </ul>
-                      </div>
+                      <div class="bold" style="margin-top: 4px;">AI-Powered Command-Line Interface for Autonomous Database Administration</div>
+                      <div class="bullet-item">– Open-source AI-powered CLI that translates plain English into optimized SQL and NoSQL queries across four database engines, removing the need for manual query writing</div>
+                      <div class="bullet-item">– Lowered per-query inference cost by approximately 90% through a task-routing system that sends simple requests to lightweight models and reserves capable LLMs for complex ones, with a two-model critic pattern that reviews queries before they hit the database.</div>
 
-                      <div class="section-title">Volunteer Experience</div>
+                      <div class="section-title">VOLUNTEER EXPERIENCE</div>
+                      <div class="item-row">
+                        <span class="bold">Website Designer - Digital Yearbook Team, Covenant University</span>
+                        <span>Aug 2026 – Oct 2026</span>
+                      </div>
+                      <div class="bullet-item">– Designing and building the frontend of a digital yearbook site with React and Tailwind CSS, serving 72 graduating classmates, scheduled to launch after graduation</div>
 
-                      <div style="margin-bottom: 6px;">
-                        <div class="item-header">
-                          <span class="item-title">Website Designer - Digital Yearbook Team, Covenant University</span>
-                          <span class="item-date">Aug 2026 – Oct 2026</span>
-                        </div>
-                        <ul>
-                          <li>Designing and building the frontend of a digital yearbook site with React and Tailwind CSS, serving 72 graduating classmates, scheduled to launch after graduation</li>
-                        </ul>
+                      <div class="item-row" style="margin-top: 4px;">
+                        <span class="bold">Developer - Digital SIWES+ Platform (with a friend)</span>
+                        <span>Aug 2025 – Sep 2026</span>
                       </div>
+                      <div class="bullet-item">– Built a full-stack platform digitizing the end-to-end SIWES placement process using Python, FastAPI, React, and Node.js; currently pending approval</div>
 
-                      <div style="margin-bottom: 6px;">
-                        <div class="item-header">
-                          <span class="item-title">Developer - Digital SIWES+ Platform (with a friend)</span>
-                          <span class="item-date">Aug 2025 – Sep 2026</span>
-                        </div>
-                        <ul>
-                          <li>Built a full-stack platform digitizing the end-to-end SIWES placement process using Python, FastAPI, React, and Node.js; currently pending approval</li>
-                        </ul>
-                      </div>
-
-                      <div class="section-title">Skills and Interests</div>
-                      <div class="skills-line">
-                        <strong>Programming Languages:</strong> Python, TypeScript, JavaScript, FastAPI, React, Node.js, Express.js, REST APIs, Tailwind CSS
-                      </div>
-                      <div class="skills-line">
-                        <strong>Soft Skills:</strong> Teamwork & Collaboration, Communication, Adaptability & Resilience, Emotional Intelligence
-                      </div>
-                      <div class="skills-line">
-                        <strong>Languages:</strong> English (fluent), German (intermediate)
-                      </div>
-                      <div class="skills-line">
-                        <strong>Interests:</strong> Playing basketball, Swimming, Reading
-                      </div>
-
+                      <div class="section-title">SKILLS AND INTERESTS</div>
+                      <div class="skill-line"><span class="bold">Programming Languages:</span> Python, TypeScript, JavaScript, FastAPI, React, Node.js, Express.js, REST APIs, Tailwind CSS</div>
+                      <div class="skill-line"><span class="bold">Soft Skills:</span> Teamwork & Collaboration, Communication, Adaptability & Resilience, Emotional Intelligence</div>
+                      <div class="skill-line"><span class="bold">Languages:</span> English (fluent), German (intermediate).</div>
+                      <div class="skill-line"><span class="bold">Interests:</span> Playing basketball, Swimming, Reading</div>
                     </div>
                   </body>
                 </html>
@@ -336,7 +249,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
               printWindow.document.close();
             }
           }}
-          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-white/5 hover:bg-white/10 border border-white/10 text-white text-xs font-semibold backdrop-blur-md transition-colors cursor-pointer"
+          className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.06] hover:bg-white/[0.12] border border-white/[0.08] text-white text-xs font-medium transition-colors cursor-pointer"
           id="btn-view-printable-resume"
         >
           <FileText className="w-4 h-4 text-sky-400" />
