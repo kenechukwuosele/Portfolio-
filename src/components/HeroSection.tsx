@@ -180,8 +180,6 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
                 <span>LinkedIn</span>
               </a>
             </div>
-            <span className="hidden sm:inline text-white/20">·</span>
-            <span>Deutsch (A2/B1) · English (Fluent)</span>
           </motion.div>
         </motion.div>
 
