@@ -25,8 +25,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
   const [copiedEmail, setCopiedEmail] = useState(false);
 
   // Typewriter effect alternating English and German
-  const englishPhrase = "Building intelligent, Full-Stack and AI systems.";
-  const germanPhrase = "Entwicklung intelligenter, Full-Stack und KI-Systeme.";
+  const englishPhrase = "Software Engineer Turning Complex Problems into Intelligent Software Solutions with AI";
+  const germanPhrase = "Softwareentwickler, der komplexe Probleme mithilfe von KI in intelligente Softwarelösungen umwandelt";
   const phrases = [englishPhrase, germanPhrase];
 
   const [displayedText, setDisplayedText] = useState("");
@@ -42,19 +42,19 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
       if (displayedText.length < currentTarget.length) {
         timeout = setTimeout(() => {
           setDisplayedText(currentTarget.slice(0, displayedText.length + 1));
-        }, 50);
+        }, 45);
       } else {
         // Pause at completion before deleting
         timeout = setTimeout(() => {
           setIsDeleting(true);
-        }, 2200);
+        }, 2400);
       }
     } else {
       // Deleting backwards
       if (displayedText.length > 0) {
         timeout = setTimeout(() => {
           setDisplayedText(currentTarget.slice(0, displayedText.length - 1));
-        }, 25);
+        }, 20);
       } else {
         // Switch to next language
         setIsDeleting(false);
@@ -65,11 +65,11 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
     return () => clearTimeout(timeout);
   }, [displayedText, isDeleting, phraseIndex]);
 
-  // Render text with Apple Intelligence gradient on "Full-Stack and AI systems" / "Full-Stack und KI-Systeme"
+  // Render text with Apple Intelligence gradient on the climax
   const renderTypedTitle = (text: string) => {
     const prefixes = [
-      { prefix: "Building intelligent, ", target: "Full-Stack and AI systems." },
-      { prefix: "Entwicklung intelligenter, ", target: "Full-Stack und KI-Systeme." }
+      { prefix: "Software Engineer Turning Complex Problems into ", target: "Intelligent Software Solutions with AI" },
+      { prefix: "Softwareentwickler, der komplexe Probleme mithilfe von KI in ", target: "intelligente Softwarelösungen umwandelt" }
     ];
 
     for (const item of prefixes) {
@@ -112,9 +112,9 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
         >
           {/* Hero Headline with English & German Typewriter */}
           <motion.div variants={fadeInUp} className="space-y-4">
-            <h1 className="apple-headline text-4xl sm:text-6xl lg:text-7xl font-bold text-white min-h-[2.4em] sm:min-h-[2.2em]">
+            <h1 className="apple-headline text-3xl sm:text-5xl lg:text-6xl font-bold text-white min-h-[3.2em] sm:min-h-[2.8em] lg:min-h-[2.5em] leading-[1.08]">
               {renderTypedTitle(displayedText)}
-              <span className="inline-block w-1 h-7 sm:h-11 lg:h-14 ml-1.5 bg-sky-400 align-middle animate-pulse" />
+              <span className="inline-block w-1 h-6 sm:h-9 lg:h-12 ml-1.5 bg-sky-400 align-middle animate-pulse" />
             </h1>
           </motion.div>
 
