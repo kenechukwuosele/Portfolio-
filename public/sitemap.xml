@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://kenechukwuosele.me/</loc>
+    <lastmod>2026-08-27</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://kenechukwuosele.me/profile.jpg</image:loc>
+      <image:title>Osele Kenechukwu Alexander - Software Engineer &amp; AI Systems Developer</image:title>
+      <image:caption>Software Engineer crafting scalable FastAPI microservices, modern TypeScript applications, and applied AI systems.</image:caption>
+    </image:image>
+  </url>
+</urlset>

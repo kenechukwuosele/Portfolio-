@@ -1,0 +1,6 @@
+﻿# Robots.txt for https://kenechukwuosele.me
+User-agent: *
+Allow: /
+
+# Sitemaps
+Sitemap: https://kenechukwuosele.me/sitemap.xml

@@ -1,0 +1,21 @@
+﻿{
+  "name": "Osele Kenechukwu Alexander — Software Engineer Portfolio",
+  "short_name": "Kenechukwu Portfolio",
+  "description": "Software Engineer crafting scalable FastAPI microservices, modern TypeScript applications, and applied AI systems.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/profile.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
