@@ -85,6 +85,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         max-width: 800px;
                         margin: 0 auto;
                         padding: 24px 28px;
+                        text-align: justify;
                       }
                       .no-print-bar {
                         background: #161617;
@@ -98,6 +99,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
                         font-size: 13px;
                         box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+                        text-align: left;
                       }
                       .btn-print {
                         background: #0071e3;
@@ -114,7 +116,7 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         background: #0077ed;
                       }
                       .header {
-                        text-align: center;
+                        text-align: center !important;
                         margin-bottom: 10px;
                       }
                       .header-name {
@@ -144,12 +146,14 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         padding-bottom: 1px;
                         margin-top: 9px;
                         margin-bottom: 3px;
+                        text-align: left;
                       }
                       .item-row {
                         display: flex;
                         justify-content: space-between;
                         align-items: baseline;
                         font-size: 10pt;
+                        text-align: left;
                       }
                       .bold {
                         font-weight: bold;
@@ -160,11 +164,15 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         line-height: 1.23;
                         font-size: 10pt;
                         margin-bottom: 1px;
+                        text-align: justify;
+                        text-justify: inter-word;
                       }
                       .skill-line {
                         font-size: 10pt;
                         line-height: 1.24;
                         margin-bottom: 2px;
+                        text-align: justify;
+                        text-justify: inter-word;
                       }
                       @media print {
                         .no-print-bar {
