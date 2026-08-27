@@ -13,7 +13,7 @@ export const initialPortfolioData: PortfolioData = {
     bio: "Software Engineer crafting AI-powered developer tools, secure authentication microservices, full-stack web apps, RAG research assistants, and voice-driven copilots.",
     subBio: "Specializing in FastAPI, Python, TypeScript, React, Node.js, MERN stack, PostgreSQL, Redis, Argon2, and modern AI/LLM integrations.",
     avatarUrl: "/profile.jpg",
-    email: "kenechukwu.osele@outlook.com",
+    email: "oseleken9@gmail.com",
     github: "https://github.com/kenechukwuosele",
     twitter: "https://github.com/kenechukwuosele",
     linkedin: "https://www.linkedin.com/in/kenechukwuosele/",
@@ -750,6 +750,21 @@ class HybridRAGRetriever:
       ],
       technologies: ["Python", "REST APIs", "API Documentation", "Data Automation", "Developer Onboarding"],
       highlightMetric: "4 hrs/wk saved via Python script"
+    },
+    {
+      id: "exp-cuala",
+      company: "CUALA Trade Fair, Covenant University",
+      role: "Social Media Volunteer",
+      period: "Aug 2026 – Sept 2026",
+      location: "Ota, Nigeria",
+      type: "Volunteer",
+      description: "Supported trade fair promotion and aligned volunteer outreach with the event's promotional schedule.",
+      achievements: [
+        "Supported trade fair promotion by engaging with and resharing official posts across personal social media accounts.",
+        "Attended online coordination sessions to align volunteer outreach with the event's promotional schedule."
+      ],
+      technologies: ["Digital Marketing", "Social Media Outreach", "Team Coordination"],
+      highlightMetric: "Trade Fair Outreach"
     },
     {
       id: "exp-opensource-ai",

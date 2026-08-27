@@ -140,8 +140,10 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                         font-size: 10.5pt;
                         font-weight: bold;
                         text-transform: uppercase;
+                        border-bottom: 1px solid #000000;
+                        padding-bottom: 1px;
                         margin-top: 9px;
-                        margin-bottom: 2px;
+                        margin-bottom: 3px;
                       }
                       .item-row {
                         display: flex;
@@ -188,60 +190,69 @@ export const ExperienceTimeline: React.FC<ExperienceTimelineProps> = ({
                       <div class="header">
                         <div class="header-name">OSELE KENECHUKWU ALEXANDER</div>
                         <div class="header-info">Lagos, Nigeria</div>
-                        <div class="header-info">+234 816 028 4721</div>
                         <div class="header-links">
-                          <a href="mailto:kenechukwu.osele@outlook.com">kenechukwu.osele@outlook.com</a> | <a href="https://linkedin.com/in/kenechukwuosele" target="_blank">linkedin.com/in/kenechukwuosele</a> | <a href="https://github.com/kenechukwuosele" target="_blank">github.com/kenechukwuosele</a>
+                          | +234 (0) 816 028 4721 | <a href="mailto:oseleken9@gmail.com">oseleken9@gmail.com</a> | <a href="https://linkedin.com/in/kenechukwuosele" target="_blank">linkedin.com/in/kenechukwuosele</a> | <a href="https://kenechukwuosele.me" target="_blank">https://kenechukwuosele.me</a>
                         </div>
                       </div>
 
                       <div class="section-title">EDUCATION</div>
-                      <div class="bold">Covenant University, Ota, Nigeria</div>
-                      <div>B.Eng. Computer Engineering (4.16/5.00, Second Class Upper) | August 2026</div>
-                      <div class="bullet-item">– Focus areas: machine learning, applied LLMs, computer networks, and software systems</div>
-                      <div class="bullet-item">– Relevant coursework: Algorithms and Data structures, Computer networks, Database systems, Probability and Statistics, Natural Language Processing and Computer Vision</div>
+                      <div class="item-row">
+                        <span class="bold">Covenant University, Ota, Nigeria</span>
+                        <span>August 2026</span>
+                      </div>
+                      <div>B.Eng. Computer Engineering (4.16/5.00, Second Class Upper)</div>
+                      <div class="bullet-item">• Focus areas: machine learning, applied LLMs, computer networks, and software systems</div>
+                      <div class="bullet-item">• Relevant coursework: Algorithms and Data Structures, Computer Networks, Embedded Systems and Programming, Probability and Statistics, Computer Graphics, Artificial Intelligence</div>
 
                       <div class="section-title">WORK EXPERIENCE</div>
                       <div class="item-row">
-                        <span class="bold">Networking Intern - First City Monument Bank (FCMB), Lagos</span>
+                        <span class="bold">Networking Intern — First City Monument Bank (FCMB), Lagos</span>
                         <span>Mar 2025 – Nov 2025</span>
                       </div>
-                      <div class="bullet-item">– Escalated network faults to ISPs and resolved downtime incidents across multiple branches, cutting average resolution time by 4hrs/day</div>
-                      <div class="bullet-item">– Led report generation spanning all branch networks across Nigeria as head networking intern, consolidating telemetry from over 200 sites into unified monitoring summaries.</div>
+                      <div class="bullet-item">• Led report generation spanning all branch networks across Nigeria as head networking intern, consolidating telemetry from over 200 sites into unified monitoring summaries</div>
+                      <div class="bullet-item">• Escalated network faults to ISPs and resolved downtime incidents across multiple branches, cutting average resolution time by 4hrs/day</div>
 
                       <div class="item-row" style="margin-top: 4px;">
-                        <span class="bold">Software and Documentation Intern - UNIVASA eSIM Technologies, Lagos</span>
+                        <span class="bold">Software and Documentation Intern — UNIVASA eSIM Technologies, Lagos</span>
                         <span>Mar 2025 – Sep 2025</span>
                       </div>
-                      <div class="bullet-item">– Authored complete REST API documentation for UNIVASA eSIM covering endpoint references, authentication flows, error codes, and integration examples, cutting third-party developer onboarding time</div>
-                      <div class="bullet-item">– Shipped a Python data-cleaning and reporting automation script for a small business client, removing roughly four hours of manual reporting work per weekly cycle</div>
+                      <div class="bullet-item">• Authored complete REST API documentation for UNIVASA eSIM covering endpoint references, authentication flows, error codes, and integration examples, cutting third-party developer onboarding time</div>
+                      <div class="bullet-item">• Shipped a Python data-cleaning and reporting automation script for a small business client, removing roughly four hours of manual reporting work per weekly cycle</div>
 
                       <div class="section-title">PROJECTS</div>
-                      <div class="bold">Real-Time Student Assessment Platform using Artificial intelligence</div>
-                      <div class="bullet-item">– Open-source AI-augmented LMS that adds browser-side face verification, real-time engagement monitoring, and a RAG-based hint pipeline to a production learning environment.</div>
-                      <div class="bullet-item">– Implemented real-time engagement monitoring with gamification mechanics to sustain student attention during sessions, layered on top of the browser-side face verification and RAG-based hint pipeline</div>
+                      <div class="bold">Real-Time Student Assessment Platform using Artificial Intelligence (Final Year Project)</div>
+                      <div class="bullet-item">• Open-source AI-augmented LMS that adds browser-side face verification, real-time engagement monitoring, and a RAG-based hint pipeline to a production learning environment</div>
+                      <div class="bullet-item">• Implemented real-time engagement monitoring with gamification mechanics to sustain student attention during sessions, layered on top of the browser-side face verification and RAG-based hint pipeline</div>
 
                       <div class="bold" style="margin-top: 4px;">AI-Powered Command-Line Interface for Autonomous Database Administration</div>
-                      <div class="bullet-item">– Open-source AI-powered CLI that translates plain English into optimized SQL and NoSQL queries across four database engines, removing the need for manual query writing</div>
-                      <div class="bullet-item">– Lowered per-query inference cost by approximately 90% through a task-routing system that sends simple requests to lightweight models and reserves capable LLMs for complex ones, with a two-model critic pattern that reviews queries before they hit the database.</div>
+                      <div class="bullet-item">• Open-source AI-powered CLI that translates plain English into optimized SQL and NoSQL queries across four database engines, removing the need for manual query writing</div>
+                      <div class="bullet-item">• Lowered per-query inference cost by approximately 90% through a task-routing system that sends simple requests to lightweight models and reserves capable LLMs for complex ones, with a two-model critic pattern that reviews queries before they hit the database</div>
 
                       <div class="section-title">VOLUNTEER EXPERIENCE</div>
                       <div class="item-row">
-                        <span class="bold">Website Designer - Digital Yearbook Team, Covenant University</span>
+                        <span class="bold">Website Designer — Digital Yearbook Team, Covenant University</span>
                         <span>Aug 2026 – Oct 2026</span>
                       </div>
-                      <div class="bullet-item">– Designing and building the frontend of a digital yearbook site with React and Tailwind CSS, serving 72 graduating classmates, scheduled to launch after graduation</div>
+                      <div class="bullet-item">• Designing and building the frontend of a digital yearbook site with React and Tailwind CSS, serving 72 graduating classmates, scheduled to launch after graduation</div>
 
                       <div class="item-row" style="margin-top: 4px;">
-                        <span class="bold">Developer - Digital SIWES+ Platform (with a friend)</span>
+                        <span class="bold">Social Media Volunteer — CUALA Trade Fair, Covenant University</span>
+                        <span>Aug 2026 – Sept 2026</span>
+                      </div>
+                      <div class="bullet-item">• Supported trade fair promotion by engaging with and resharing official posts across personal social media accounts</div>
+                      <div class="bullet-item">• Attended online coordination sessions to align volunteer outreach with the event's promotional schedule</div>
+
+                      <div class="item-row" style="margin-top: 4px;">
+                        <span class="bold">Developer — Digital SIWES+ Platform (with a friend)</span>
                         <span>Aug 2025 – Sep 2026</span>
                       </div>
-                      <div class="bullet-item">– Built a full-stack platform digitizing the end-to-end SIWES placement process using Python, FastAPI, React, and Node.js; currently pending approval</div>
+                      <div class="bullet-item">• Built a full-stack platform digitizing the end-to-end SIWES placement process using Python, FastAPI, React, and Node.js; currently pending approval</div>
 
                       <div class="section-title">SKILLS AND INTERESTS</div>
                       <div class="skill-line"><span class="bold">Programming Languages:</span> Python, TypeScript, JavaScript, FastAPI, React, Node.js, Express.js, REST APIs, Tailwind CSS</div>
                       <div class="skill-line"><span class="bold">Soft Skills:</span> Teamwork & Collaboration, Communication, Adaptability & Resilience, Emotional Intelligence</div>
-                      <div class="skill-line"><span class="bold">Languages:</span> English (fluent), German (intermediate).</div>
-                      <div class="skill-line"><span class="bold">Interests:</span> Playing basketball, Swimming, Reading</div>
+                      <div class="skill-line"><span class="bold">Languages:</span> English (fluent), German (intermediate)</div>
+                      <div class="skill-line"><span class="bold">Interests:</span> Playing Strategy Games, Swimming, Reading</div>
                     </div>
                   </body>
                 </html>
