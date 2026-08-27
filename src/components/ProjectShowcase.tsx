@@ -181,9 +181,10 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
                       <a
                         href={project.githubUrl}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         className="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white transition-colors"
                         title="GitHub Repository"
+                        aria-label={`View ${project.title} source code on GitHub`}
                       >
                         <Github className="w-4 h-4" />
                       </a>
@@ -192,9 +193,10 @@ export const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({
                       <a
                         href={project.liveUrl}
                         target="_blank"
-                        rel="noreferrer"
+                        rel="noreferrer noopener"
                         className="p-2.5 rounded-full bg-white/[0.05] hover:bg-white/[0.1] text-white transition-colors"
                         title="Live Deployment"
+                        aria-label={`Visit ${project.title} live deployment`}
                       >
                         <ExternalLink className="w-4 h-4" />
                       </a>

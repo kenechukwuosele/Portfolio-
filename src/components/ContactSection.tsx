@@ -154,13 +154,16 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </button>
               </div>
             ) : (
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form onSubmit={handleSubmit} className="space-y-4" aria-label="Contact and collaboration inquiry form">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="space-y-1.5">
-                    <label className="text-xs text-[#86868b]">Your Name</label>
+                    <label htmlFor="contact-name" className="text-xs text-[#86868b]">Your Name</label>
                     <input
+                      id="contact-name"
+                      name="name"
                       type="text"
                       required
+                      autoComplete="name"
                       placeholder="Alex Taylor"
                       value={formState.name}
                       onChange={(e) => setFormState({ ...formState, name: e.target.value })}
@@ -168,10 +171,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                     />
                   </div>
                   <div className="space-y-1.5">
-                    <label className="text-xs text-[#86868b]">Your Email</label>
+                    <label htmlFor="contact-email" className="text-xs text-[#86868b]">Your Email</label>
                     <input
+                      id="contact-email"
+                      name="email"
                       type="email"
                       required
+                      autoComplete="email"
                       placeholder="alex@example.com"
                       value={formState.email}
                       onChange={(e) => setFormState({ ...formState, email: e.target.value })}
@@ -181,25 +187,29 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs text-[#86868b]">Inquiry Type</label>
+                  <label htmlFor="contact-role" className="text-xs text-[#86868b]">Inquiry / Opportunity Type</label>
                   <select
+                    id="contact-role"
+                    name="roleType"
                     value={formState.roleType}
                     onChange={(e) => setFormState({ ...formState, roleType: e.target.value })}
-                    className="w-full px-4 py-3 rounded-2xl bg-black/40 border border-white/[0.08] text-white text-sm focus:outline-none focus:border-sky-400 transition-colors"
+                    className="w-full px-4 py-3 rounded-2xl bg-black/40 border border-white/[0.08] text-white text-sm focus:outline-none focus:border-sky-400 transition-colors cursor-pointer"
                   >
-                    <option value="Full-Stack / AI Systems Role" className="bg-[#161617]">Full-Stack / AI Systems Role</option>
-                    <option value="Backend Engineering Role" className="bg-[#161617]">Backend Engineering Role</option>
-                    <option value="Consulting & Architecture" className="bg-[#161617]">Consulting & Architecture</option>
-                    <option value="General Question" className="bg-[#161617]">General Question</option>
+                    <option value="Full-Stack / AI Systems Role" className="bg-[#161617] text-white">Full-Stack / AI Systems Role</option>
+                    <option value="FastAPI / Backend Engineering" className="bg-[#161617] text-white">FastAPI / Backend Engineering</option>
+                    <option value="Contract / Freelance Project" className="bg-[#161617] text-white">Contract / Freelance Project</option>
+                    <option value="Technical Collaboration" className="bg-[#161617] text-white">Technical Collaboration</option>
                   </select>
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs text-[#86868b]">Message</label>
+                  <label htmlFor="contact-message" className="text-xs text-[#86868b]">Message</label>
                   <textarea
+                    id="contact-message"
+                    name="message"
                     required
                     rows={4}
-                    placeholder="Describe your project, team, or opportunity..."
+                    placeholder="Tell me about your team, system requirements, or upcoming project..."
                     value={formState.message}
                     onChange={(e) => setFormState({ ...formState, message: e.target.value })}
                     className="w-full px-4 py-3 rounded-2xl bg-black/40 border border-white/[0.08] text-white placeholder-white/20 text-sm focus:outline-none focus:border-sky-400 transition-colors resize-none"
@@ -208,10 +218,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
 
                 <button
                   type="submit"
-                  className="w-full py-3.5 bg-white text-black font-semibold text-sm rounded-full flex items-center justify-center gap-2 hover:bg-[#e8e8ed] transition-all active:scale-[0.99] cursor-pointer shadow-md"
+                  aria-label="Send message to Osele Kenechukwu Alexander"
+                  className="w-full py-3.5 bg-white text-black font-semibold rounded-full text-sm hover:bg-[#e8e8ed] transition-all flex items-center justify-center gap-2 shadow-lg active:scale-[0.98] cursor-pointer"
                 >
-                  <span>Send Message</span>
-                  <ChevronRight className="w-4 h-4" />
+                  <Send className="w-4 h-4" />
+                  <span>Send Message via Email</span>
                 </button>
               </form>
             )}

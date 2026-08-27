@@ -122,6 +122,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
           <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-3.5 pt-1">
             <button
               onClick={onExploreWork}
+              aria-label="Explore featured software projects and architecture case studies"
               className="px-6 py-3 bg-white text-black rounded-full font-medium text-sm flex items-center gap-2 hover:bg-[#e8e8ed] transition-all shadow-md active:scale-[0.98] cursor-pointer"
               id="hero-explore-work-button"
             >
@@ -131,6 +132,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <button
               onClick={onContactClick}
+              aria-label="Contact Osele Kenechukwu Alexander for software engineering and AI roles"
               className="px-6 py-3 bg-white/[0.08] border border-white/[0.12] rounded-full font-medium text-sm text-white hover:bg-white/[0.14] transition-all active:scale-[0.98] cursor-pointer"
               id="hero-get-in-touch-button"
             >
@@ -139,6 +141,7 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
 
             <button
               onClick={handleCopyEmail}
+              aria-label="Copy direct email address to clipboard"
               className="px-4 py-3 rounded-full bg-white/[0.04] hover:bg-white/[0.08] text-[#86868b] hover:text-white border border-white/[0.08] text-xs flex items-center gap-1.5 transition-all cursor-pointer"
               title="Copy Email Address"
               id="hero-copy-email-button"
@@ -163,7 +166,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <a 
                 href={data.developer.github} 
                 target="_blank" 
-                rel="noreferrer"
+                rel="noreferrer noopener"
+                aria-label="View Osele Kenechukwu Alexander on GitHub"
                 className="hover:text-white transition-colors flex items-center gap-1.5"
               >
                 <Github className="w-3.5 h-3.5" />
@@ -173,7 +177,8 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <a 
                 href={data.developer.linkedin} 
                 target="_blank" 
-                rel="noreferrer"
+                rel="noreferrer noopener"
+                aria-label="Connect with Osele Kenechukwu Alexander on LinkedIn"
                 className="hover:text-white transition-colors flex items-center gap-1.5"
               >
                 <Linkedin className="w-3.5 h-3.5" />
@@ -197,9 +202,12 @@ export const HeroSection: React.FC<HeroSectionProps> = ({
               <div className="h-64 sm:h-72 w-full overflow-hidden relative">
                 <img 
                   src={data.developer.avatarUrl || "/profile.jpg"} 
-                  alt={data.developer.name}
+                  alt="Osele Kenechukwu Alexander - Software Engineer & AI Systems Developer in Lagos, Nigeria"
+                  width={512}
+                  height={512}
                   className="w-full h-full object-cover object-[center_18%]"
                   loading="eager"
+                  fetchPriority="high"
                 />
               </div>
 

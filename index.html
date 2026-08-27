@@ -28,7 +28,8 @@
     <meta name="geo.position" content="6.5244;3.3792" />
     <meta name="ICBM" content="6.5244, 3.3792" />
     
-    <!-- Google Fonts Preconnect -->
+    <!-- Performance Preloads -->
+    <link rel="preload" href="/profile.jpg" as="image" type="image/jpeg" fetchpriority="high" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -73,6 +74,7 @@
           "jobTitle": "Software Engineer & AI Systems Developer",
           "email": "oseleken9@gmail.com",
           "telephone": "+2348160284721",
+          "nationality": "Nigerian",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Lagos",
@@ -80,7 +82,8 @@
           },
           "alumniOf": {
             "@type": "CollegeOrUniversity",
-            "name": "Covenant University"
+            "name": "Covenant University, Ota, Nigeria",
+            "sameAs": "https://covenantuniversity.edu.ng/"
           },
           "sameAs": [
             "https://github.com/kenechukwuosele",
@@ -98,6 +101,7 @@
             "Applied Machine Learning",
             "Retrieval-Augmented Generation (RAG)",
             "Microservices Architecture",
+            "Computer Networks",
             "REST APIs",
             "Docker"
           ]
@@ -106,7 +110,7 @@
           "@type": "WebSite",
           "@id": "https://kenechukwuosele.me/#website",
           "url": "https://kenechukwuosele.me/",
-          "name": "Osele Kenechukwu Alexander — Portfolio",
+          "name": "Osele Kenechukwu Alexander — Software Engineer Portfolio",
           "description": "Software Engineer crafting scalable FastAPI microservices, modern TypeScript applications, and applied AI systems.",
           "author": {
             "@id": "https://kenechukwuosele.me/#person"
@@ -126,13 +130,92 @@
           },
           "mainEntity": {
             "@id": "https://kenechukwuosele.me/#person"
+          },
+          "breadcrumb": {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              {
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Home",
+                "item": "https://kenechukwuosele.me/"
+              },
+              {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Projects",
+                "item": "https://kenechukwuosele.me/#projects"
+              },
+              {
+                "@type": "ListItem",
+                "position": 3,
+                "name": "Experience",
+                "item": "https://kenechukwuosele.me/#experience"
+              },
+              {
+                "@type": "ListItem",
+                "position": 4,
+                "name": "Contact",
+                "item": "https://kenechukwuosele.me/#contact"
+              }
+            ]
           }
+        },
+        {
+          "@type": "ItemList",
+          "name": "Featured Software Engineering Projects",
+          "itemListElement": [
+            {
+              "@type": "SoftwareSourceCode",
+              "name": "AuthService",
+              "description": "Production-grade authentication microservice built with FastAPI, PostgreSQL, Redis blacklist caching, and Argon2 password security.",
+              "programmingLanguage": ["Python", "FastAPI", "PostgreSQL", "Redis"],
+              "codeRepository": "https://github.com/kenechukwuosele",
+              "author": { "@id": "https://kenechukwuosele.me/#person" }
+            },
+            {
+              "@type": "SoftwareSourceCode",
+              "name": "DbAdmin AI",
+              "description": "Natural language autonomous CLI database administrator translating English into SQL/NoSQL queries across PostgreSQL, MySQL, MongoDB, and Redis with dual-model critic routing.",
+              "programmingLanguage": ["Python", "Click", "ChromaDB", "LLMs"],
+              "codeRepository": "https://github.com/kenechukwuosele",
+              "author": { "@id": "https://kenechukwuosele.me/#person" }
+            },
+            {
+              "@type": "SoftwareSourceCode",
+              "name": "Real-Time Student Assessment Platform",
+              "description": "AI-augmented LMS with browser-side face verification, engagement monitoring, and RAG-based hint pipeline.",
+              "programmingLanguage": ["TypeScript", "React", "Python", "FastAPI", "WebRTC"],
+              "codeRepository": "https://github.com/kenechukwuosele",
+              "author": { "@id": "https://kenechukwuosele.me/#person" }
+            }
+          ]
         }
       ]
     }
     </script>
   </head>
   <body class="bg-black text-[#f5f5f7] selection:bg-[#0071e3]/30 selection:text-white overflow-x-hidden antialiased">
+    <!-- Search Engine & Accessibility Noscript Crawlable Fallback -->
+    <noscript>
+      <header style="padding: 24px; max-width: 800px; margin: 0 auto;">
+        <h1>Osele Kenechukwu Alexander — Software Engineer &amp; AI Systems Developer</h1>
+        <p>I build intelligent software systems. Specializing in FastAPI, Python, TypeScript, React, Node.js, PostgreSQL, Redis, Argon2, and modern AI/LLM integrations.</p>
+        <p>Location: Lagos, Nigeria | Email: oseleken9@gmail.com | Phone: +234 (0) 816 028 4721</p>
+        <h2>Featured Engineering Projects</h2>
+        <ul>
+          <li><strong>AuthService:</strong> Asynchronous FastAPI authentication microservice with Argon2id hashing and Redis token revocation.</li>
+          <li><strong>DbAdmin AI:</strong> Autonomous database CLI translating natural language into SQL across 4 engines with two-model critic validation.</li>
+          <li><strong>Real-Time Student Assessment Platform:</strong> AI-augmented learning platform with browser-side face verification and RAG hint pipelines.</li>
+          <li><strong>Digital SIWES+ Platform:</strong> Full-stack platform digitizing university industrial placement workflows.</li>
+        </ul>
+        <h2>Experience &amp; Education</h2>
+        <p><strong>Covenant University:</strong> B.Eng. Computer Engineering (4.16/5.00, Second Class Upper) | August 2026</p>
+        <p><strong>First City Monument Bank (FCMB):</strong> Networking Intern (Mar 2025 – Nov 2025)</p>
+        <p><strong>UNIVASA eSIM Technologies:</strong> Software and Documentation Intern (Mar 2025 – Sep 2025)</p>
+      </header>
+    </noscript>
+
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
   </body>
