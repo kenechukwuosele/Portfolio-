@@ -669,6 +669,503 @@ class HybridRAGRetriever:
       glassHue: "from-amber-500/20 to-orange-500/20",
       accentColor: "#d97706"
     }
+  ,
+    {
+      id: "siwes-",
+      title: "Siwes",
+      tagline: "A digital platform built to improve the SIWES experience by connecting stud",
+      category: "Full-Stack",
+      description: "A digital platform built to improve the SIWES experience by connecting students, supervisors, and organizations in one place. The app helps streamline internship management, student tracking, communication, documentation, and progress monitoring, reducing manual processes and making industrial training more organized and accessible",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "TypeScript", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["TypeScript","Open Source"],
+      technologies: ["TypeScript","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/siwes-",
+      liveUrl: "https://siwes-three.vercel.app",
+      demoSnippet: "# Clone and inspect siwes-\ngit clone https://github.com/kenechukwuosele/siwes-.git\ncd siwes-\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["TypeScript"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-cyan-500/20 via-blue-500/10 to-indigo-500/20",
+      accentColor: "#06b6d4"
+    },
+    {
+      id: "thursday",
+      title: "Thursday",
+      tagline: "Modern Python project by Kenechukwu.",
+      category: "Systems & AI",
+      description: "Open source Python system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Python", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Python","Open Source"],
+      technologies: ["Python","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/thursday",
+      liveUrl: "https://github.com/kenechukwuosele/thursday",
+      demoSnippet: "# Clone and inspect thursday\ngit clone https://github.com/kenechukwuosele/thursday.git\ncd thursday\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Python"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-sky-500/20 via-blue-500/10 to-indigo-500/20",
+      accentColor: "#0284c7"
+    },
+    {
+      id: "ml-datasets",
+      title: "Ml Datasets",
+      tagline: "datasets for colab",
+      category: "Full-Stack",
+      description: "datasets for colab",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Multi-stack", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Full-Stack"],
+      technologies: ["Full-Stack"],
+      githubUrl: "https://github.com/kenechukwuosele/ml-datasets",
+      liveUrl: "https://github.com/kenechukwuosele/ml-datasets",
+      demoSnippet: "# Clone and inspect ml-datasets\ngit clone https://github.com/kenechukwuosele/ml-datasets.git\ncd ml-datasets\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["TypeScript"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-emerald-500/20 via-teal-500/10 to-cyan-500/20",
+      accentColor: "#10b981"
+    },
+    {
+      id: "gdc",
+      title: "GDc",
+      tagline: "Colab for all the projects from ML crash course",
+      category: "Full-Stack",
+      description: "Colab for all the projects from ML crash course",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Jupyter Notebook", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Jupyter Notebook","Open Source"],
+      technologies: ["Jupyter Notebook","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/GDc",
+      liveUrl: "https://github.com/kenechukwuosele/GDc",
+      demoSnippet: "# Clone and inspect GDc\ngit clone https://github.com/kenechukwuosele/GDc.git\ncd GDc\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Jupyter Notebook"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-purple-500/20 via-indigo-500/10 to-blue-500/20",
+      accentColor: "#8b5cf6"
+    },
+    {
+      id: "task-manager",
+      title: "Task Manager",
+      tagline: "Task Manager using MERN",
+      category: "Full-Stack",
+      description: "Task Manager using MERN",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "1", detail: "GitHub Stars" },
+        { label: "Language", value: "JavaScript", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["JavaScript","Open Source"],
+      technologies: ["JavaScript","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/Task-Manager",
+      liveUrl: "https://task-manager-frontend-1v6f.onrender.com",
+      demoSnippet: "# Clone and inspect Task-Manager\ngit clone https://github.com/kenechukwuosele/Task-Manager.git\ncd Task-Manager\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["JavaScript"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-amber-500/20 via-orange-500/10 to-rose-500/20",
+      accentColor: "#f59e0b"
+    },
+    {
+      id: "kenechukwuosele-github-io",
+      title: "Kenechukwuosele.github.io",
+      tagline: "Modern software project by Kenechukwu.",
+      category: "Full-Stack",
+      description: "Open source software system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Multi-stack", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Full-Stack"],
+      technologies: ["Full-Stack"],
+      githubUrl: "https://github.com/kenechukwuosele/kenechukwuosele.github.io",
+      liveUrl: "https://github.com/kenechukwuosele/kenechukwuosele.github.io",
+      demoSnippet: "# Clone and inspect kenechukwuosele.github.io\ngit clone https://github.com/kenechukwuosele/kenechukwuosele.github.io.git\ncd kenechukwuosele.github.io\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["TypeScript"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-cyan-500/20 via-blue-500/10 to-indigo-500/20",
+      accentColor: "#06b6d4"
+    },
+    {
+      id: "rag-intro",
+      title: "Rag Intro",
+      tagline: "Modern Python project by Kenechukwu.",
+      category: "Systems & AI",
+      description: "Open source Python system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Python", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Python","Open Source"],
+      technologies: ["Python","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/rag-intro",
+      liveUrl: "https://github.com/kenechukwuosele/rag-intro",
+      demoSnippet: "# Clone and inspect rag-intro\ngit clone https://github.com/kenechukwuosele/rag-intro.git\ncd rag-intro\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Python"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-sky-500/20 via-blue-500/10 to-indigo-500/20",
+      accentColor: "#0284c7"
+    },
+    {
+      id: "langchain",
+      title: "Langchain",
+      tagline: "Modern Python project by Kenechukwu.",
+      category: "Systems & AI",
+      description: "Open source Python system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Python", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Python","Open Source"],
+      technologies: ["Python","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/Langchain",
+      liveUrl: "https://github.com/kenechukwuosele/Langchain",
+      demoSnippet: "# Clone and inspect Langchain\ngit clone https://github.com/kenechukwuosele/Langchain.git\ncd Langchain\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Python"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-emerald-500/20 via-teal-500/10 to-cyan-500/20",
+      accentColor: "#10b981"
+    },
+    {
+      id: "ngx",
+      title: "Ngx",
+      tagline: "Modern Python project by Kenechukwu.",
+      category: "Systems & AI",
+      description: "Open source Python system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Python", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Python","Open Source"],
+      technologies: ["Python","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/ngx",
+      liveUrl: "https://github.com/kenechukwuosele/ngx",
+      demoSnippet: "# Clone and inspect ngx\ngit clone https://github.com/kenechukwuosele/ngx.git\ncd ngx\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Python"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-purple-500/20 via-indigo-500/10 to-blue-500/20",
+      accentColor: "#8b5cf6"
+    },
+    {
+      id: "weather",
+      title: "Weather",
+      tagline: "Modern Python project by Kenechukwu.",
+      category: "Systems & AI",
+      description: "Open source Python system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2026",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Python", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Python","Open Source"],
+      technologies: ["Python","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/Weather",
+      liveUrl: "https://github.com/kenechukwuosele/Weather",
+      demoSnippet: "# Clone and inspect Weather\ngit clone https://github.com/kenechukwuosele/Weather.git\ncd Weather\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Python"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-amber-500/20 via-orange-500/10 to-rose-500/20",
+      accentColor: "#f59e0b"
+    },
+    {
+      id: "avatique",
+      title: "Avatique",
+      tagline: "Modern Python project by Kenechukwu.",
+      category: "Systems & AI",
+      description: "Open source Python system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Python", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Python","Open Source"],
+      technologies: ["Python","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/avatique",
+      liveUrl: "https://github.com/kenechukwuosele/avatique",
+      demoSnippet: "# Clone and inspect avatique\ngit clone https://github.com/kenechukwuosele/avatique.git\ncd avatique\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Python"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-cyan-500/20 via-blue-500/10 to-indigo-500/20",
+      accentColor: "#06b6d4"
+    },
+    {
+      id: "mosh-master",
+      title: "Mosh Master",
+      tagline: "Modern TypeScript project by Kenechukwu.",
+      category: "Full-Stack",
+      description: "Open source TypeScript system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "TypeScript", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["TypeScript","Open Source"],
+      technologies: ["TypeScript","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/mosh-master",
+      liveUrl: "https://github.com/kenechukwuosele/mosh-master",
+      demoSnippet: "# Clone and inspect mosh-master\ngit clone https://github.com/kenechukwuosele/mosh-master.git\ncd mosh-master\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["TypeScript"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-sky-500/20 via-blue-500/10 to-indigo-500/20",
+      accentColor: "#0284c7"
+    },
+    {
+      id: "mosh",
+      title: "Mosh",
+      tagline: "Modern CSS project by Kenechukwu.",
+      category: "Full-Stack",
+      description: "Open source CSS system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "CSS", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["CSS","Open Source"],
+      technologies: ["CSS","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/mosh",
+      liveUrl: "https://github.com/kenechukwuosele/mosh",
+      demoSnippet: "# Clone and inspect mosh\ngit clone https://github.com/kenechukwuosele/mosh.git\ncd mosh\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["CSS"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-emerald-500/20 via-teal-500/10 to-cyan-500/20",
+      accentColor: "#10b981"
+    },
+    {
+      id: "demorepo",
+      title: "Demorepo",
+      tagline: "Modern Python project by Kenechukwu.",
+      category: "Systems & AI",
+      description: "Open source Python system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "Python", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["Python","Open Source"],
+      technologies: ["Python","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/demorepo",
+      liveUrl: "https://github.com/kenechukwuosele/demorepo",
+      demoSnippet: "# Clone and inspect demorepo\ngit clone https://github.com/kenechukwuosele/demorepo.git\ncd demorepo\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["Python"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-purple-500/20 via-indigo-500/10 to-blue-500/20",
+      accentColor: "#8b5cf6"
+    },
+    {
+      id: "rock--paper-and-scissors",
+      title: "Rock Paper And Scissors",
+      tagline: "A simple rock paper scissors using OdinProject",
+      category: "Full-Stack",
+      description: "A simple rock paper scissors using OdinProject",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "JavaScript", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["JavaScript","Open Source"],
+      technologies: ["JavaScript","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/Rock--Paper-and-Scissors",
+      liveUrl: "https://github.com/kenechukwuosele/Rock--Paper-and-Scissors",
+      demoSnippet: "# Clone and inspect Rock--Paper-and-Scissors\ngit clone https://github.com/kenechukwuosele/Rock--Paper-and-Scissors.git\ncd Rock--Paper-and-Scissors\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["JavaScript"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-amber-500/20 via-orange-500/10 to-rose-500/20",
+      accentColor: "#f59e0b"
+    },
+    {
+      id: "mastering-git",
+      title: "Mastering Git",
+      tagline: "Modern JavaScript project by Kenechukwu.",
+      category: "Full-Stack",
+      description: "Open source JavaScript system engineered by Osele Kenechukwu Alexander.",
+      longDescription: "An open-source project hosted on GitHub under @kenechukwuosele. Engineered with clean modular architecture, comprehensive documentation, and production design patterns.",
+      featured: false,
+      year: "2025",
+      status: "Open Source",
+      metrics: [
+        { label: "Stars", value: "0", detail: "GitHub Stars" },
+        { label: "Language", value: "JavaScript", detail: "Primary Codebase" },
+        { label: "License", value: "MIT", detail: "Public Open-Source" }
+      ],
+      tags: ["JavaScript","Open Source"],
+      technologies: ["JavaScript","Open Source"],
+      githubUrl: "https://github.com/kenechukwuosele/mastering-git",
+      liveUrl: "https://github.com/kenechukwuosele/mastering-git",
+      demoSnippet: "# Clone and inspect mastering-git\ngit clone https://github.com/kenechukwuosele/mastering-git.git\ncd mastering-git\n",
+      architecture: {
+        layers: [
+          { title: "Source & API Layer", description: "Core application logic and interface routines", technologies: ["JavaScript"] },
+          { title: "Configuration & CI/CD", description: "Container setup and automated workflows", technologies: ["Git", "GitHub Actions"] }
+        ],
+        keyDecision: "Built with modular architecture to ensure testability and seamless extensibility.",
+        latencyOrPerf: "Optimized for efficient execution and minimal dependency overhead."
+      },
+      glassHue: "from-cyan-500/20 via-blue-500/10 to-indigo-500/20",
+      accentColor: "#06b6d4"
+    }
   ],
   skillCategories: [
     {
